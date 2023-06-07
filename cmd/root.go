@@ -8,7 +8,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "retalk",
-	Short: "Retalk-" + version.Version + "-" + version.CommitHash + " 一个快速的, 便捷的自托管评论系统",
+	Short: "Retalk " + version.Version + "-" + version.CommitHash + " 一个快速的, 便捷的自托管评论系统",
 }
 
 func Init() {
