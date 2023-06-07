@@ -1,0 +1,21 @@
+basePath: /
+definitions:
+  common.Resp:
+    properties:
+      data: {}
+      msg:
+        type: string
+      success:
+        type: boolean
+    type: object
+info:
+  contact:
+    email: i@redish101.top
+    name: API 支持
+  description: Retalk 后端 API 文档
+  license:
+    name: GPL-3.0
+  title: Retalk API
+  version: "1.0"
+paths: {}
+swagger: "2.0"

@@ -1,0 +1,5 @@
+dist/
+retalk.db
+.DS_Store
+yarn.lock
+bin/

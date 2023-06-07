@@ -1,0 +1,31 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Retalk 后端 API 文档",
+        "title": "Retalk API",
+        "contact": {
+            "name": "API 支持",
+            "email": "i@redish101.top"
+        },
+        "license": {
+            "name": "GPL-3.0"
+        },
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {},
+    "definitions": {
+        "common.Resp": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "msg": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}
