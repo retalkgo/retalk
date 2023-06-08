@@ -19,5 +19,10 @@ export default defineConfig({
                 assetFileNames: (assetInfo) => (/\.css$/.test(assetInfo.name || '') ? "retalk.css" : "[name].[ext]"),
             }
         }
+    },
+    css: {
+        modules: {
+            generateScopedName: "[hash:6]"
+        }
     }
 })
