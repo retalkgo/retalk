@@ -28,8 +28,6 @@ func newReply(db *gorm.DB, opts ...gen.DOOption) reply {
 	_reply.ALL = field.NewAsterisk(tableName)
 	_reply.ID = field.NewUint(tableName, "id")
 	_reply.CreatedAt = field.NewTime(tableName, "created_at")
-	_reply.UpdatedAt = field.NewTime(tableName, "updated_at")
-	_reply.DeletedAt = field.NewField(tableName, "deleted_at")
 	_reply.AuthorID = field.NewUint(tableName, "author_id")
 	_reply.Body = field.NewString(tableName, "body")
 	_reply.CommentID = field.NewUint(tableName, "comment_id")
@@ -45,8 +43,6 @@ type reply struct {
 	ALL       field.Asterisk
 	ID        field.Uint
 	CreatedAt field.Time
-	UpdatedAt field.Time
-	DeletedAt field.Field
 	AuthorID  field.Uint
 	Body      field.String
 	CommentID field.Uint
@@ -68,8 +64,6 @@ func (r *reply) updateTableName(table string) *reply {
 	r.ALL = field.NewAsterisk(table)
 	r.ID = field.NewUint(table, "id")
 	r.CreatedAt = field.NewTime(table, "created_at")
-	r.UpdatedAt = field.NewTime(table, "updated_at")
-	r.DeletedAt = field.NewField(table, "deleted_at")
 	r.AuthorID = field.NewUint(table, "author_id")
 	r.Body = field.NewString(table, "body")
 	r.CommentID = field.NewUint(table, "comment_id")
@@ -89,11 +83,9 @@ func (r *reply) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (r *reply) fillFieldMap() {
-	r.fieldMap = make(map[string]field.Expr, 7)
+	r.fieldMap = make(map[string]field.Expr, 5)
 	r.fieldMap["id"] = r.ID
 	r.fieldMap["created_at"] = r.CreatedAt
-	r.fieldMap["updated_at"] = r.UpdatedAt
-	r.fieldMap["deleted_at"] = r.DeletedAt
 	r.fieldMap["author_id"] = r.AuthorID
 	r.fieldMap["body"] = r.Body
 	r.fieldMap["comment_id"] = r.CommentID

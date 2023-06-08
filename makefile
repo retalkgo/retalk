@@ -32,7 +32,7 @@ gen:
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} generating code..."
 	@go run . gen
 
-dev-build: gen update-swagger build-apidoc
+dev-build: update-swagger build-apidoc
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} dev building..."
 	@go build -o ${BIN} ${COMMON_LDFLAGS}
 

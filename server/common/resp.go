@@ -27,3 +27,11 @@ func RespError(c *fiber.Ctx, msg string, data interface{}, code int) error {
 		Data:    data,
 	})
 }
+
+func RespServerError(c *fiber.Ctx) error {
+	return c.Status(http.StatusInternalServerError).JSON(&Resp{
+		Success: false,
+		Msg: "服务器内部错误",
+		Data: nil,
+	})
+}

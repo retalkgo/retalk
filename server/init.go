@@ -17,12 +17,16 @@ func Init(app *fiber.App) {
 	// apidoc
 	h.ApiDoc(app)
 
-	// 主页路由
+	// 主页
 	h.Home(app)
 
-	// api路由
+	// api
 	api := app.Group("/api")
 	h.Home(api)
+
+	// 评论
+	comment := api.Group("/comment")
+	h.CommentGetAll(comment)
 
 	// 404路由
 	h.NotFound(app)

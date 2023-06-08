@@ -28,12 +28,10 @@ func newAuthor(db *gorm.DB, opts ...gen.DOOption) author {
 	_author.ALL = field.NewAsterisk(tableName)
 	_author.ID = field.NewUint(tableName, "id")
 	_author.CreatedAt = field.NewTime(tableName, "created_at")
-	_author.UpdatedAt = field.NewTime(tableName, "updated_at")
-	_author.DeletedAt = field.NewField(tableName, "deleted_at")
 	_author.Name = field.NewString(tableName, "name")
 	_author.Email = field.NewString(tableName, "email")
 	_author.Link = field.NewString(tableName, "link")
-	_author.Admin = field.NewBool(tableName, "admin")
+	_author.IsAdmin = field.NewBool(tableName, "is_admin")
 
 	_author.fillFieldMap()
 
@@ -46,12 +44,10 @@ type author struct {
 	ALL       field.Asterisk
 	ID        field.Uint
 	CreatedAt field.Time
-	UpdatedAt field.Time
-	DeletedAt field.Field
 	Name      field.String
 	Email     field.String
 	Link      field.String
-	Admin     field.Bool
+	IsAdmin   field.Bool
 
 	fieldMap map[string]field.Expr
 }
@@ -70,12 +66,10 @@ func (a *author) updateTableName(table string) *author {
 	a.ALL = field.NewAsterisk(table)
 	a.ID = field.NewUint(table, "id")
 	a.CreatedAt = field.NewTime(table, "created_at")
-	a.UpdatedAt = field.NewTime(table, "updated_at")
-	a.DeletedAt = field.NewField(table, "deleted_at")
 	a.Name = field.NewString(table, "name")
 	a.Email = field.NewString(table, "email")
 	a.Link = field.NewString(table, "link")
-	a.Admin = field.NewBool(table, "admin")
+	a.IsAdmin = field.NewBool(table, "is_admin")
 
 	a.fillFieldMap()
 
@@ -92,15 +86,13 @@ func (a *author) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (a *author) fillFieldMap() {
-	a.fieldMap = make(map[string]field.Expr, 8)
+	a.fieldMap = make(map[string]field.Expr, 6)
 	a.fieldMap["id"] = a.ID
 	a.fieldMap["created_at"] = a.CreatedAt
-	a.fieldMap["updated_at"] = a.UpdatedAt
-	a.fieldMap["deleted_at"] = a.DeletedAt
 	a.fieldMap["name"] = a.Name
 	a.fieldMap["email"] = a.Email
 	a.fieldMap["link"] = a.Link
-	a.fieldMap["admin"] = a.Admin
+	a.fieldMap["is_admin"] = a.IsAdmin
 }
 
 func (a author) clone(db *gorm.DB) author {
