@@ -20,6 +20,10 @@ fmt-swagger:
 	@echo "Retalk dev-${COMMIT_HASH} formating swagger..."
 	@swag fmt
 
+build-apidoc: fmt-swagger update-swagger
+	@echo "Retalk dev-${COMMIT_HASH} apidoc building..."
+	@npx @redocly/cli build-docs docs/swagger.yaml -o apidoc/index.html
+
 update-swagger: fmt-swagger
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} updating swagger..."
 	@swag init -g server/server.go
@@ -28,7 +32,7 @@ gen:
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} generating code..."
 	@go run . gen
 
-dev-build: gen
+dev-build: gen update-swagger build-apidoc
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} dev building..."
 	@go build -o ${BIN} ${COMMON_LDFLAGS}
 
@@ -36,6 +40,6 @@ dev-run: dev-build
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} dev running..."
 	@${BIN} start
 
-build: gen update-swagger
+build: gen update-swagger build-apidoc
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} production building..."
 	@go build -o ${BIN} ${COMMON_LDFLAGS}

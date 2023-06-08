@@ -10,12 +10,28 @@ definitions:
     type: object
 info:
   contact:
-    email: i@redish101.top
+    email: retalk@redish101.top
     name: API 支持
   description: Retalk 后端 API 文档
   license:
     name: GPL-3.0
   title: Retalk API
   version: "1.0"
-paths: {}
+paths:
+  /:
+    get:
+      description: 输出欢迎信息以验证安装
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Resp'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 首页
+      tags:
+      - 首页
 swagger: "2.0"

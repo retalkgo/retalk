@@ -1,11 +1,11 @@
 package db
 
 import (
-	"gorm.io/gen"
 	"retalk/internal/entity"
+
+	"gorm.io/gen"
 )
 
-// 公用Querier定义
 type AllQuerier interface {
 }
 

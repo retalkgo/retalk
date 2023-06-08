@@ -32,6 +32,7 @@ func newComment(db *gorm.DB, opts ...gen.DOOption) comment {
 	_comment.DeletedAt = field.NewField(tableName, "deleted_at")
 	_comment.AuthorID = field.NewUint(tableName, "author_id")
 	_comment.Body = field.NewString(tableName, "body")
+	_comment.Path = field.NewString(tableName, "path")
 
 	_comment.fillFieldMap()
 
@@ -48,6 +49,7 @@ type comment struct {
 	DeletedAt field.Field
 	AuthorID  field.Uint
 	Body      field.String
+	Path      field.String
 
 	fieldMap map[string]field.Expr
 }
@@ -70,6 +72,7 @@ func (c *comment) updateTableName(table string) *comment {
 	c.DeletedAt = field.NewField(table, "deleted_at")
 	c.AuthorID = field.NewUint(table, "author_id")
 	c.Body = field.NewString(table, "body")
+	c.Path = field.NewString(table, "path")
 
 	c.fillFieldMap()
 
@@ -86,13 +89,14 @@ func (c *comment) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (c *comment) fillFieldMap() {
-	c.fieldMap = make(map[string]field.Expr, 6)
+	c.fieldMap = make(map[string]field.Expr, 7)
 	c.fieldMap["id"] = c.ID
 	c.fieldMap["created_at"] = c.CreatedAt
 	c.fieldMap["updated_at"] = c.UpdatedAt
 	c.fieldMap["deleted_at"] = c.DeletedAt
 	c.fieldMap["author_id"] = c.AuthorID
 	c.fieldMap["body"] = c.Body
+	c.fieldMap["path"] = c.Path
 }
 
 func (c comment) clone(db *gorm.DB) comment {

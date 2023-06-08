@@ -11,7 +11,7 @@ import (
 //	@BasePath		/
 
 //	@Contact.name	API 支持
-//	@Contact.email	i@redish101.top
+//	@Contact.email	retalk@redish101.top
 
 //	@License.name	GPL-3.0
 

@@ -14,8 +14,8 @@ func Init(app *fiber.App) {
 
 	// 路由注册
 
-	// Swagger
-	h.Swagger(app)
+	// apidoc
+	h.ApiDoc(app)
 
 	// 主页路由
 	h.Home(app)

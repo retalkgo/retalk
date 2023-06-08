@@ -33,6 +33,7 @@ func newAuthor(db *gorm.DB, opts ...gen.DOOption) author {
 	_author.Name = field.NewString(tableName, "name")
 	_author.Email = field.NewString(tableName, "email")
 	_author.Link = field.NewString(tableName, "link")
+	_author.Admin = field.NewBool(tableName, "admin")
 
 	_author.fillFieldMap()
 
@@ -50,6 +51,7 @@ type author struct {
 	Name      field.String
 	Email     field.String
 	Link      field.String
+	Admin     field.Bool
 
 	fieldMap map[string]field.Expr
 }
@@ -73,6 +75,7 @@ func (a *author) updateTableName(table string) *author {
 	a.Name = field.NewString(table, "name")
 	a.Email = field.NewString(table, "email")
 	a.Link = field.NewString(table, "link")
+	a.Admin = field.NewBool(table, "admin")
 
 	a.fillFieldMap()
 
@@ -89,7 +92,7 @@ func (a *author) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (a *author) fillFieldMap() {
-	a.fieldMap = make(map[string]field.Expr, 7)
+	a.fieldMap = make(map[string]field.Expr, 8)
 	a.fieldMap["id"] = a.ID
 	a.fieldMap["created_at"] = a.CreatedAt
 	a.fieldMap["updated_at"] = a.UpdatedAt
@@ -97,6 +100,7 @@ func (a *author) fillFieldMap() {
 	a.fieldMap["name"] = a.Name
 	a.fieldMap["email"] = a.Email
 	a.fieldMap["link"] = a.Link
+	a.fieldMap["admin"] = a.Admin
 }
 
 func (a author) clone(db *gorm.DB) author {
