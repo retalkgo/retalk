@@ -1,10 +1,10 @@
 import path from "node:path";
 
 import { defineConfig } from "vite";
-import solidPlugin from "vite-plugin-solid";
+import Solid from "vite-plugin-solid";
 
 export default defineConfig({
-  plugins: [solidPlugin()],
+  plugins: [Solid()],
   build: {
     target: "es2015",
     outDir: path.resolve(__dirname, "dist"),
