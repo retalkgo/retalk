@@ -122,4 +122,4 @@ changelog:
 
 release:
   prerelease: auto
-  name_template: "ToTime Server v{{.Version}}"
+  name_template: "Retalk Server v{{.Version}}"
