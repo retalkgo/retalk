@@ -34,8 +34,8 @@ jobs:
             --privileged \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v $(pwd)/sysroot:/sysroot \
-            -v $(pwd):/go/src/${PKG_NAME} \
-            -w /go/src/${PKG_NAME} \
+            -v $(pwd):/go/src/retalk \
+            -w /go/src/retalk \
             -e CGO_ENABLED=1 \
             --env-file .release-env \
             ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
