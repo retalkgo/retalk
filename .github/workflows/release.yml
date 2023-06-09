@@ -38,5 +38,5 @@ jobs:
             -w /go/src/${PKG_NAME} \
             -e CGO_ENABLED=1 \
             --env-file .release-env \
-            ghcr.io/goreleaser/goreleaser-cross:v${GO_VERSION} \
-            release --release-notes local/release-notes.md
+            ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
+            release
