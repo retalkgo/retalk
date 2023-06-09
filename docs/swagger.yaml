@@ -137,4 +137,26 @@ paths:
       summary: 获取所有评论
       tags:
       - 评论
+  /api/comment/getByPath:
+    get:
+      description: 根据路径获取评论
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Resp'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/entity.CookedComment'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Resp'
+      summary: 根据路径获取评论
+      tags:
+      - 评论
 swagger: "2.0"

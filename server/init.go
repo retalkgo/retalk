@@ -27,6 +27,7 @@ func Init(app *fiber.App) {
 	// 评论
 	comment := api.Group("/comment")
 	h.CommentGetAll(comment)
+	h.CommentGetByPath(comment)
 	h.CommentAdd(comment)
 
 	// 404路由

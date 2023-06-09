@@ -151,6 +151,44 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/comment/getByPath": {
+            "get": {
+                "description": "根据路径获取评论",
+                "tags": [
+                    "评论"
+                ],
+                "summary": "根据路径获取评论",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.Resp"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/entity.CookedComment"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/common.Resp"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

@@ -1,5 +1,8 @@
 APP_NAME = Retalk
 VERSION ?= $(shell git describe --abbrev=0 --tags)
+ifeq ($(VERSION),)
+VERSION = dev
+endif
 COMMIT_HASH ?= $(shell git log --pretty=format:"%h" -1)
 COMMON_LDFLAGS = -ldflags " -X retalk/internal/version.Version=${VERSION} \
 							-X retalk/internal/version.CommitHash=${COMMIT_HASH} \
@@ -33,11 +36,11 @@ gen:
 	@go run . gen
 
 dev-build: update-swagger build-apidoc
-	@echo "Retalk ${VERSION}-${COMMIT_HASH} dev building..."
+	@echo "Retalk dev-${COMMIT_HASH} dev building..."
 	@go build -o ${BIN} ${COMMON_LDFLAGS}
 
 dev-run: dev-build
-	@echo "Retalk ${VERSION}-${COMMIT_HASH} dev running..."
+	@echo "Retalk dev-${COMMIT_HASH} dev running..."
 	@${BIN} start
 
 build: gen update-swagger build-apidoc

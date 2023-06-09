@@ -1,8 +1,10 @@
 package server
 
 import (
-	"github.com/gofiber/fiber/v2"
 	_ "retalk/docs"
+	"retalk/internal/version"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 //	@Title			Retalk API
@@ -17,7 +19,7 @@ import (
 
 func Start() {
 	app := fiber.New(fiber.Config{
-		AppName:      "Retalk",
+		AppName:      "Retalk " + version.Version + "-" + version.CommitHash,
 		ServerHeader: "retalk",
 		Prefork:      true,
 	})
