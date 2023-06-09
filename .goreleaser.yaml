@@ -1,46 +1,125 @@
-# This is an example .goreleaser.yml file with some sensible defaults.
-# Make sure to check the documentation at https://goreleaser.com
-
 project_name: retalk
 
 before:
   hooks:
     # You may remove this if you don't use go modules.
     - go mod tidy
+    # you may remove this if you don't need go generate
+    - go generate ./...
+
 builds:
-  - env:
-      - CGO_ENABLED=1
+  # AMD64
+
+  # Linux
+  - id: linux-amd64
     goos:
       - linux
+    goarch:
+      - amd64
+    env:
+      - CC=gcc
+      - CXX=g++
+    binary: "{{.ProjectName}}"
+    main: ./main.go
+    ldflags: &common_ldflags | 
+      -X retalk/internal/version.Version={{.Version}}
+      -X retalk/internal/version.CommitHash={{.ShortCommit}}
+      -s -w
+
+  # Windows
+  - id: windows-amd64
+    goos:
       - windows
+    goarch:
+      - amd64
+    env:
+      - CC=x86_64-w64-mingw32-gcc
+      - CXX=x86_64-w64-mingw32-g++
+    binary: "{{.ProjectName}}"
+    main: ./main.go
+    ldflags: *common_ldflags
+
+  # Darwin
+  - id: darwin-amd64
+    goos:
       - darwin
+    goarch:
+      - amd64
+    env:
+      - CC=o64-clang
+      - CXX=o64-clang++
+    binary: "{{.ProjectName}}"
+    main: ./main.go
+    ldflags: *common_ldflags
+
+  ## Arm
+
+  # Linux (arm_v7)
+  - id: linux-armhf
+    goos:
+      - linux
+    goarch:
+      - arm
+    goarm:
+      - '7'
+    env:
+      - CC=arm-linux-gnueabihf-gcc
+      - CXX=arm-linux-gnueabihf-g++
+    binary: "{{.ProjectName}}"
+    main: ./main.go
+    ldflags: *common_ldflags
+
+  # Linux (arm_64)
+  - id: linux-arm64
+    goos:
+      - linux
+    goarch:
+      - arm64
+    env:
+      - CC=aarch64-linux-gnu-gcc
+      - CXX=aarch64-linux-gnu-g++
+    binary: "{{.ProjectName}}"
+    main: ./main.go
+    ldflags: *common_ldflags
+
+  # Darwin (arm_64)
+  - id: darwin-arm64
+    goos:
+      - darwin
+    goarch:
+      - arm64
+    env:
+      - CC=oa64-clang
+      - CXX=oa64-clang++
+    binary: "{{.ProjectName}}"
+    main: ./main.go
+    ldflags: *common_ldflags
 
 archives:
-  - format: tar.gz
-    # this name template makes the OS and Arch compatible with the results of uname.
-    name_template: >-
-      {{ .ProjectName }}_
-      {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}x86_64
-      {{- else if eq .Arch "386" }}i386
-      {{- else }}{{ .Arch }}{{ end }}
-      {{- if .Arm }}v{{ .Arm }}{{ end }}
-    # use zip for windows archives
+  - id: retalk
+    builds:
+      - linux-amd64
+      - darwin-amd64
+      - windows-amd64
+      - linux-armhf
+      - linux-arm64
+      - darwin-arm64
+    name_template: "{{.ProjectName}}_v{{.Version}}_{{.Os}}_{{.Arch}}{{.Arm}}"
+    format: tar.gz
     format_overrides:
-    - goos: windows
-      format: zip
+      - goos: windows
+        format: zip
+    wrap_in_directory: true
+
 checksum:
-  name_template: 'checksums.txt'
-snapshot:
-  name_template: "{{ incpatch .Version }}-next"
+  name_template: "{{ .ProjectName }}_checksums.txt"
 changelog:
   sort: asc
   filters:
     exclude:
-      - '^docs:'
-      - '^test:'
+      - "^docs:"
+      - "^test:"
 
-# The lines beneath this are called `modelines`. See `:help modeline`
-# Feel free to remove those if you don't want/use them.
-# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
-# vim: set ts=2 sw=2 tw=0 fo=cnqoj
+release:
+  prerelease: auto
+  name_template: "ToTime Server v{{.Version}}"
