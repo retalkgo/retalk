@@ -25,7 +25,7 @@ jobs:
 
       - name: setup release environment
         run: |-
-          echo 'GITHUB_TOKEN=${{secrets.GH_TOKEN}}' > .release-env
+          echo 'GITHUB_TOKEN=${{secrets.GITHUB_TOKEN}}' > .release-env
 
       - name: build and release publish
         run: |
