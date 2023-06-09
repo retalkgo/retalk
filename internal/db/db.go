@@ -20,7 +20,7 @@ func InitDB() {
 	if err != nil {
 		logger.Panic(err)
 	}
-	db.AutoMigrate(&entity.Comment{}, &entity.Author{}, &entity.Reply{}) // 同步数据库
+	db.AutoMigrate(&entity.Server{}, &entity.Comment{}, &entity.Author{}, &entity.Reply{}) // 同步数据库
 	dbInterface = db
 
 }

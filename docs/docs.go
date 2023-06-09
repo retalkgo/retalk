@@ -189,6 +189,68 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/init": {
+            "post": {
+                "description": "初始化服务端, 创建ApiKey",
+                "tags": [
+                    "服务端"
+                ],
+                "summary": "初始化服务端",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ApiKey",
+                        "name": "apikey",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.Resp"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/handler.RespInit"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.Resp"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/handler.RespInit"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/common.Resp"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -264,6 +326,14 @@ const docTemplate = `{
                 },
                 "path": {
                     "type": "string"
+                }
+            }
+        },
+        "handler.RespInit": {
+            "type": "object",
+            "properties": {
+                "isInit": {
+                    "type": "boolean"
                 }
             }
         }

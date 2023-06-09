@@ -24,6 +24,9 @@ func Init(app *fiber.App) {
 	api := app.Group("/api")
 	h.Home(api)
 
+	// 服务器初始化
+	h.Init(api)
+
 	// 评论
 	comment := api.Group("/comment")
 	h.CommentGetAll(comment)

@@ -19,6 +19,6 @@ func Gen() {
 	g.UseDB(dbInterface)
 	g.ApplyBasic(&entity.Comment{})
 	g.GenerateAllTable()
-	g.ApplyInterface(func(AllQuerier) {}, &entity.Comment{}, &entity.Author{}, &entity.Reply{})
+	g.ApplyInterface(func(AllQuerier){}, &entity.Server{}, &entity.Comment{}, &entity.Author{}, &entity.Reply{})
 	g.Execute()
 }

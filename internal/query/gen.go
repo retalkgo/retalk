@@ -20,6 +20,7 @@ var (
 	Author  *author
 	Comment *comment
 	Reply   *reply
+	Server  *server
 )
 
 func SetDefault(db *gorm.DB, opts ...gen.DOOption) {
@@ -27,6 +28,7 @@ func SetDefault(db *gorm.DB, opts ...gen.DOOption) {
 	Author = &Q.Author
 	Comment = &Q.Comment
 	Reply = &Q.Reply
+	Server = &Q.Server
 }
 
 func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
@@ -35,6 +37,7 @@ func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
 		Author:  newAuthor(db, opts...),
 		Comment: newComment(db, opts...),
 		Reply:   newReply(db, opts...),
+		Server:  newServer(db, opts...),
 	}
 }
 
@@ -44,6 +47,7 @@ type Query struct {
 	Author  author
 	Comment comment
 	Reply   reply
+	Server  server
 }
 
 func (q *Query) Available() bool { return q.db != nil }
@@ -54,6 +58,7 @@ func (q *Query) clone(db *gorm.DB) *Query {
 		Author:  q.Author.clone(db),
 		Comment: q.Comment.clone(db),
 		Reply:   q.Reply.clone(db),
+		Server:  q.Server.clone(db),
 	}
 }
 
@@ -71,6 +76,7 @@ func (q *Query) ReplaceDB(db *gorm.DB) *Query {
 		Author:  q.Author.replaceDB(db),
 		Comment: q.Comment.replaceDB(db),
 		Reply:   q.Reply.replaceDB(db),
+		Server:  q.Server.replaceDB(db),
 	}
 }
 
@@ -78,6 +84,7 @@ type queryCtx struct {
 	Author  IAuthorDo
 	Comment ICommentDo
 	Reply   IReplyDo
+	Server  IServerDo
 }
 
 func (q *Query) WithContext(ctx context.Context) *queryCtx {
@@ -85,6 +92,7 @@ func (q *Query) WithContext(ctx context.Context) *queryCtx {
 		Author:  q.Author.WithContext(ctx),
 		Comment: q.Comment.WithContext(ctx),
 		Reply:   q.Reply.WithContext(ctx),
+		Server:  q.Server.WithContext(ctx),
 	}
 }
 
