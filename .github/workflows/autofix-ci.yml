@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: 18.x
           cache: pnpm
+          cache-dependency-path: ui
 
       - name: Setup
         run: npm i -g @antfu/ni
