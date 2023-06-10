@@ -23,19 +23,6 @@ definitions:
       name:
         type: string
     type: object
-  entity.Comment:
-    properties:
-      author_id:
-        type: integer
-      body:
-        type: string
-      created_at:
-        type: string
-      id:
-        type: integer
-      path:
-        type: string
-    type: object
   entity.CookedComment:
     properties:
       author:
@@ -89,11 +76,21 @@ paths:
         name: path
         required: true
         type: string
-      - description: 发送者ID
+      - description: 发送者昵称
         in: formData
-        name: author_id
+        name: name
         required: true
-        type: integer
+        type: string
+      - description: 发送者邮箱
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: 发送者网站
+        in: formData
+        name: link
+        required: true
+        type: string
       - description: 正文
         in: formData
         name: string
@@ -103,12 +100,7 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/common.Resp'
-            - properties:
-                data:
-                  $ref: '#/definitions/entity.Comment'
-              type: object
+            $ref: '#/definitions/common.Resp'
         "400":
           description: Bad Request
           schema:
@@ -171,6 +163,21 @@ paths:
       - description: ApiKey
         in: formData
         name: apikey
+        required: true
+        type: string
+      - description: 管理员昵称
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: 管理员邮箱
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: 管理员网站
+        in: formData
+        name: link
         required: true
         type: string
       responses:
