@@ -1,6 +1,5 @@
 import { render } from "solid-js/web";
 import packageJSON from "../package.json"
-import versionImg from "../assets/version.svg"
 
 import styles from "./styles/index.module.css";
 
