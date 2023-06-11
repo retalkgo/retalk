@@ -45,7 +45,7 @@ jobs:
       - name: sync to main
         run: |
           source .sync-env
-          git checkout dev
+          git checkout $VERSION
           git merge --squash main
           git add .
           git commit -m "chore: Release $VERSION"
