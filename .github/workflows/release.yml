@@ -41,12 +41,3 @@ jobs:
             --env-file .release-env \
             ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
             release
-
-      - name: sync to main
-        run: |
-          source .sync-env
-          git checkout $VERSION
-          git merge --squash main
-          git add .
-          git commit -m "chore: Release $VERSION"
-          git push origin main
