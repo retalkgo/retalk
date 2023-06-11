@@ -1,20 +1,39 @@
 {
-  "name": "retalk-ui",
-  "private": true,
+  "name": "@retalkgo/client",
   "version": "0.0.0",
   "packageManager": "pnpm@8.6.1",
   "type": "module",
+  "description": "Retalk client",
+  "keywords": [
+    "comment",
+    "solid"
+  ],
   "exports": {
     ".": {
-      "require": "./dist/retalk.js",
-      "import": "./dist/retalk.js"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/retalk.cjs",
+      "import": "./dist/retalk.mjs",
+      "browser": "./dist/retalk.umd.js"
     }
   },
-  "main": "./dist/retalk.js",
-  "module": "./dist/retalk.es.js",
+  "main": "./dist/retalk.cjs",
+  "module": "./dist/retalk.mjs",
+  "types": "./dist/index.d.ts",
+  "browser": "./dist/retalk.umd.js",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
@@ -31,6 +50,7 @@
     "prettier": "^2.8.8",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.3.0",
     "vite-plugin-solid": "^2.7.0"
   }
 }
