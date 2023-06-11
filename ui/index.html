@@ -10,10 +10,7 @@
     <div id="retalk"></div>
     <script type="module">
       import Retalk from "./src/index.ts";
-      new Retalk({
-        el: "#retalk",
-        server: "http://127.0.0.1:3000",
-      });
+      new Retalk("#retalk", "http://127.0.0.1:3000");
     </script>
   </body>
 </html>
