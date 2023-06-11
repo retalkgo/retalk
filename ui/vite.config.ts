@@ -10,8 +10,8 @@ export default defineConfig({
     outDir: path.resolve(__dirname, "dist"),
     minify: "esbuild",
     lib: {
-      entry: path.resolve(__dirname, "src/index.tsx"),
-      name: "retalk",
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "Retalk",
       fileName: (format) =>
         format === "umd" ? "retalk.js" : `retalk.${format}.js`,
       formats: ["umd", "es", "iife"],

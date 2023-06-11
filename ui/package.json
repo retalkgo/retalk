@@ -4,15 +4,17 @@
   "version": "0.0.0",
   "packageManager": "pnpm@8.6.1",
   "type": "module",
-  "files": ["dist"],
-  "main": "./dist/retalk.js",
-  "module": "./dist/retalk.es.js",
   "exports": {
     ".": {
-      "import": "./dist/retalk.js",
-      "require": "./dist/retalk.js"
+      "require": "./dist/retalk.js",
+      "import": "./dist/retalk.js"
     }
   },
+  "main": "./dist/retalk.js",
+  "module": "./dist/retalk.es.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
