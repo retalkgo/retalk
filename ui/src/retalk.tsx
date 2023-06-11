@@ -1,9 +1,8 @@
 import { render } from "solid-js/web";
 
+import RetalkComponent from "./components/Retalk";
 import { logRetalkInfo, resolveElement } from "./utils";
 import type { Options } from "./types";
-
-const App = () => <h1 class=":uno: font-bold">Retalk</h1>;
 
 export default class Retalk {
   constructor({ el, ...options }: Options) {
@@ -11,7 +10,7 @@ export default class Retalk {
     if (!resolvedEl) {
       throw new Error(`Retalk: Element ${el as string} not found`);
     }
-    render(() => <App />, resolvedEl);
+    render(() => <RetalkComponent />, resolvedEl);
     options.logRetalkInfo && logRetalkInfo();
   }
 }
