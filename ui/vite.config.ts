@@ -4,9 +4,17 @@ import { defineConfig } from "vite";
 import Solid from "vite-plugin-solid";
 import Dts from "vite-plugin-dts";
 import Unocss from "unocss/vite";
+import PurgeCss from "@mojojoejo/vite-plugin-purgecss";
 
 export default defineConfig({
-  plugins: [Solid(), Dts(), Unocss()],
+  plugins: [
+    Solid(),
+    Dts(),
+    Unocss(),
+    PurgeCss({
+      variables: true,
+    }),
+  ],
   build: {
     target: "es2015",
     outDir: path.resolve(__dirname, "dist"),
