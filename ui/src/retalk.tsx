@@ -1,19 +1,18 @@
 import { render } from "solid-js/web";
 
-import packageJSON from "../package.json";
-
 import styles from "./styles/index.module.css";
+import { logRetalkInfo, resolveElement } from "./utils";
+import type { ElementOrSelector, Options } from "./types";
 
 const App = () => <h1 class={styles.demo}>Retalk</h1>;
 
 export default class Retalk {
-  constructor(config: { el: string; server: string }) {
-    render(() => <App />, document.querySelector(config.el)!);
-    // eslint-disable-next-line no-console
-    console.log(
-      `%c Retalk %c ${packageJSON.version} `,
-      "background: #006BB8; padding: 5px; border-radius: 3px 0 0 3px; color: #fff",
-      "background: #006BB818; padding: 5px; border-radius: 0 3px 3px 0; color: #006BB8",
-    );
+  constructor(el: ElementOrSelector, _server: string, options: Options = {}) {
+    const resolvedEl = resolveElement(el);
+    if (!resolvedEl) {
+      throw new Error(`Retalk: Element ${el as string} not found`);
+    }
+    render(() => <App />, resolvedEl);
+    options.logRetalkInfo && logRetalkInfo();
   }
 }
