@@ -46,5 +46,5 @@ jobs:
         run: |
           source .release-env
           git merge --squash dev
-          git commit -m "chore: Release ${{VERSION}}"
+          git commit -m "chore: Release $VERSION"
           git push origin main
