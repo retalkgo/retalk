@@ -40,3 +40,8 @@ jobs:
             --env-file .release-env \
             ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
             release
+
+      - name: sync to main
+        uses: AutumnWhj/sync-branches-action@master
+        with:
+          githubToken: ${{ secrets.GH_TOKEN }}
