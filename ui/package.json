@@ -35,11 +35,12 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "rimraf dist && vite build",
     "dev": "vite",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "solid-js": "^1.7.6"
@@ -48,6 +49,7 @@
     "@so1ve/eslint-config-solid": "^0.100.0",
     "@types/node": "^18.16.16",
     "prettier": "^2.8.8",
+    "rimraf": "3",
     "typescript": "^5.0.2",
     "unocss": "^0.53.1",
     "vite": "^4.3.9",
