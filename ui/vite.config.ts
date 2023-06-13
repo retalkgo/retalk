@@ -1,10 +1,10 @@
 import path from "node:path";
 
-import { defineConfig } from "vite";
-import Solid from "vite-plugin-solid";
-import Dts from "vite-plugin-dts";
-import Unocss from "unocss/vite";
 import PurgeCss from "@mojojoejo/vite-plugin-purgecss";
+import Unocss from "unocss/vite";
+import { defineConfig } from "vite";
+import Dts from "vite-plugin-dts";
+import Solid from "vite-plugin-solid";
 
 export default defineConfig({
   plugins: [

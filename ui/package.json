@@ -1,7 +1,7 @@
 {
   "name": "@retalkgo/client",
   "version": "0.0.0",
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@8.6.2",
   "type": "module",
   "description": "Retalk client",
   "keywords": [
@@ -47,11 +47,13 @@
   },
   "devDependencies": {
     "@mojojoejo/vite-plugin-purgecss": "^1.1.0",
-    "@so1ve/eslint-config-solid": "^0.100.0",
-    "@types/node": "^18.16.16",
+    "@so1ve/eslint-config-solid": "^0.102.1",
+    "@types/node": "^18.16.18",
+    "@unocss/preset-rem-to-px": "^0.53.1",
+    "@unocss/preset-uno": "^0.53.1",
     "prettier": "^2.8.8",
     "rimraf": "3",
-    "typescript": "^5.0.2",
+    "typescript": "^5.1.3",
     "unocss": "^0.53.1",
     "vite": "^4.3.9",
     "vite-plugin-dts": "^2.3.0",
