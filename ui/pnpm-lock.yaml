@@ -11,8 +11,8 @@ dependencies:
 
 devDependencies:
   '@so1ve/eslint-config-solid':
-    specifier: ^0.100.0
-    version: 0.100.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2)
+    specifier: ^0.102.0
+    version: 0.102.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2)
   '@types/node':
     specifier: ^18.16.16
     version: 18.16.16
@@ -50,6 +50,13 @@ packages:
       '@babel/highlight': 7.18.6
     dev: true
 
+  /@babel/code-frame@7.22.5:
+    resolution: {integrity: sha512-Xmwn266vad+6DAqEB2A6V/CcZVp62BbwVmcOJc2RPuwih1kw02TjQvWVWlcKGbBPd+8/0V5DEkOcizRGYsspYQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/highlight': 7.22.5
+    dev: true
+
   /@babel/compat-data@7.22.3:
     resolution: {integrity: sha512-aNtko9OPOwVESUFp3MZfD8Uzxl7JzSeJpd7npIoxCasU37PFbAQRpKglkaKwlHOyeJdrREpo8TW8ldrkYWwvIQ==}
     engines: {node: '>=6.9.0'}
@@ -83,6 +90,16 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.4
+      '@jridgewell/gen-mapping': 0.3.3
+      '@jridgewell/trace-mapping': 0.3.18
+      jsesc: 2.5.2
+    dev: true
+
+  /@babel/generator@7.22.5:
+    resolution: {integrity: sha512-+lcUbnTRhd0jOewtFSedLyiPsD5tswKkbgcezOqqWFUVNEwoUTlpPOBmvhG7OXWLR4jMdv0czPGH5XbflnD1EA==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/types': 7.22.5
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
       jsesc: 2.5.2
@@ -134,6 +151,11 @@ packages:
     engines: {node: '>=6.9.0'}
     dev: true
 
+  /@babel/helper-environment-visitor@7.22.5:
+    resolution: {integrity: sha512-XGmhECfVA/5sAt+H+xpSg0mfrHq6FzNr9Oxh7PSEBBRUb/mL7Kz3NICXb194rCqAEdxkhPT1a88teizAFyvk8Q==}
+    engines: {node: '>=6.9.0'}
+    dev: true
+
   /@babel/helper-function-name@7.21.0:
     resolution: {integrity: sha512-HfK1aMRanKHpxemaY2gqBmL04iAPOPRj7DxtNbiDOrJK+gdwkiNRVpCpUJYbUT+aZyemKN8brqTOxzCaG6ExRg==}
     engines: {node: '>=6.9.0'}
@@ -142,11 +164,26 @@ packages:
       '@babel/types': 7.22.4
     dev: true
 
+  /@babel/helper-function-name@7.22.5:
+    resolution: {integrity: sha512-wtHSq6jMRE3uF2otvfuD3DIvVhOsSNshQl0Qrd7qC9oQJzHvOL4qQXlQn2916+CXGywIjpGuIkoyZRRxHPiNQQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/template': 7.22.5
+      '@babel/types': 7.22.5
+    dev: true
+
   /@babel/helper-hoist-variables@7.18.6:
     resolution: {integrity: sha512-UlJQPkFqFULIcyW5sbzgbkxn2FKRgwWiRexcuaR8RNJRy8+LLveqPjwZV/bwrLZCN0eUHD/x8D0heK1ozuoo6Q==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.4
+    dev: true
+
+  /@babel/helper-hoist-variables@7.22.5:
+    resolution: {integrity: sha512-wGjk9QZVzvknA6yKIUURb8zY3grXCcOZt+/7Wcy8O2uctxhplmUPkOdlgoNhmdVee2c92JXbf1xpMtVNbfoxRw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/types': 7.22.5
     dev: true
 
   /@babel/helper-member-expression-to-functions@7.22.3:
@@ -233,13 +270,30 @@ packages:
       '@babel/types': 7.22.4
     dev: true
 
+  /@babel/helper-split-export-declaration@7.22.5:
+    resolution: {integrity: sha512-thqK5QFghPKWLhAV321lxF95yCg2K3Ob5yw+M3VHWfdia0IkPXUtoLH8x/6Fh486QUvzhb8YOWHChTVen2/PoQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/types': 7.22.5
+    dev: true
+
   /@babel/helper-string-parser@7.21.5:
     resolution: {integrity: sha512-5pTUx3hAJaZIdW99sJ6ZUUgWq/Y+Hja7TowEnLNMm1VivRgZQL3vpBY3qUACVsvw+yQU6+YgfBVmcbLaZtrA1w==}
     engines: {node: '>=6.9.0'}
     dev: true
 
+  /@babel/helper-string-parser@7.22.5:
+    resolution: {integrity: sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==}
+    engines: {node: '>=6.9.0'}
+    dev: true
+
   /@babel/helper-validator-identifier@7.19.1:
     resolution: {integrity: sha512-awrNfaMtnHUr653GgGEs++LlAvW6w+DcPrOliSMXWCKo597CwL5Acf/wWdNkf/tfEQE3mjkeD1YOVZOUV/od1w==}
+    engines: {node: '>=6.9.0'}
+    dev: true
+
+  /@babel/helper-validator-identifier@7.22.5:
+    resolution: {integrity: sha512-aJXu+6lErq8ltp+JhkJUfk1MTGyuA4v7f3pA+BJ5HLfNC6nAQ0Cpi9uOquUj8Hehg0aUiHzWQbOVJGao6ztBAQ==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -268,8 +322,25 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
+  /@babel/highlight@7.22.5:
+    resolution: {integrity: sha512-BSKlD1hgnedS5XRnGOljZawtag7H1yPfQp0tdNJCHoH6AZ+Pcm9VvkrK59/Yy593Ypg0zMxH2BxD1VPYUQ7UIw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/helper-validator-identifier': 7.22.5
+      chalk: 2.4.2
+      js-tokens: 4.0.0
+    dev: true
+
   /@babel/parser@7.22.4:
     resolution: {integrity: sha512-VLLsx06XkEYqBtE5YGPwfSGwfrjnyPP5oiGty3S8pQLFDFLaS8VwWSIxkTXpcvr5zeYLE6+MBNl2npl/YnfofA==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+    dependencies:
+      '@babel/types': 7.22.4
+    dev: true
+
+  /@babel/parser@7.22.5:
+    resolution: {integrity: sha512-DFZMC9LJUG9PLOclRC32G63UXwzqS2koQC8dkx+PLdmt1xSePYpbT/NbsrJy8Q/muXz7o/h/d4A7Fuyixm559Q==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
@@ -350,6 +421,15 @@ packages:
       '@babel/types': 7.22.4
     dev: true
 
+  /@babel/template@7.22.5:
+    resolution: {integrity: sha512-X7yV7eiwAxdj9k94NEylvbVHLiVG1nvzCV2EAowhxLTwODV1jl9UzZ48leOC0sH7OnuHrIkllaBgneUykIcZaw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/code-frame': 7.22.5
+      '@babel/parser': 7.22.5
+      '@babel/types': 7.22.5
+    dev: true
+
   /@babel/traverse@7.22.4:
     resolution: {integrity: sha512-Tn1pDsjIcI+JcLKq1AVlZEr4226gpuAQTsLMorsYg9tuS/kG7nuwwJ4AB8jfQuEgb/COBwR/DqJxmoiYFu5/rQ==}
     engines: {node: '>=6.9.0'}
@@ -368,12 +448,39 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/traverse@7.22.5:
+    resolution: {integrity: sha512-7DuIjPgERaNo6r+PZwItpjCZEa5vyw4eJGufeLxrPdBXBoLcCJCIasvK6pK/9DVNrLZTLFhUGqaC6X/PA007TQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/code-frame': 7.22.5
+      '@babel/generator': 7.22.5
+      '@babel/helper-environment-visitor': 7.22.5
+      '@babel/helper-function-name': 7.22.5
+      '@babel/helper-hoist-variables': 7.22.5
+      '@babel/helper-split-export-declaration': 7.22.5
+      '@babel/parser': 7.22.5
+      '@babel/types': 7.22.5
+      debug: 4.3.4
+      globals: 11.12.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@babel/types@7.22.4:
     resolution: {integrity: sha512-Tx9x3UBHTTsMSW85WB2kphxYQVvrZ/t1FxD88IpSgIjiUJlCm9z+xWIDwyo1vffTwSqteqyznB8ZE9vYYk16zA==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/helper-string-parser': 7.21.5
       '@babel/helper-validator-identifier': 7.19.1
+      to-fast-properties: 2.0.0
+    dev: true
+
+  /@babel/types@7.22.5:
+    resolution: {integrity: sha512-zo3MIHGOkPOfoRXitsgHLjEXmlDaD/5KU1Uzuc9GNiZPhSqVxVRtxuPaSBZDsYZ9qV88AjtMtWW7ww98loJ9KA==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/helper-string-parser': 7.22.5
+      '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
     dev: true
 
@@ -736,17 +843,17 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@so1ve/eslint-config-basic@0.100.0(@typescript-eslint/eslint-plugin@5.59.9)(@typescript-eslint/parser@5.59.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2):
-    resolution: {integrity: sha512-7FjmRj6OWaCMABKYXPfORW3QauwMNqQ8RGOqAXFm57B8M7Tf1HyCPfDEoDY+SGeym4xemDNnV4D79DhGSOavHw==}
+  /@so1ve/eslint-config-basic@0.102.0(@typescript-eslint/eslint-plugin@5.59.9)(@typescript-eslint/parser@5.59.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2):
+    resolution: {integrity: sha512-TivjhHyG8TOWXa3Bon4theL9se+PcSab5HIJmzPfq0kFa0UjdY9F2cbmi1dM8F7H39Y+0kj2+2Pnwak9LQ4TwA==}
     peerDependencies:
       eslint: '>=7.4.0'
       prettier: '>=2.0.0'
     dependencies:
       '@html-eslint/eslint-plugin': 0.19.0
       '@html-eslint/parser': 0.19.0
-      '@so1ve/eslint-plugin': 0.100.0(eslint@8.42.0)(typescript@5.0.2)
-      '@so1ve/eslint-plugin-prettier': 0.100.0(eslint@8.42.0)(prettier@2.8.8)
-      '@so1ve/prettier-config': 0.100.0(prettier@2.8.8)(svelte@3.59.1)
+      '@so1ve/eslint-plugin': 0.102.0(eslint@8.42.0)(typescript@5.0.2)
+      '@so1ve/eslint-plugin-prettier': 0.102.0(eslint@8.42.0)(prettier@2.8.8)
+      '@so1ve/prettier-config': 0.102.0(prettier@2.8.8)(svelte@3.59.1)
       eslint: 8.42.0
       eslint-define-config: 1.20.0
       eslint-parser-plain: 0.1.0
@@ -780,13 +887,13 @@ packages:
       - typescript
     dev: true
 
-  /@so1ve/eslint-config-solid@0.100.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2):
-    resolution: {integrity: sha512-7RsFCWzhZ7SRZfDNgfqlvoXtcJYEW4wczQpul7nk1g5MhgsNyRX1+qVRSWBzHZSdd1Wj89a+ZDaXZE7bAQFGZQ==}
+  /@so1ve/eslint-config-solid@0.102.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2):
+    resolution: {integrity: sha512-rs4xCrMaIS8bJ3Tt74k62CvJByECFCaZ09IjVR/6eage4r3/uZ/Q1+g3Sb1SGPoQ828RU1BOxQG8oxmYppxB6w==}
     peerDependencies:
       eslint: '>=7.4.0'
       prettier: '>=2.0.0'
     dependencies:
-      '@so1ve/eslint-config-ts': 0.100.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2)
+      '@so1ve/eslint-config-ts': 0.102.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2)
       eslint: 8.42.0
       eslint-define-config: 1.20.0
       eslint-plugin-solid: 0.12.1(eslint@8.42.0)(typescript@5.0.2)
@@ -801,15 +908,15 @@ packages:
       - typescript
     dev: true
 
-  /@so1ve/eslint-config-ts@0.100.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2):
-    resolution: {integrity: sha512-2VryLbI6D9erqkoSycrrqjHX0MiU8VQmyW6nDUjKp8xE9nvGtkTPZIn3Hf89swK/8dbRyR92Qd1fi25Dgda/WA==}
+  /@so1ve/eslint-config-ts@0.102.0(eslint-plugin-import@2.27.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2):
+    resolution: {integrity: sha512-CY+iDBQjQGDJP0qo92JRGWQuM5i4rxmmQYRN8azOYixFy/qI4g7eqyX+yjNXnpJpoZEUzFRvgt5WmuEyAYgVNQ==}
     peerDependencies:
       eslint: '>=7.4.0'
       prettier: '>=2.0.0'
       typescript: '>=3.9'
     dependencies:
-      '@so1ve/eslint-config-basic': 0.100.0(@typescript-eslint/eslint-plugin@5.59.9)(@typescript-eslint/parser@5.59.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2)
-      '@so1ve/eslint-plugin': 0.100.0(eslint@8.42.0)(typescript@5.0.2)
+      '@so1ve/eslint-config-basic': 0.102.0(@typescript-eslint/eslint-plugin@5.59.9)(@typescript-eslint/parser@5.59.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.42.0)(prettier@2.8.8)(svelte@3.59.1)(typescript@5.0.2)
+      '@so1ve/eslint-plugin': 0.102.0(eslint@8.42.0)(typescript@5.0.2)
       '@typescript-eslint/eslint-plugin': 5.59.9(@typescript-eslint/parser@5.59.9)(eslint@8.42.0)(typescript@5.0.2)
       '@typescript-eslint/parser': 5.59.9(eslint@8.42.0)(typescript@5.0.2)
       eslint: 8.42.0
@@ -828,8 +935,8 @@ packages:
       - svelte
     dev: true
 
-  /@so1ve/eslint-plugin-prettier@0.100.0(eslint@8.42.0)(prettier@2.8.8):
-    resolution: {integrity: sha512-m8s+ANehnXbtr1bwM8MCqW6tqdSLrs9i0DVUhA/8TvufDUbwXXrAMh2OZnJe1V3d7VT0ZPRx4odHxxTxe8OYrw==}
+  /@so1ve/eslint-plugin-prettier@0.102.0(eslint@8.42.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-9PXoRJOqp3Ho2j4aBqcKSdNWEHS38pxWe+yy4mcQaUnsvw2a/IVqE3eTvIHBFCsbzNhS3BBF4iPPz5Qd7GXMBw==}
     peerDependencies:
       eslint: '>=7.28.0'
       prettier: '>=2.0.0'
@@ -839,8 +946,8 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /@so1ve/eslint-plugin@0.100.0(eslint@8.42.0)(typescript@5.0.2):
-    resolution: {integrity: sha512-4i2Ogq0+fw4m0WGDUqLy7yKzOU+BsVUML86PpUWBC/gsSEIyQ/u715btcupq7H2IKkP7fu98Z2xgoKpczsAMvA==}
+  /@so1ve/eslint-plugin@0.102.0(eslint@8.42.0)(typescript@5.0.2):
+    resolution: {integrity: sha512-fD2A02IvM5aX2wTvgvEUkk8IP51ZgourVSPmOiZqbvTBLs4MzZvmU+L4JhMuiwbDeujMtxQ/CZ7CVr7U6s75vQ==}
     dependencies:
       '@typescript-eslint/utils': 5.59.9(eslint@8.42.0)(typescript@5.0.2)
       '@vue/reactivity': 3.3.4
@@ -850,15 +957,15 @@ packages:
       - typescript
     dev: true
 
-  /@so1ve/prettier-config@0.100.0(prettier@2.8.8)(svelte@3.59.1):
-    resolution: {integrity: sha512-hiPZfT0NZr9lfH+07NdnHDW9hjoDyNeX/QiBw1EeyhEIpnpRynivj88WRW9ibrXMz/mIEtp3JhFIMQDqS0tGvA==}
+  /@so1ve/prettier-config@0.102.0(prettier@2.8.8)(svelte@3.59.1):
+    resolution: {integrity: sha512-Hw2wlqZeWO6Wq3pnDJi3ZglkOmIL8QSIcIBr/h3coiEjzIiHx7zgDzp3rE7nRiLp/GIRUQekxy1UKTm0e/fo0A==}
     peerDependencies:
       prettier: '>=2.0.0'
     dependencies:
       '@prettier/plugin-xml': 2.2.0
       prettier: 2.8.8
       prettier-plugin-astro: 0.10.0
-      prettier-plugin-autocorrect: 0.3.0(prettier@2.8.8)
+      prettier-plugin-curly: 0.0.2(prettier@2.8.8)
       prettier-plugin-jsdoc: 0.4.2(prettier@2.8.8)
       prettier-plugin-properties: 0.2.0
       prettier-plugin-rust: 0.1.9
@@ -1225,52 +1332,6 @@ packages:
       es-shim-unscopables: 1.0.0
     dev: true
 
-  /autocorrect-node-darwin-arm64@2.6.2:
-    resolution: {integrity: sha512-NA43XoVOzK8+2AqlWQrEis/nglepts1a79EhkJji1kG0ZugaCmpP/M440TKDWYfm9KpPFe9ocu4BKG88lx6DkA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /autocorrect-node-darwin-x64@2.6.2:
-    resolution: {integrity: sha512-DkOssoDcJI8Jo5gq6lWUGhZpfywer6Daq7yTmjzv4UjMPUULb39s99kOmQnCM2C2GDRAIZ+OGBnf6no054xKIg==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /autocorrect-node-linux-x64-gnu@2.6.2:
-    resolution: {integrity: sha512-udk1jFRgaYwcds2q3S+3dxYBaL+Wi2ABJZBg10mezlGaLvqyVsxf5Rkhhh3t5V2bxmmrTIcoaH5bzns0rIYcOQ==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /autocorrect-node-win32-x64-msvc@2.6.2:
-    resolution: {integrity: sha512-Z/SIg+o6plYptaeHEfnpWy/TlE2ZqRJ7/sulJ7DZ/Gld4iKrMP7iZ1qJczKZnPL7KiKt+WQiTNUPf5+gktkNJg==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /autocorrect-node@2.6.2:
-    resolution: {integrity: sha512-GCgLHLDxWMp1oE5f5qdQPvxiQWseJXMz3IpCpLxFZZfRJJHiaCh6/E3btgq1S1tP68Qo/t25Y1SIs8cQq4f8gA==}
-    engines: {node: '>= 10'}
-    optionalDependencies:
-      autocorrect-node-darwin-arm64: 2.6.2
-      autocorrect-node-darwin-x64: 2.6.2
-      autocorrect-node-linux-x64-gnu: 2.6.2
-      autocorrect-node-win32-x64-msvc: 2.6.2
-    dev: true
-
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
@@ -1485,16 +1546,6 @@ packages:
 
   /convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
-    dev: true
-
-  /cosmiconfig@8.2.0:
-    resolution: {integrity: sha512-3rTMnFJA1tCOPwRxtgF4wd7Ab2qvDbL8jX+3smjIbS4HlZBagTlpERbdN7iAbWlrfxE3M8c27kTwTawQ7st+OQ==}
-    engines: {node: '>=14'}
-    dependencies:
-      import-fresh: 3.3.0
-      js-yaml: 4.1.0
-      parse-json: 5.2.0
-      path-type: 4.0.0
     dev: true
 
   /cross-spawn@7.0.3:
@@ -3522,7 +3573,7 @@ packages:
     resolution: {integrity: sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==}
     engines: {node: '>=8'}
     dependencies:
-      '@babel/code-frame': 7.21.4
+      '@babel/code-frame': 7.22.5
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
@@ -3601,17 +3652,18 @@ packages:
       sass-formatter: 0.7.6
     dev: true
 
-  /prettier-plugin-autocorrect@0.3.0(prettier@2.8.8):
-    resolution: {integrity: sha512-DTMKZvf4E1o/RpaOzxqsNV292a1j0t2XfX9XuoIj46Lnu+JMV8UTznEH3xUcqWeU7JqOVjsQnwlcxhP1VqDnng==}
-    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+  /prettier-plugin-curly@0.0.2(prettier@2.8.8):
+    resolution: {integrity: sha512-ZZZRnD2qzChrDXZWRAErYB2SDABt2lY1laJqF539EeRPnpQBKpSZOF4J7quZoi5l7BigdKbVseGreyrA7JQnKQ==}
+    engines: {node: '>=18'}
+    hasBin: true
     peerDependencies:
-      prettier: ^2.0.0
+      prettier: ^2
     dependencies:
-      autocorrect-node: 2.6.2
-      cosmiconfig: 8.2.0
+      '@babel/parser': 7.22.5
+      '@babel/traverse': 7.22.5
       prettier: 2.8.8
-      synckit: 0.8.5
-      tslib: 2.5.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /prettier-plugin-jsdoc@0.4.2(prettier@2.8.8):
