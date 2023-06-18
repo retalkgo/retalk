@@ -15,7 +15,7 @@
     "solid-js": "^1.7.6"
   },
   "devDependencies": {
-    "@so1ve/eslint-config-solid": "^0.102.0",
+    "@so1ve/eslint-config-solid": "^0.104.0",
     "@types/node": "^18.16.16",
     "prettier": "^2.8.8",
     "typescript": "^5.0.2",
