@@ -18,6 +18,9 @@ type RespInit struct {
 //	@Description	初始化服务端, 创建ApiKey
 //	@Tags			服务端
 //	@Param			apikey	formData	string	true	"ApiKey"
+//	@Param			name	formData	string	true	"管理员昵称"
+//	@Param			email	formData	string	true	"管理员邮箱"
+//	@Param			link	formData	string	true	"管理员网站"
 //	@Success		200		{object}	common.Resp{data=RespInit}
 //	@Success		403		{object}	common.Resp{data=RespInit}
 //	@Failure		500		{object}	common.Resp
@@ -38,6 +41,16 @@ func Init(router fiber.Router) {
 			ApiKey: apikey,
 		}
 		err = query.Server.Save(server)
+		if err != nil {
+			return common.RespServerError(c)
+		}
+		admin := &entity.Author{
+			Name: c.FormValue("name"),
+			Email: c.FormValue("email"),
+			Link: c.FormValue("link"),
+			IsAdmin: true,
+		}
+		err = query.Author.Save(admin)
 		if err != nil {
 			return common.RespServerError(c)
 		}

@@ -1,0 +1,62 @@
+{
+  "name": "@retalkgo/client",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.6.2",
+  "type": "module",
+  "description": "Retalk client",
+  "keywords": [
+    "comment",
+    "solid"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/retalk.cjs",
+      "import": "./dist/retalk.mjs",
+      "browser": "./dist/retalk.umd.js"
+    }
+  },
+  "main": "./dist/retalk.cjs",
+  "module": "./dist/retalk.mjs",
+  "types": "./dist/index.d.ts",
+  "browser": "./dist/retalk.umd.js",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf dist && vite build",
+    "dev": "vite",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "solid-js": "^1.7.6"
+  },
+  "devDependencies": {
+    "@mojojoejo/vite-plugin-purgecss": "^1.1.0",
+    "@so1ve/eslint-config-solid": "^0.102.1",
+    "@types/node": "^18.16.18",
+    "@unocss/preset-rem-to-px": "^0.53.1",
+    "@unocss/preset-uno": "^0.53.1",
+    "prettier": "^2.8.8",
+    "rimraf": "3",
+    "typescript": "^5.1.3",
+    "unocss": "^0.53.1",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.3.0",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}

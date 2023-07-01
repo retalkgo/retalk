@@ -1,0 +1,4 @@
+github.com/gofiber/fiber/v2 v2.47.0 h1:EN5lHVCc+Pyqh5OEsk8fzRiifgwpbrP0rulQ4iNf3fs=
+github.com/gofiber/fiber/v2 v2.47.0/go.mod h1:mbFMVN1lQuzziTkkakgtKKdjfsXSw9BKR5lmcNksUoU=
+gorm.io/plugin/dbresolver v1.4.1 h1:Ug4LcoPhrvqq71UhxtF346f+skTYoCa/nEsdjvHwEzk=
+gorm.io/plugin/dbresolver v1.4.1/go.mod h1:CTbCtMWhsjXSiJqiW2R8POvJ2cq18RVOl4WGyT5nhNc=

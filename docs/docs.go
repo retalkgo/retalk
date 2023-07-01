@@ -66,9 +66,23 @@ const docTemplate = `{
                         "required": true
                     },
                     {
-                        "type": "integer",
-                        "description": "发送者ID",
-                        "name": "author_id",
+                        "type": "string",
+                        "description": "发送者昵称",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "发送者邮箱",
+                        "name": "email",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "发送者网站",
+                        "name": "link",
                         "in": "formData",
                         "required": true
                     },
@@ -84,19 +98,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/common.Resp"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/entity.Comment"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/common.Resp"
                         }
                     },
                     "400": {
@@ -204,6 +206,27 @@ const docTemplate = `{
                         "name": "apikey",
                         "in": "formData",
                         "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "管理员昵称",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "管理员邮箱",
+                        "name": "email",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "管理员网站",
+                        "name": "link",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -285,26 +308,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "entity.Comment": {
-            "type": "object",
-            "properties": {
-                "author_id": {
-                    "type": "integer"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "path": {
                     "type": "string"
                 }
             }

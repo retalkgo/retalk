@@ -4,3 +4,4 @@ retalk.db
 yarn.lock
 bin
 .release-env
+.sync-env
