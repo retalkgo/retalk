@@ -1,4 +1,4 @@
-import "uno.css";
+import 'virtual:uno.css'
 
 import Retalk from "./retalk";
 import { IS_CLIENT } from "./utils";
