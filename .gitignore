@@ -5,3 +5,4 @@ yarn.lock
 bin
 .release-env
 .sync-env
+node_modules
