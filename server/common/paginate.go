@@ -7,7 +7,7 @@ import (
 )
 
 // 分页查询
-func Paginate(c *fiber.Ctx, data []*interface{}) []*interface{}{
+func Paginate(c *fiber.Ctx, data []*interface{}) []*interface{} {
 	pageSize := 10
 	page, err := strconv.Atoi(c.Params("page"))
 	if err != nil || page <= 0 {
@@ -30,5 +30,5 @@ func Paginate(c *fiber.Ctx, data []*interface{}) []*interface{}{
 	}
 
 	return data[startIndex:endIndex]
-	
+
 }
