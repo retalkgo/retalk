@@ -2,10 +2,10 @@
   "private": true,
   "packageManager": "pnpm@8.6.6",
   "scripts": {
+    "build": "rimraf packages/*/dist && pnpm -r run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
-    "build": "rimraf packages/*/dist && pnpm -r run build"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@so1ve/eslint-config-solid": "^0.110.4",

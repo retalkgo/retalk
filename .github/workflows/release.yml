@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-     
+
       - run: git fetch --prune --unshallow --tags -f
 
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
-          go-version: "^1.20.4"
+          go-version: ^1.20.4
 
       - name: Setup Goreleaser
         run: |
@@ -31,14 +31,14 @@ jobs:
 
       - name: Build and release publish
         run: |
-            docker run \
-            --rm \
-            --privileged \
-            -v /var/run/docker.sock:/var/run/docker.sock \
-            -v $(pwd)/sysroot:/sysroot \
-            -v $(pwd):/go/src/retalk \
-            -w /go/src/retalk \
-            -e CGO_ENABLED=1 \
-            --env-file .release-env \
-            ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
-            release
+          docker run \
+          --rm \
+          --privileged \
+          -v /var/run/docker.sock:/var/run/docker.sock \
+          -v $(pwd)/sysroot:/sysroot \
+          -v $(pwd):/go/src/retalk \
+          -w /go/src/retalk \
+          -e CGO_ENABLED=1 \
+          --env-file .release-env \
+          ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
+          release
