@@ -1,0 +1,6 @@
+email:
+  host: smtp.example.com
+  port: 587
+  username: username
+  password: password
+  from: from@example.com
