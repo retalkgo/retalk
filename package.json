@@ -1,11 +1,17 @@
 {
-  "name": "@retalkgo/monorepo",
   "private": true,
-  "version": "0.1.0",
+  "packageManager": "pnpm@8.6.6",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "build": "rimraf packages/*/dist && pnpm -r run build"
   },
-  "keywords": [],
-  "author": "retalkgo",
-  "license": "MIT"
+  "devDependencies": {
+    "@so1ve/eslint-config-solid": "^0.110.4",
+    "@types/node": "^18.16.19",
+    "prettier": "^2.8.8",
+    "rimraf": "^3.0.2",
+    "typescript": "^5.1.6"
+  }
 }

@@ -10,7 +10,7 @@ export default () => (
       <Input placeholder="网站" />
     </div>
     <div class="mt-7.5">
-      <Textarea/>
+      <Textarea />
     </div>
     <div class="mt-7.5">
       <Button>

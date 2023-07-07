@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === "production") {
   transformers.push(transformerCompileClass());
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
 export default defineConfig<Theme>({
   presets: [presetUno(), presetRemToPx()],
   transformers,

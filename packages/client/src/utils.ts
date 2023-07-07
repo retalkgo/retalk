@@ -1,5 +1,4 @@
 import { version } from "../package.json";
-
 import type { ElementOrSelector } from "./types";
 
 export const resolveElement = (el: ElementOrSelector): HTMLElement | null =>
