@@ -9,7 +9,7 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/retalk.d.ts",
       "require": "./dist/retalk.cjs",
       "import": "./dist/retalk.mjs",
       "browser": "./dist/retalk.umd.js"
@@ -18,12 +18,12 @@
   "main": "./dist/retalk.cjs",
   "module": "./dist/retalk.mjs",
   "browser": "./dist/retalk.umd.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/retalk.d.ts",
   "typesVersions": {
     "*": {
       "*": [
         "./dist/*",
-        "./dist/index.d.ts"
+        "./dist/retalk.d.ts"
       ]
     }
   },
@@ -34,7 +34,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "rimraf dist && tsx scripts/build.ts",
+    "build:real": "vite build",
     "dev": "vite",
     "preview": "vite preview"
   },
