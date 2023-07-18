@@ -36,7 +36,11 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier -w .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "solid-js": "^1.7.7"
