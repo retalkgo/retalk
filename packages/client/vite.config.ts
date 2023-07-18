@@ -9,7 +9,9 @@ import Solid from "vite-plugin-solid";
 export default defineConfig({
   plugins: [
     Solid(),
-    Dts(),
+    Dts({
+      tsConfigFilePath: "../../tsconfig.json",
+    }),
     Unocss(),
     PurgeCss({
       variables: true,
