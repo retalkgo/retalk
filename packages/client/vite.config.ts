@@ -31,7 +31,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) =>
-          /\.css$/.test(assetInfo.name || "") ? "retalk.css" : "[name].[ext]",
+          /\.css$/.test(assetInfo.name ?? "") ? "retalk.css" : "[name].[ext]",
       },
     },
   },
