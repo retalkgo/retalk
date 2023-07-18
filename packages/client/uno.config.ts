@@ -1,5 +1,6 @@
 import presetRemToPx from "@unocss/preset-rem-to-px";
 import type { Theme } from "@unocss/preset-uno";
+import type { SourceCodeTransformer } from "unocss";
 import {
   defineConfig,
   presetUno,
@@ -7,12 +8,13 @@ import {
   transformerVariantGroup,
 } from "unocss";
 
-const transformers = [transformerVariantGroup()];
+const transformers: SourceCodeTransformer[] = [];
 if (process.env.NODE_ENV === "production") {
   transformers.push(transformerCompileClass());
 }
+transformers.push(transformerVariantGroup());
 
- 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
 export default defineConfig<Theme>({
   presets: [presetUno(), presetRemToPx()],
   transformers,
