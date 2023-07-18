@@ -21,7 +21,7 @@ builds:
       - CXX=g++
     binary: "{{.ProjectName}}"
     main: ./main.go
-    ldflags: &common_ldflags | 
+    ldflags: &common_ldflags |
       -X retalk/internal/version.Version={{.Version}}
       -X retalk/internal/version.CommitHash={{.ShortCommit}}
       -s -w
@@ -61,7 +61,7 @@ builds:
     goarch:
       - arm
     goarm:
-      - '7'
+      - "7"
     env:
       - CC=arm-linux-gnueabihf-gcc
       - CXX=arm-linux-gnueabihf-g++
