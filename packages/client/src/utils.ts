@@ -1,5 +1,5 @@
 import { version } from "../package.json";
-import type { ElementOrSelector } from "./types";
+import type { ElementOrSelector, Options } from "./types";
 
 export const resolveElement = (el: ElementOrSelector): Element | null =>
   typeof el === "string" ? document.querySelector(el) : el;
@@ -17,3 +17,8 @@ export const IS_CLIENT =
   typeof document !== "undefined" &&
   typeof window !== "undefined" &&
   typeof navigator !== "undefined";
+
+export const resolveOptions = (options: Options): Required<Options> => ({
+  ...options,
+  logRetalkInfo: options.logRetalkInfo ?? true,
+});
