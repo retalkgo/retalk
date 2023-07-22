@@ -9,7 +9,7 @@ export default () => (
       <Input placeholder="邮箱" />
       <Input placeholder="网站" />
     </div>
-    <div class="mt-7.5">
+    <div class="mt-7.5 w-125">
       <Textarea />
     </div>
     <div class="mt-7.5">
