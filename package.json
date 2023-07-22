@@ -5,7 +5,7 @@
     "build": "turbo build",
     "lint": "eslint . && prettier . --check",
     "lint:fix": "eslint . --fix && prettier . --write",
-    "play": "npm -C ./playground run dev",
+    "play": "npm -C ./packages/client run dev",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
