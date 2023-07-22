@@ -12,6 +12,12 @@ export default defineConfig({
 		Dts({
 			tsconfigPath: "../../tsconfig.json",
 			entryRoot: "src",
+			exclude: [
+				"node_module/**",
+				"uno.config.ts",
+				"vite.config.ts",
+				"scripts/**",
+			],
 		}),
 		Unocss(),
 		PurgeCss({
