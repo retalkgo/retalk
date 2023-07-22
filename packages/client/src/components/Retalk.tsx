@@ -10,7 +10,7 @@ export const Retalk = () => (
 			<Input placeholder="网站" />
 		</div>
 		<div class=":uno: flex">
-			<Textarea />
+			<Textarea placeholder="说点什么？" />
 		</div>
 		<div class=":uno: flex justify-end">
 			<Button>

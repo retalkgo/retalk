@@ -3,5 +3,8 @@ interface TextareaProps {
 }
 
 export const Textarea = (props: TextareaProps) => (
-	<textarea {...props} class=":uno: block min-h-20 p-3 w-full inputlike" />
+	<textarea
+		{...props}
+		class=":uno: block min-h-20 p-3 w-full inputlike font-inherit"
+	/>
 );
