@@ -12,7 +12,8 @@ export default defineConfig({
     Dts({
       tsConfigFilePath: "../../tsconfig.json",
     }),
-    Unocss(),
+    // Fix
+    Unocss() as any,
     PurgeCss({
       variables: true,
     }),

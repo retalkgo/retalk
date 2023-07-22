@@ -1,7 +1,7 @@
 import { version } from "../package.json";
 import type { ElementOrSelector } from "./types";
 
-export const resolveElement = (el: ElementOrSelector): HTMLElement | null =>
+export const resolveElement = (el: ElementOrSelector): Element | null =>
   typeof el === "string" ? document.querySelector(el) : el;
 
 export function logRetalkInfo() {

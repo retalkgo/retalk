@@ -1,0 +1,11 @@
+{
+  "name": "retalk-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@retalkgo/client": "workspace:*"
+  }
+}

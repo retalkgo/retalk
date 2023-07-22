@@ -6,7 +6,7 @@ import { execa } from "execa";
   await execa("pnpm", ["run", "build:real"]);
   // Cleanup extra files
   try {
-    await fs.rmdir("dist/components", { recursive: true });
+    await fs.rm("dist/components", { recursive: true });
     await fs.rm("dist/index.d.ts");
   } catch {}
 })();
