@@ -1,6 +1,6 @@
 import { render } from "solid-js/web";
 
-import RetalkComponent from "./components/Retalk";
+import { Retalk as RetalkComponent } from "./components/Retalk";
 import type { Options } from "./types";
 import { logRetalkInfo, resolveElement } from "./utils";
 
