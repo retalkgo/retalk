@@ -10,10 +10,10 @@ export default defineConfig({
   plugins: [
     Solid(),
     Dts({
-      tsConfigFilePath: "../../tsconfig.json",
+      tsconfigPath: "../../tsconfig.json",
+      entryRoot: "src",
     }),
-    // Fix
-    Unocss() as any,
+    Unocss(),
     PurgeCss({
       variables: true,
     }),
@@ -34,7 +34,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) =>
-          /\.css$/.test(assetInfo.name ?? "") ? "retalk.css" : "[name].[ext]",
+          (assetInfo.name ?? "").endsWith(".css")
+            ? "retalk.css"
+            : "[name].[ext]",
       },
     },
   },

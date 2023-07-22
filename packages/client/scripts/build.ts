@@ -8,5 +8,6 @@ import { execa } from "execa";
   try {
     await fs.rm("dist/components", { recursive: true });
     await fs.rm("dist/index.d.ts");
+    await fs.rm("dist/utils.d.ts");
   } catch {}
 })();
