@@ -75,5 +75,5 @@ jobs:
       - name: Install
         run: nci
 
-      - name: Typecheck
+      - name: Build
         run: nr build
