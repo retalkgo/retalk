@@ -1,59 +1,59 @@
 {
-  "name": "@retalkgo/client",
-  "version": "0.0.0",
-  "type": "module",
-  "description": "Retalk client",
-  "keywords": [
-    "comment",
-    "solid"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/retalk.d.ts",
-      "require": "./dist/retalk.cjs",
-      "import": "./dist/retalk.mjs",
-      "browser": "./dist/retalk.umd.js"
-    },
-    "./retalk.css": {
-      "types": "./dist/retalk.css",
-      "require": "./dist/retalk.css",
-      "import": "./dist/retalk.css",
-      "browser": "./dist/retalk.css"
-    }
-  },
-  "main": "./dist/retalk.cjs",
-  "module": "./dist/retalk.mjs",
-  "browser": "./dist/retalk.umd.js",
-  "types": "./dist/retalk.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/retalk.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsx scripts/build.ts",
-    "build:real": "vite build",
-    "dev": "vite",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "solid-js": "^1.7.8"
-  },
-  "devDependencies": {
-    "@mojojoejo/vite-plugin-purgecss": "^1.1.0",
-    "@unocss/preset-rem-to-px": "^0.53.6",
-    "@unocss/preset-uno": "^0.53.6",
-    "unocss": "^0.53.6",
-    "vite-plugin-dts": "^3.3.1",
-    "vite-plugin-solid": "^2.7.0"
-  }
+	"name": "@retalkgo/client",
+	"version": "0.0.0",
+	"type": "module",
+	"description": "Retalk client",
+	"keywords": [
+		"comment",
+		"solid"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/retalk.d.ts",
+			"require": "./dist/retalk.cjs",
+			"import": "./dist/retalk.mjs",
+			"browser": "./dist/retalk.umd.js"
+		},
+		"./retalk.css": {
+			"types": "./dist/retalk.css",
+			"require": "./dist/retalk.css",
+			"import": "./dist/retalk.css",
+			"browser": "./dist/retalk.css"
+		}
+	},
+	"main": "./dist/retalk.cjs",
+	"module": "./dist/retalk.mjs",
+	"browser": "./dist/retalk.umd.js",
+	"types": "./dist/retalk.d.ts",
+	"typesVersions": {
+		"*": {
+			"*": [
+				"./dist/*",
+				"./dist/retalk.d.ts"
+			]
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsx scripts/build.ts",
+		"build:real": "vite build",
+		"dev": "vite",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"solid-js": "^1.7.8"
+	},
+	"devDependencies": {
+		"@mojojoejo/vite-plugin-purgecss": "^1.1.0",
+		"@unocss/preset-rem-to-px": "^0.53.6",
+		"@unocss/preset-uno": "^0.53.6",
+		"unocss": "^0.53.6",
+		"vite-plugin-dts": "^3.3.1",
+		"vite-plugin-solid": "^2.7.0"
+	}
 }

@@ -1,327 +1,327 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "Retalk 后端 API 文档",
-    "title": "Retalk API",
-    "contact": {
-      "name": "API 支持",
-      "email": "retalk@redish101.top"
-    },
-    "license": {
-      "name": "GPL-3.0"
-    },
-    "version": "1.0"
-  },
-  "basePath": "/",
-  "paths": {
-    "/": {
-      "get": {
-        "description": "输出欢迎信息以验证安装",
-        "tags": ["首页"],
-        "summary": "首页",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/definitions/common.Resp"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "msg": {
-                      "type": "string"
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/api/comment/add": {
-      "post": {
-        "description": "新增评论",
-        "tags": ["评论"],
-        "summary": "新增评论",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "评论路径",
-            "name": "path",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "发送者昵称",
-            "name": "name",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "发送者邮箱",
-            "name": "email",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "发送者网站",
-            "name": "link",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "正文",
-            "name": "string",
-            "in": "formData",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/common.Resp"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/common.Resp"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/common.Resp"
-            }
-          }
-        }
-      }
-    },
-    "/api/comment/getAll": {
-      "get": {
-        "description": "获取所有评论",
-        "tags": ["评论"],
-        "summary": "获取所有评论",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/definitions/common.Resp"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/definitions/entity.CookedComment"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/common.Resp"
-            }
-          }
-        }
-      }
-    },
-    "/api/comment/getByPath": {
-      "get": {
-        "description": "根据路径获取评论",
-        "tags": ["评论"],
-        "summary": "根据路径获取评论",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/definitions/common.Resp"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/definitions/entity.CookedComment"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/common.Resp"
-            }
-          }
-        }
-      }
-    },
-    "/api/init": {
-      "post": {
-        "description": "初始化服务端, 创建ApiKey",
-        "tags": ["服务端"],
-        "summary": "初始化服务端",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "ApiKey",
-            "name": "apikey",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "管理员昵称",
-            "name": "name",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "管理员邮箱",
-            "name": "email",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "description": "管理员网站",
-            "name": "link",
-            "in": "formData",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/definitions/common.Resp"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/definitions/handler.RespInit"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/definitions/common.Resp"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/definitions/handler.RespInit"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/common.Resp"
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "common.Resp": {
-      "type": "object",
-      "properties": {
-        "data": {},
-        "msg": {
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
-        }
-      }
-    },
-    "entity.Author": {
-      "type": "object",
-      "properties": {
-        "created_at": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "id": {
-          "type": "integer"
-        },
-        "is_admin": {
-          "type": "boolean"
-        },
-        "link": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "entity.CookedComment": {
-      "type": "object",
-      "properties": {
-        "author": {
-          "$ref": "#/definitions/entity.Author"
-        },
-        "body": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "id": {
-          "type": "integer"
-        },
-        "path": {
-          "type": "string"
-        }
-      }
-    },
-    "handler.RespInit": {
-      "type": "object",
-      "properties": {
-        "isInit": {
-          "type": "boolean"
-        }
-      }
-    }
-  }
+	"swagger": "2.0",
+	"info": {
+		"description": "Retalk 后端 API 文档",
+		"title": "Retalk API",
+		"contact": {
+			"name": "API 支持",
+			"email": "retalk@redish101.top"
+		},
+		"license": {
+			"name": "GPL-3.0"
+		},
+		"version": "1.0"
+	},
+	"basePath": "/",
+	"paths": {
+		"/": {
+			"get": {
+				"description": "输出欢迎信息以验证安装",
+				"tags": ["首页"],
+				"summary": "首页",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"allOf": [
+								{
+									"$ref": "#/definitions/common.Resp"
+								},
+								{
+									"type": "object",
+									"properties": {
+										"msg": {
+											"type": "string"
+										}
+									}
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"/api/comment/add": {
+			"post": {
+				"description": "新增评论",
+				"tags": ["评论"],
+				"summary": "新增评论",
+				"parameters": [
+					{
+						"type": "string",
+						"description": "评论路径",
+						"name": "path",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "发送者昵称",
+						"name": "name",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "发送者邮箱",
+						"name": "email",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "发送者网站",
+						"name": "link",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "正文",
+						"name": "string",
+						"in": "formData",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/common.Resp"
+						}
+					},
+					"400": {
+						"description": "Bad Request",
+						"schema": {
+							"$ref": "#/definitions/common.Resp"
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"schema": {
+							"$ref": "#/definitions/common.Resp"
+						}
+					}
+				}
+			}
+		},
+		"/api/comment/getAll": {
+			"get": {
+				"description": "获取所有评论",
+				"tags": ["评论"],
+				"summary": "获取所有评论",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"allOf": [
+								{
+									"$ref": "#/definitions/common.Resp"
+								},
+								{
+									"type": "object",
+									"properties": {
+										"data": {
+											"type": "array",
+											"items": {
+												"$ref": "#/definitions/entity.CookedComment"
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"schema": {
+							"$ref": "#/definitions/common.Resp"
+						}
+					}
+				}
+			}
+		},
+		"/api/comment/getByPath": {
+			"get": {
+				"description": "根据路径获取评论",
+				"tags": ["评论"],
+				"summary": "根据路径获取评论",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"allOf": [
+								{
+									"$ref": "#/definitions/common.Resp"
+								},
+								{
+									"type": "object",
+									"properties": {
+										"data": {
+											"type": "array",
+											"items": {
+												"$ref": "#/definitions/entity.CookedComment"
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"schema": {
+							"$ref": "#/definitions/common.Resp"
+						}
+					}
+				}
+			}
+		},
+		"/api/init": {
+			"post": {
+				"description": "初始化服务端, 创建ApiKey",
+				"tags": ["服务端"],
+				"summary": "初始化服务端",
+				"parameters": [
+					{
+						"type": "string",
+						"description": "ApiKey",
+						"name": "apikey",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "管理员昵称",
+						"name": "name",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "管理员邮箱",
+						"name": "email",
+						"in": "formData",
+						"required": true
+					},
+					{
+						"type": "string",
+						"description": "管理员网站",
+						"name": "link",
+						"in": "formData",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"allOf": [
+								{
+									"$ref": "#/definitions/common.Resp"
+								},
+								{
+									"type": "object",
+									"properties": {
+										"data": {
+											"$ref": "#/definitions/handler.RespInit"
+										}
+									}
+								}
+							]
+						}
+					},
+					"403": {
+						"description": "Forbidden",
+						"schema": {
+							"allOf": [
+								{
+									"$ref": "#/definitions/common.Resp"
+								},
+								{
+									"type": "object",
+									"properties": {
+										"data": {
+											"$ref": "#/definitions/handler.RespInit"
+										}
+									}
+								}
+							]
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"schema": {
+							"$ref": "#/definitions/common.Resp"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"common.Resp": {
+			"type": "object",
+			"properties": {
+				"data": {},
+				"msg": {
+					"type": "string"
+				},
+				"success": {
+					"type": "boolean"
+				}
+			}
+		},
+		"entity.Author": {
+			"type": "object",
+			"properties": {
+				"created_at": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer"
+				},
+				"is_admin": {
+					"type": "boolean"
+				},
+				"link": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"entity.CookedComment": {
+			"type": "object",
+			"properties": {
+				"author": {
+					"$ref": "#/definitions/entity.Author"
+				},
+				"body": {
+					"type": "string"
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer"
+				},
+				"path": {
+					"type": "string"
+				}
+			}
+		},
+		"handler.RespInit": {
+			"type": "object",
+			"properties": {
+				"isInit": {
+					"type": "boolean"
+				}
+			}
+		}
+	}
 }

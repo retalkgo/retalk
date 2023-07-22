@@ -1,7 +1,7 @@
 export {};
 
 declare global {
-  interface Window {
-    Retalk: object;
-  }
+	interface Window {
+		Retalk: object;
+	}
 }
