@@ -40,7 +40,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf dist && tsx scripts/build.ts",
+    "build": "tsx scripts/build.ts",
     "build:real": "vite build",
     "dev": "vite",
     "preview": "vite preview"
