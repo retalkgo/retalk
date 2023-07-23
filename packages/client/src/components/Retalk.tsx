@@ -1,4 +1,5 @@
 import { Button } from "./Button";
+import { Comment } from "./Comment";
 import { Input } from "./Input";
 import { Textarea } from "./Textarea";
 
@@ -17,5 +18,12 @@ export const Retalk = () => (
 				<span>按钮</span>
 			</Button>
 		</div>
+		<Comment
+			content="Hiiiiiiiiiiiiiiiii"
+			nickname="Redish101"
+			avatar=""
+			isAdmin
+			time=""
+		/>
 	</div>
 );
