@@ -14,7 +14,7 @@ export default defineConfig({
 			entryRoot: "src",
 			exclude: [
 				"node_module/**",
-				"uno.config.ts",
+				"**/uno.config.ts",
 				"vite.config.ts",
 				"scripts/**",
 			],
