@@ -1,8 +1,8 @@
 package db
 
 import (
-	"retalk/internal/entity"
-	"retalk/internal/logger"
+	"github.com/retalkgo/retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/logger"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

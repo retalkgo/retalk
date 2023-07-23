@@ -1,10 +1,10 @@
 package comment
 
 import (
-	"retalk/internal/entity"
-	"retalk/internal/logger"
-	"retalk/internal/md5"
-	"retalk/internal/query"
+	"github.com/retalkgo/retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/logger"
+	"github.com/retalkgo/retalk/internal/md5"
+	"github.com/retalkgo/retalk/internal/query"
 )
 
 func SuperCommentGet(comments []*entity.Comment) ([]entity.CookedComment, error) {

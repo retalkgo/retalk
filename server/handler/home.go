@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"retalk/server/common"
+	"github.com/retalkgo/retalk/server/common"
 
 	"github.com/gofiber/fiber/v2"
 )

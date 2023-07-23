@@ -1,9 +1,10 @@
 package comment
 
 import (
-	"retalk/internal/core"
-	"retalk/internal/query"
 	"testing"
+
+	"github.com/retalkgo/retalk/internal/core"
+	"github.com/retalkgo/retalk/internal/query"
 )
 
 func TestSuperCommentGet(t *testing.T) {

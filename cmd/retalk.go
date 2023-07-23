@@ -1,6 +1,6 @@
 package cmd
 
-import "retalk/internal/logger"
+import "github.com/retalkgo/retalk/internal/logger"
 
 func Excute() {
 	Init()

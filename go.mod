@@ -1,4 +1,4 @@
-module retalk
+module github.com/retalkgo/retalk
 
 go 1.20
 

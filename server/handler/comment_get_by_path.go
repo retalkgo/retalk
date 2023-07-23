@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"retalk/internal/comment"
-	"retalk/internal/query"
-	"retalk/server/common"
+	"github.com/retalkgo/retalk/internal/comment"
+	"github.com/retalkgo/retalk/internal/query"
+	"github.com/retalkgo/retalk/server/common"
 
 	"github.com/gofiber/fiber/v2"
 )

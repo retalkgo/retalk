@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	l "retalk/internal/logger"
+	l "github.com/retalkgo/retalk/internal/logger"
 
 	"github.com/gofiber/fiber/v2"
 )

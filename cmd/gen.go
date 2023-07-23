@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"retalk/internal/core"
-	"retalk/internal/db"
-	"retalk/internal/logger"
+	"github.com/retalkgo/retalk/internal/core"
+	"github.com/retalkgo/retalk/internal/db"
+	"github.com/retalkgo/retalk/internal/logger"
 
 	"github.com/spf13/cobra"
 )

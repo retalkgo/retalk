@@ -1,8 +1,8 @@
 package server
 
 import (
-	_ "retalk/docs"
-	"retalk/internal/version"
+	_ "github.com/retalkgo/retalk/docs"
+	"github.com/retalkgo/retalk/internal/version"
 
 	"github.com/gofiber/fiber/v2"
 )

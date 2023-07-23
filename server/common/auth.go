@@ -1,9 +1,10 @@
 package common
 
 import (
-	"retalk/internal/md5"
-	"retalk/internal/query"
 	"strings"
+
+	"github.com/retalkgo/retalk/internal/md5"
+	"github.com/retalkgo/retalk/internal/query"
 
 	"github.com/gofiber/fiber/v2"
 )

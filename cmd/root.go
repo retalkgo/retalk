@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"retalk/internal/version"
+	"github.com/retalkgo/retalk/internal/version"
 
 	"github.com/spf13/cobra"
 )

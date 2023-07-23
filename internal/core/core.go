@@ -1,7 +1,7 @@
 package core
 
 import (
-	"retalk/internal/db"
+	"github.com/retalkgo/retalk/internal/db"
 )
 
 // 挂载核心功能

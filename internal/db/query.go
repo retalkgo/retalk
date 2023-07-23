@@ -1,7 +1,7 @@
 package db
 
 import (
-	"retalk/internal/query"
+	"github.com/retalkgo/retalk/internal/query"
 
 	"gorm.io/gorm"
 )

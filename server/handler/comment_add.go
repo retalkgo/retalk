@@ -2,9 +2,10 @@ package handler
 
 import (
 	"net/http"
-	"retalk/internal/entity"
-	"retalk/internal/query"
-	"retalk/server/common"
+
+	"github.com/retalkgo/retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/query"
+	"github.com/retalkgo/retalk/server/common"
 
 	"github.com/gofiber/fiber/v2"
 )

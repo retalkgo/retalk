@@ -2,7 +2,8 @@ package handler
 
 import (
 	"net/http"
-	"retalk/server/common"
+
+	"github.com/retalkgo/retalk/server/common"
 
 	"github.com/gofiber/fiber/v2"
 )

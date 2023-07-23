@@ -1,8 +1,8 @@
 package server
 
 import (
-	h "retalk/server/handler"
-	m "retalk/server/middleware"
+	h "github.com/retalkgo/retalk/server/handler"
+	m "github.com/retalkgo/retalk/server/middleware"
 
 	"github.com/gofiber/fiber/v2"
 )

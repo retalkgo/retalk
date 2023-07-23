@@ -6,7 +6,7 @@ package query
 
 import (
 	"context"
-	"retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/entity"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

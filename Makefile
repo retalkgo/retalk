@@ -4,8 +4,8 @@ ifeq ($(VERSION),)
 VERSION = dev
 endif
 COMMIT_HASH ?= $(shell git log --pretty=format:"%h" -1)
-COMMON_LDFLAGS = -ldflags " -X retalk/internal/version.Version=${VERSION} \
-							-X retalk/internal/version.CommitHash=${COMMIT_HASH} \
+COMMON_LDFLAGS = -ldflags " -X github.com/retalkgo/retalk/internal/version.Version=${VERSION} \
+							-X github.com/retalkgo/retalk/internal/version.CommitHash=${COMMIT_HASH} \
 							-s -w"
 BIN = bin/retalk
 

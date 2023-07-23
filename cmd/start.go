@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"retalk/internal/core"
-	"retalk/server"
+	"github.com/retalkgo/retalk/internal/core"
+	"github.com/retalkgo/retalk/server"
 
 	"github.com/spf13/cobra"
 )

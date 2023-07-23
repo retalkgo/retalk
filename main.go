@@ -1,7 +1,7 @@
 package main
 
 import (
-	"retalk/cmd"
+	"github.com/retalkgo/retalk/cmd"
 )
 
 func main() {
