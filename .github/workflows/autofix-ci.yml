@@ -26,6 +26,11 @@ jobs:
           node-version: 18.x
           cache: pnpm
 
+      - name: Setup go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.20"
+
       - name: Setup
         run: npm i -g @antfu/ni
 
@@ -34,6 +39,9 @@ jobs:
 
       - name: Lint and fix
         run: nr lint:fix
+
+      - name: Gofmt
+        run: go fmt
 
       - uses: autofix-ci/action@8caa572fd27b0019a65e4c695447089c8d3138b9
         with:
