@@ -6,8 +6,7 @@ import (
 	"gorm.io/gen"
 )
 
-type AllQuerier interface {
-}
+type AllQuerier interface{}
 
 func Gen() {
 	InitDB()

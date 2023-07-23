@@ -9,9 +9,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-var (
-	startTime int64
-)
+var startTime int64
 
 func Logger(app *fiber.App) {
 	app.Use(func(c *fiber.Ctx) error {

@@ -12,7 +12,7 @@ import (
 // @Success		200	{object}	common.Resp{msg=string}
 // @Router			/ [get]
 func Home(router fiber.Router) {
-	router.Get("/", func(c    *fiber.Ctx) error {
-	  return common.RespSuccess(c, "欢迎使用Retalk", nil)
+	router.Get("/", func(c *fiber.Ctx) error {
+		return common.RespSuccess(c, "欢迎使用Retalk", nil)
 	})
 }

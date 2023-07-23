@@ -22,7 +22,6 @@ func InitDB() {
 	}
 	db.AutoMigrate(&entity.Server{}, &entity.Comment{}, &entity.Author{}, &entity.Reply{}) // 同步数据库
 	dbInterface = db
-
 }
 
 func DB() *gorm.DB {

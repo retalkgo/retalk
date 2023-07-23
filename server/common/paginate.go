@@ -30,5 +30,4 @@ func Paginate(c *fiber.Ctx, data []*interface{}) []*interface{} {
 	}
 
 	return data[startIndex:endIndex]
-
 }

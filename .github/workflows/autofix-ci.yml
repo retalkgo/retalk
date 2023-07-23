@@ -37,11 +37,14 @@ jobs:
       - name: Install
         run: ni --no-frozen-lockfile
 
+      - name: Install Gofumpt
+        run: go install mvdan.cc/gofumpt@latest
+
       - name: Lint and fix
         run: nr lint:fix
 
-      - name: Gofmt
-        run: go fmt
+      - name: Gofumpt
+        run: gofumpt -l -w .
 
       - uses: autofix-ci/action@8caa572fd27b0019a65e4c695447089c8d3138b9
         with:
