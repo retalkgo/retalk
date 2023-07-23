@@ -9,8 +9,8 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@so1ve/eslint-config-solid": "^0.115.1",
-		"@so1ve/prettier-config": "^0.115.1",
+		"@so1ve/eslint-config-solid": "^0.115.2",
+		"@so1ve/prettier-config": "^0.115.2",
 		"@types/node": "^18.16.19",
 		"execa": "^7.1.1",
 		"prettier": "^3.0.0",
