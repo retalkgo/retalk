@@ -18,6 +18,4 @@ func Logger(app *fiber.App) {
 		l.Info(fmt.Sprintf("%s %s, 处理时间: %d 微秒", c.Method(), c.Path(), time.Now().UnixMicro()-startTime))
 		return err
 	})
-
-
 }
