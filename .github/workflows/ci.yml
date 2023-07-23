@@ -23,6 +23,11 @@ jobs:
           node-version: 18.x
           cache: pnpm
 
+      - name: Setup go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.20"
+
       - name: Setup
         run: npm i -g @antfu/ni
 
@@ -31,6 +36,9 @@ jobs:
 
       - name: Lint
         run: nr lint
+
+      - name: Gofumpt
+        run: gofumpt -l -extra .
 
   typecheck:
     runs-on: ubuntu-latest
