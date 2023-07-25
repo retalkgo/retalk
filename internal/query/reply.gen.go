@@ -6,8 +6,8 @@ package query
 
 import (
 	"context"
-	"github.com/retalkgo/retalk/internal/entity"
 
+	"github.com/retalkgo/retalk/internal/entity"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"
@@ -206,10 +206,6 @@ func (r replyDo) Select(conds ...field.Expr) IReplyDo {
 
 func (r replyDo) Where(conds ...gen.Condition) IReplyDo {
 	return r.withDO(r.DO.Where(conds...))
-}
-
-func (r replyDo) Exists(subquery interface{ UnderlyingDB() *gorm.DB }) IReplyDo {
-	return r.Where(field.CompareSubQuery(field.ExistsOp, nil, subquery.UnderlyingDB()))
 }
 
 func (r replyDo) Order(conds ...field.Expr) IReplyDo {
