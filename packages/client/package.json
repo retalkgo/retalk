@@ -1,12 +1,23 @@
 {
 	"name": "@retalkgo/client",
 	"version": "0.0.0",
-	"type": "module",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve)",
 	"description": "Retalk client",
 	"keywords": [
 		"comment",
 		"solid"
 	],
+	"homepage": "https://github.com/retalkgo/retalk/tree/main/packages/schema#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/retalkgo/retalk.git",
+		"directory": "/"
+	},
+	"bugs": {
+		"url": "https://github.com/retalkgo/retalk/issues"
+	},
+	"license": "MIT",
+	"sideEffects": false,
 	"exports": {
 		".": {
 			"types": "./dist/retalk.d.ts",
@@ -46,6 +57,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@retalkgo/schema": "workspace:*",
 		"solid-js": "^1.7.8"
 	},
 	"devDependencies": {
