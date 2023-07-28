@@ -13,36 +13,46 @@ all: install build
 
 install:
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} installing..."
-	@go mod tidy
+	go mod tidy
 
 fmt:
 	@echo "Retalk dev-${COMMIT_HASH} formating..."
-	@gofmt -w .
+	gofmt -w .
 
 fmt-swagger:
 	@echo "Retalk dev-${COMMIT_HASH} formating swagger..."
-	@swag fmt
+	swag fmt
 
 build-apidoc: fmt-swagger update-swagger
 	@echo "Retalk dev-${COMMIT_HASH} apidoc building..."
-	@npx @redocly/cli build-docs docs/swagger.yaml -o apidoc/index.html
+	npx @redocly/cli build-docs docs/swagger.yaml -o apidoc/index.html
+
+build-frontend:
+	@echo "Retalk Frontend ${VERSION}-${COMMIT_HASH} production building..."
+	pnpm build
+
+build-docker:
+	@echo "Retalk ${VERSION}-${COMMIT_HASH} for docker production building..."
+	docker build -t ghcr.io/retalkgo/retalk:${VERSION} .
 
 update-swagger: fmt-swagger
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} updating swagger..."
-	@swag init -g server/server.go
+	swag init -g server/server.go
 
 gen:
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} generating code..."
-	@go run . gen
+	go run . gen
 
 dev-build: update-swagger build-apidoc
 	@echo "Retalk dev-${COMMIT_HASH} dev building..."
-	@go build -o ${BIN} ${COMMON_LDFLAGS}
+	go build -o ${BIN} ${COMMON_LDFLAGS}
 
 dev-run: dev-build
 	@echo "Retalk dev-${COMMIT_HASH} dev running..."
 	@${BIN} start
 
-build: gen update-swagger build-apidoc
+
+build: gen update-swagger build-apidoc build-frontend
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} production building..."
-	@go build -o ${BIN} ${COMMON_LDFLAGS}
+	go build -o ${BIN} ${COMMON_LDFLAGS}
+	
