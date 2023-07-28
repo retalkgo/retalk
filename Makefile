@@ -17,7 +17,7 @@ install:
 
 fmt:
 	@echo "Retalk dev-${COMMIT_HASH} formating..."
-	gofmt -w .
+	@gofumpt -l -w -extra .
 
 fmt-swagger:
 	@echo "Retalk dev-${COMMIT_HASH} formating swagger..."
@@ -43,7 +43,7 @@ gen:
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} generating code..."
 	go run . gen
 
-dev-build: update-swagger build-apidoc
+dev-build: update-swagger fmt build-apidoc
 	@echo "Retalk dev-${COMMIT_HASH} dev building..."
 	go build -o ${BIN} ${COMMON_LDFLAGS}
 
@@ -51,8 +51,7 @@ dev-run: dev-build
 	@echo "Retalk dev-${COMMIT_HASH} dev running..."
 	@${BIN} start
 
-
-build: gen update-swagger build-apidoc build-frontend
+build: gen update-swagger fmt build-apidoc build-frontend
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} production building..."
 	go build -o ${BIN} ${COMMON_LDFLAGS}
 	
