@@ -26,7 +26,7 @@ definitions:
   entity.CookedComment:
     properties:
       author:
-        $ref: '#/definitions/entity.Author'
+        $ref: "#/definitions/entity.Author"
       body:
         type: string
       created_at:
@@ -59,59 +59,59 @@ paths:
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/common.Resp'
-            - properties:
-                msg:
-                  type: string
-              type: object
+              - $ref: "#/definitions/common.Resp"
+              - properties:
+                  msg:
+                    type: string
+                type: object
       summary: 首页
       tags:
-      - 首页
+        - 首页
   /api/comment/add:
     post:
       description: 新增评论
       parameters:
-      - description: 评论路径
-        in: formData
-        name: path
-        required: true
-        type: string
-      - description: 发送者昵称
-        in: formData
-        name: name
-        required: true
-        type: string
-      - description: 发送者邮箱
-        in: formData
-        name: email
-        required: true
-        type: string
-      - description: 发送者网站
-        in: formData
-        name: link
-        required: true
-        type: string
-      - description: 正文
-        in: formData
-        name: string
-        required: true
-        type: string
+        - description: 评论路径
+          in: formData
+          name: path
+          required: true
+          type: string
+        - description: 发送者昵称
+          in: formData
+          name: name
+          required: true
+          type: string
+        - description: 发送者邮箱
+          in: formData
+          name: email
+          required: true
+          type: string
+        - description: 发送者网站
+          in: formData
+          name: link
+          required: true
+          type: string
+        - description: 正文
+          in: formData
+          name: string
+          required: true
+          type: string
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/common.Resp'
+            $ref: "#/definitions/common.Resp"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/common.Resp'
+            $ref: "#/definitions/common.Resp"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/common.Resp'
+            $ref: "#/definitions/common.Resp"
       summary: 新增评论
       tags:
-      - 评论
+        - 评论
   /api/comment/getAll:
     get:
       description: 获取所有评论
@@ -120,20 +120,20 @@ paths:
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/common.Resp'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/entity.CookedComment'
-                  type: array
-              type: object
+              - $ref: "#/definitions/common.Resp"
+              - properties:
+                  data:
+                    items:
+                      $ref: "#/definitions/entity.CookedComment"
+                    type: array
+                type: object
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/common.Resp'
+            $ref: "#/definitions/common.Resp"
       summary: 获取所有评论
       tags:
-      - 评论
+        - 评论
   /api/comment/getByPath:
     get:
       description: 根据路径获取评论
@@ -142,68 +142,68 @@ paths:
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/common.Resp'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/entity.CookedComment'
-                  type: array
-              type: object
+              - $ref: "#/definitions/common.Resp"
+              - properties:
+                  data:
+                    items:
+                      $ref: "#/definitions/entity.CookedComment"
+                    type: array
+                type: object
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/common.Resp'
+            $ref: "#/definitions/common.Resp"
       summary: 根据路径获取评论
       tags:
-      - 评论
+        - 评论
   /api/init:
     post:
       description: 初始化服务端, 创建ApiKey
       parameters:
-      - description: ApiKey
-        in: formData
-        name: apikey
-        required: true
-        type: string
-      - description: 管理员昵称
-        in: formData
-        name: name
-        required: true
-        type: string
-      - description: 管理员邮箱
-        in: formData
-        name: email
-        required: true
-        type: string
-      - description: 管理员网站
-        in: formData
-        name: link
-        required: true
-        type: string
+        - description: ApiKey
+          in: formData
+          name: apikey
+          required: true
+          type: string
+        - description: 管理员昵称
+          in: formData
+          name: name
+          required: true
+          type: string
+        - description: 管理员邮箱
+          in: formData
+          name: email
+          required: true
+          type: string
+        - description: 管理员网站
+          in: formData
+          name: link
+          required: true
+          type: string
       responses:
         "200":
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/common.Resp'
-            - properties:
-                data:
-                  $ref: '#/definitions/handler.RespInit'
-              type: object
+              - $ref: "#/definitions/common.Resp"
+              - properties:
+                  data:
+                    $ref: "#/definitions/handler.RespInit"
+                type: object
         "403":
           description: Forbidden
           schema:
             allOf:
-            - $ref: '#/definitions/common.Resp'
-            - properties:
-                data:
-                  $ref: '#/definitions/handler.RespInit'
-              type: object
+              - $ref: "#/definitions/common.Resp"
+              - properties:
+                  data:
+                    $ref: "#/definitions/handler.RespInit"
+                type: object
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/common.Resp'
+            $ref: "#/definitions/common.Resp"
       summary: 初始化服务端
       tags:
-      - 服务端
+        - 服务端
 swagger: "2.0"

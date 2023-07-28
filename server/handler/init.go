@@ -15,17 +15,17 @@ type RespInit struct {
 	IsInit bool
 }
 
-//	@Summary		初始化服务端
-//	@Description	初始化服务端, 创建ApiKey
-//	@Tags			服务端
-//	@Param			apikey	formData	string	true	"ApiKey"
-//	@Param			name	formData	string	true	"管理员昵称"
-//	@Param			email	formData	string	true	"管理员邮箱"
-//	@Param			link	formData	string	true	"管理员网站"
-//	@Success		200		{object}	common.Resp{data=RespInit}
-//	@Success		403		{object}	common.Resp{data=RespInit}
-//	@Failure		500		{object}	common.Resp
-//	@Router			/api/init [post]
+// @Summary		初始化服务端
+// @Description	初始化服务端, 创建ApiKey
+// @Tags			服务端
+// @Param			apikey	formData	string	true	"ApiKey"
+// @Param			name	formData	string	true	"管理员昵称"
+// @Param			email	formData	string	true	"管理员邮箱"
+// @Param			link	formData	string	true	"管理员网站"
+// @Success		200		{object}	common.Resp{data=RespInit}
+// @Success		403		{object}	common.Resp{data=RespInit}
+// @Failure		500		{object}	common.Resp
+// @Router			/api/init [post]
 func Init(router fiber.Router) {
 	router.Post("/init", func(c *fiber.Ctx) error {
 		AllServers, err := query.Server.Find()
