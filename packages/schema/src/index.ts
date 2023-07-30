@@ -15,7 +15,7 @@ export interface Comment {
 	path: string;
 }
 
-export interface Result<T = any> {
+export interface ApiResult<T = any> {
 	data: T;
 	msg: string;
 	success: boolean;
