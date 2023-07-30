@@ -1,4 +1,6 @@
-export type ElementOrSelector = string | Element;
+import type { MountableElement } from "solid-js/web";
+
+export type ElementOrSelector = string | MountableElement;
 
 export interface Options {
 	el: ElementOrSelector;

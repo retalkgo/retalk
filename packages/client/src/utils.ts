@@ -1,7 +1,11 @@
+import type { MountableElement } from "solid-js/web";
+
 import { version } from "../package.json";
 import type { ElementOrSelector, Options } from "./types";
 
-export const resolveElement = (el: ElementOrSelector): Element | null =>
+export const resolveElement = (
+	el: ElementOrSelector,
+): MountableElement | null =>
 	typeof el === "string" ? document.querySelector(el) : el;
 
 export function logRetalkInfo() {
