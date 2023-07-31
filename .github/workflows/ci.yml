@@ -64,7 +64,7 @@ jobs:
         run: nci
 
       - name: Stub
-        run: nr Stub
+        run: nr stub
 
       - name: Typecheck
         run: nr typecheck
