@@ -28,7 +28,7 @@ export const Retalk = () => (
 				id: 1,
 				link: "",
 			}}
-			createdAt={Date.now().toString()}
+			createdAt="2023年6月9日 17:41"
 			id={1}
 			path="/"
 		/>

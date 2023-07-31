@@ -26,6 +26,7 @@ export default defineConfig<Theme>({
 		colors: {
 			normal: "#86868B",
 			primary: "#006BB8",
+			second: "#11293A",
 		},
 		boxShadow: {
 			active: "0px 1px 8px rgba(0, 107, 184, 0.8);",
