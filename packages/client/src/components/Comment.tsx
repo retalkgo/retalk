@@ -19,7 +19,7 @@ export function Comment(props: CommentProps) {
 				class=":uno: h-10 max-w-full w-10 rounded-3 shadow-avatar"
 				src={avatar()}
 			/>
-			<div class=":uno: w-full rounded-3 px-8 pb-3 pt-4 text-13px text-sm font-600 shadow-comment">
+			<div class=":uno: w-full flex-1 rounded-3 px-8 pb-3 pt-4 text-13px text-sm font-600 shadow-comment">
 				<div class=":uno: flex items-center gap-1">
 					<div class=":uno: text-primary">{props.author.name}</div>
 					<Show when={props.author.isAdmin}>
