@@ -28,7 +28,7 @@ export function Comment(props: CommentProps) {
 						</div>
 					</Show>
 				</div>
-				<span class=":uno: text-second/56 text-xs font-light">
+				<span class=":uno: text-xs font-light text-second/56">
 					{props.createdAt}
 				</span>
 				<div class=":uno:">{props.body}</div>
