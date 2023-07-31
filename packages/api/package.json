@@ -35,5 +35,8 @@
 	"scripts": {
 		"build": "pkgroll",
 		"stub": "unbuild --stub"
+	},
+	"dependencies": {
+		"ofetch": "^1.1.1"
 	}
 }
