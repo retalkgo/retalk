@@ -63,6 +63,9 @@ jobs:
       - name: Install
         run: nci
 
+      - name: Stub
+        run: nr Stub
+
       - name: Typecheck
         run: nr typecheck
 
