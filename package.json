@@ -6,7 +6,9 @@
 		"dev": "npm -C ./packages/client run dev",
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
-		"typecheck": "tsc --noEmit"
+		"stub": "turbo stub",
+		"test": "vitest",
+		"typecheck": "vitest typecheck"
 	},
 	"devDependencies": {
 		"@so1ve/eslint-config-solid": "^0.115.5",
@@ -20,6 +22,7 @@
 		"turbo": "^1.10.9",
 		"typescript": "^5.1.6",
 		"unbuild": "^1.2.1",
-		"vite": "^4.4.6"
+		"vite": "^4.4.6",
+		"vitest": "^0.33.0"
 	}
 }

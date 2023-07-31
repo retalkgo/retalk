@@ -10,7 +10,7 @@ export interface Author {
 export interface Comment {
 	author: Author;
 	body: string;
-	created_at: String;
+	created_at: string;
 	id: number;
 	path: string;
 }

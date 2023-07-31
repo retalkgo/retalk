@@ -30,7 +30,7 @@ export default defineConfig<Theme>({
 		boxShadow: {
 			active: "0px 1px 8px rgba(0, 107, 184, 0.8);",
 			avatar: "0px 2px 10px 0px rgba(179, 190, 198, 0.40);",
-			comment: "0px 2px 9px 0px rgba(179, 190, 198, 0.80);",
+			comment: "0px 2px 9px -2px rgba(179, 190, 198, 0.80);",
 		},
 		duration: {
 			animation: "400",

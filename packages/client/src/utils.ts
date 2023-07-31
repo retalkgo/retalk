@@ -26,3 +26,5 @@ export const resolveOptions = (options: Options): Required<Options> => ({
 	...options,
 	logRetalkInfo: options.logRetalkInfo ?? true,
 });
+
+export const formatDate = () => {};

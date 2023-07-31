@@ -7,6 +7,10 @@
 		"dev": {
 			"cache": false,
 			"persistent": true
+		},
+		"stub": {
+			"cache": false,
+			"persistent": true
 		}
 	}
 }

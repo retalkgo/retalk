@@ -17,7 +17,9 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
-			"@retalkgo/client": ["./packages/client/src"]
+			"@retalkgo/client": ["./packages/client/src"],
+			"@retalkgo/schema": ["./packages/client/schema"],
+			"@retalkgo/utils": ["./packages/client/utils"]
 		}
 	},
 	"include": ["**/*.ts", "**/*.tsx"]

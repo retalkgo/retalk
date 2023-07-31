@@ -19,11 +19,16 @@ export const Retalk = () => (
 			</Button>
 		</div>
 		<Comment
-			content="Hiiiiiiiiiiiiiiiii"
-			nickname="Redish101"
-			avatar=""
-			isAdmin
-			time=""
+			body="Hiiiiiiiiiiiiiiiii"
+			author={
+				{
+					name: "Redish101",
+					// TODO
+				} as any
+			}
+			createdAt={Date.now().toString()}
+			id={1}
+			path="/"
 		/>
 	</div>
 );
