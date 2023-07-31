@@ -20,12 +20,14 @@ export const Retalk = () => (
 		</div>
 		<Comment
 			body="Hiiiiiiiiiiiiiiiii"
-			author={
-				{
-					name: "Redish101",
-					// TODO
-				} as any
-			}
+			author={{
+				name: "Ray",
+				email: "d571021199a1b1d1962fd1f4a7879ffc",
+				isAdmin: true,
+				createdAt: "",
+				id: 1,
+				link: "",
+			}}
 			createdAt={Date.now().toString()}
 			id={1}
 			path="/"

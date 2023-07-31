@@ -1,7 +1,7 @@
 import type { MountableElement } from "solid-js/web";
 
 import { version } from "../package.json";
-import type { ElementOrSelector, Options } from "./types";
+import type { ElementOrSelector, Options, ResolvedOptions } from "./types";
 
 export const resolveElement = (
 	el: ElementOrSelector,
@@ -22,7 +22,10 @@ export const IS_CLIENT =
 	typeof window !== "undefined" &&
 	typeof navigator !== "undefined";
 
-export const resolveOptions = (options: Options): Required<Options> => ({
+const DEFAULT_GRAVATAR_PROXY = "//gravatar.com/avatar/";
+
+export const resolveOptions = (options: Options): ResolvedOptions => ({
 	...options,
 	logRetalkInfo: options.logRetalkInfo ?? true,
+	gravatarProxy: options.gravatarProxy ?? DEFAULT_GRAVATAR_PROXY,
 });

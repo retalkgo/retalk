@@ -6,4 +6,7 @@ export interface Options {
 	el: ElementOrSelector;
 	server: string;
 	logRetalkInfo?: boolean;
+	gravatarProxy?: string;
 }
+
+export type ResolvedOptions = Required<Options>;
