@@ -3,10 +3,10 @@ import type { $Fetch } from "ofetch";
 import type { Fetcher } from "../types";
 
 export class CommentsFetcher implements Fetcher {
-	constructor(private fetch: $Fetch) {}
+	private constructor(private $fetch: $Fetch) {}
 
-	create(fetch: $Fetch): Fetcher {
-		return new CommentsFetcher(fetch);
+	static create($fetch: $Fetch): CommentsFetcher {
+		return new CommentsFetcher($fetch);
 	}
 
 	getComments() {}

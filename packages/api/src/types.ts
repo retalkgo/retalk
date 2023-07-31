@@ -1,5 +1,5 @@
 import type { $Fetch } from "ofetch";
 
-export interface Fetcher {
-	create(fetch: $Fetch): Fetcher;
+export abstract class Fetcher {
+	static create: (fetch: $Fetch) => Fetcher;
 }
