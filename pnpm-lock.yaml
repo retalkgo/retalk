@@ -48,6 +48,8 @@ importers:
         specifier: ^0.33.0
         version: 0.33.0
 
+  packages/api: {}
+
   packages/client:
     dependencies:
       '@retalkgo/schema':

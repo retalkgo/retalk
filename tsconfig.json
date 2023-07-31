@@ -19,7 +19,8 @@
 		"paths": {
 			"@retalkgo/client": ["./packages/client/src"],
 			"@retalkgo/schema": ["./packages/client/schema"],
-			"@retalkgo/utils": ["./packages/client/utils"]
+			"@retalkgo/utils": ["./packages/client/utils"],
+			"@retalkgo/api": ["./packages/client/api"]
 		}
 	},
 	"include": ["**/*.ts", "**/*.tsx"]
