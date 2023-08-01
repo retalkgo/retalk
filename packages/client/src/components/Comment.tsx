@@ -33,7 +33,15 @@ export function Comment(props: CommentProps) {
 				</span>
 				<div class=":uno:">{props.body}</div>
 				<div class=":uno: mt-1 flex justify-end">
-					<span class=":uno: text-primary">回复</span>
+					<span
+						class=":uno: cursor-pointer text-primary"
+						onClick={() => {
+							// eslint-disable-next-line no-alert
+							alert("Reply");
+						}}
+					>
+						回复
+					</span>
 				</div>
 			</div>
 		</div>
