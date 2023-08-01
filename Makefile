@@ -17,7 +17,7 @@ install:
 
 fmt:
 	@echo "Retalk dev-${COMMIT_HASH} formating..."
-	@gofumpt -l -w -extra .
+	gofumpt -l -w -extra .
 
 fmt-swagger:
 	@echo "Retalk dev-${COMMIT_HASH} formating swagger..."
