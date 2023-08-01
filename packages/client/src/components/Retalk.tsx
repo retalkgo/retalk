@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import { Textarea } from "./Textarea";
 
 export const Retalk = () => (
-	<div class="uno: w-125 flex flex-col gap-4.5">
+	<div class="uno: flex flex-col gap-4.5">
 		<div class=":uno: flex gap-3">
 			<Input placeholder="昵称" />
 			<Input placeholder="邮箱" />
