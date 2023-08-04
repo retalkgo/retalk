@@ -23,3 +23,5 @@ dist*
 bin
 
 apidoc
+
+pnpm-lock.yaml
