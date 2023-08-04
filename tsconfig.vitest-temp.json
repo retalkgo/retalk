@@ -1,43 +1,28 @@
 {
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "skipLibCheck": true,
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@retalkgo/client": [
-        "./packages/client/src"
-      ],
-      "@retalkgo/schema": [
-        "./packages/client/schema"
-      ],
-      "@retalkgo/utils": [
-        "./packages/client/utils"
-      ],
-      "@retalkgo/api": [
-        "./packages/client/api"
-      ]
-    },
-    "emitDeclarationOnly": false,
-    "incremental": true,
-    "tsBuildInfoFile": "E:/Node/retalk/node_modules/.pnpm/vitest@0.33.0/node_modules/vitest/dist/tsconfig.tmp.tsbuildinfo"
-  },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+	"compilerOptions": {
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js",
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"module": "ESNext",
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"skipLibCheck": true,
+		"moduleResolution": "Bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"strict": true,
+		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@retalkgo/client": ["./packages/client/src"],
+			"@retalkgo/schema": ["./packages/client/schema"],
+			"@retalkgo/utils": ["./packages/client/utils"],
+			"@retalkgo/api": ["./packages/client/api"]
+		},
+		"emitDeclarationOnly": false,
+		"incremental": true,
+		"tsBuildInfoFile": "E:/Node/retalk/node_modules/.pnpm/vitest@0.33.0/node_modules/vitest/dist/tsconfig.tmp.tsbuildinfo"
+	},
+	"include": ["**/*.ts", "**/*.tsx"]
 }
