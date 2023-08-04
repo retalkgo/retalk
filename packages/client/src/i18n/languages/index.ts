@@ -1,11 +1,11 @@
-import en from "./en.json";
-import fr from "./fr.json";
-import wenyan from "./wenyan.json";
-import zhCN from "./zh-CN.json";
+import en from "./en";
+import fr from "./fr";
+import zhCN from "./zh-CN";
+import zhWenyan from "./zh-wenyan";
 
 export const translations = {
 	"zh-CN": zhCN,
-	wenyan,
+	"zh-wenyan": zhWenyan,
 	en,
 	fr,
 };
