@@ -1,12 +1,11 @@
 import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 
+import useI18n from "../i18n";
 import { Button } from "./Button";
 import { Comment } from "./Comment";
 import { Input } from "./Input";
 import { Textarea } from "./Textarea";
-import useI18n from "../i18n";
-import { useOptions } from "./Options";
 
 export function Retalk() {
 	const [user, setUser] = createStore<{
@@ -19,8 +18,7 @@ export function Retalk() {
 		website: "",
 	});
 	const [content, setContent] = createSignal("");
-	const options = useOptions()
-	const i18n = useI18n(options)
+	const i18n = useI18n();
 
 	return (
 		<div class="uno: flex flex-col gap-4.5">

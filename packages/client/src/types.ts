@@ -1,5 +1,7 @@
 import type { MountableElement } from "solid-js/web";
 
+import type { Language } from "./i18n";
+
 export type ElementOrSelector = string | MountableElement;
 
 export interface Options {
@@ -7,7 +9,7 @@ export interface Options {
 	server: string;
 	logRetalkInfo?: boolean;
 	gravatarProxy?: string;
-	lang?: "zh-CN" | "wenyan" | "en" | "fr";
+	lang?: Language;
 }
 
 export type ResolvedOptions = Required<Options>;

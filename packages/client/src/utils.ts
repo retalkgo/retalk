@@ -28,4 +28,5 @@ export const resolveOptions = (options: Options): ResolvedOptions => ({
 	...options,
 	logRetalkInfo: options.logRetalkInfo ?? true,
 	gravatarProxy: options.gravatarProxy ?? DEFAULT_GRAVATAR_PROXY,
+	lang: options.lang ?? "zh-CN",
 });

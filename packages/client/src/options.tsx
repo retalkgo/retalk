@@ -1,7 +1,7 @@
 import type { ParentComponent } from "solid-js";
 import { createContext, useContext } from "solid-js";
 
-import type { ResolvedOptions } from "../types";
+import type { ResolvedOptions } from "./types";
 
 const OptionsContext = createContext<ResolvedOptions>();
 
