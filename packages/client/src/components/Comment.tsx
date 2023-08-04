@@ -2,7 +2,7 @@ import type { Comment as CommentType } from "@retalkgo/schema";
 import type { DeepToCamelCase } from "@retalkgo/utils";
 import { Show, createMemo } from "solid-js";
 
-import useI18n from "../i18n";
+import { useI18n } from "../i18n";
 import { useOptions } from "../options";
 
 export type CommentProps = DeepToCamelCase<CommentType>;

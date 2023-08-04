@@ -1,8 +1,7 @@
 import { useOptions } from "../options";
-import en from "./en.json";
-import fr from "./fr.json";
-import wenyan from "./wenyan.json";
-import zhCN from "./zh-CN.json";
+import { translations } from "./languages";
+
+export type { Language } from "./languages";
 
 interface Translations {
 	name: string;
@@ -14,17 +13,8 @@ interface Translations {
 	reply: string;
 }
 
-const translations = {
-	"zh-CN": zhCN,
-	wenyan,
-	en,
-	fr,
-};
-
-export type Language = keyof typeof translations;
-
-export default (): Translations => {
+export function useI18n(): Translations {
 	const lang = useOptions().lang;
 
 	return lang in translations ? translations[lang] : translations["zh-CN"];
-};
+}

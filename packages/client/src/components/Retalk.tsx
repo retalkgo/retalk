@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 
-import useI18n from "../i18n";
+import { useI18n } from "../i18n";
 import { Button } from "./Button";
 import { Comment } from "./Comment";
 import { Input } from "./Input";
