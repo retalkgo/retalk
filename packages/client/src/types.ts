@@ -7,6 +7,7 @@ export interface Options {
 	server: string;
 	logRetalkInfo?: boolean;
 	gravatarProxy?: string;
+	lang?: "zh-CN" | "wenyan" | "en" | "fr";
 }
 
 export type ResolvedOptions = Required<Options>;

@@ -3,11 +3,15 @@ import type { DeepToCamelCase } from "@retalkgo/utils";
 import { Show, createMemo } from "solid-js";
 
 import { useOptions } from "./Options";
+import useI18n from "../i18n";
 
 export type CommentProps = DeepToCamelCase<CommentType>;
 
 export function Comment(props: CommentProps) {
 	const options = useOptions();
+	const i18n = useI18n(options)!;
+	
+	console.log(i18n)
 
 	const avatar = createMemo(
 		() => `${options.gravatarProxy}${props.author.email}`,
@@ -21,10 +25,10 @@ export function Comment(props: CommentProps) {
 			/>
 			<div class=":uno: w-full flex-1 rounded-3 px-8 pb-3 pt-4 text-13px text-sm shadow-comment">
 				<div class=":uno: flex items-center gap-1 font-600">
-					<div class=":uno: text-primary">{props.author.name}</div>
+					<div class=":uno: text-primary text-lg">{props.author.name}</div>
 					<Show when={props.author.isAdmin}>
-						<div class=":uno: scale-80 rounded bg-primary/18 p-1.5 text-xs">
-							<span class=":uno: text-primary">管理员</span>
+						<div class=":uno: scale-80 rounded bg-primary/18 p-1 text-sm">
+							<span class=":uno: text-primary">{i18n.admin}</span>
 						</div>
 					</Show>
 				</div>
@@ -40,7 +44,7 @@ export function Comment(props: CommentProps) {
 							alert("Reply");
 						}}
 					>
-						回复
+						{i18n.reply}
 					</span>
 				</div>
 			</div>

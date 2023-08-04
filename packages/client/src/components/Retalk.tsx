@@ -5,6 +5,8 @@ import { Button } from "./Button";
 import { Comment } from "./Comment";
 import { Input } from "./Input";
 import { Textarea } from "./Textarea";
+import useI18n from "../i18n";
+import { useOptions } from "./Options";
 
 export function Retalk() {
 	const [user, setUser] = createStore<{
@@ -17,36 +19,38 @@ export function Retalk() {
 		website: "",
 	});
 	const [content, setContent] = createSignal("");
+	const options = useOptions()
+	const i18n = useI18n(options)
 
 	return (
 		<div class="uno: flex flex-col gap-4.5">
 			<div class=":uno: flex gap-3">
 				<Input
-					placeholder="昵称"
+					placeholder={i18n.name}
 					value={user.name}
 					onInput={(s) => setUser("name", s)}
 				/>
 				<Input
-					placeholder="邮箱"
+					placeholder={i18n.email}
 					value={user.email}
 					onInput={(s) => setUser("email", s)}
 				/>
 				<Input
-					placeholder="网站"
+					placeholder={i18n.link}
 					value={user.website}
 					onInput={(s) => setUser("website", s)}
 				/>
 			</div>
 			<div class=":uno: flex">
 				<Textarea
-					placeholder="说点什么？"
+					placeholder={i18n.welcome}
 					value={content()}
 					onInput={setContent}
 				/>
 			</div>
 			<div class=":uno: flex justify-end">
 				<Button>
-					<span>按钮</span>
+					<span>{i18n.send}</span>
 				</Button>
 			</div>
 			<Comment

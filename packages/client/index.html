@@ -7,12 +7,44 @@
 		<title>Retalk Demo</title>
 	</head>
 	<body>
-		<div id="retalk" class="w-125"></div>
+		<h1>简体中文</h1>
+		<div id="retalk_zh-CN" class="w-125"></div>
 		<script type="module">
 			import Retalk from "./src/index.ts";
 			new Retalk({
-				el: "#retalk",
+				el: "#retalk_zh-CN",
 				server: "http://127.0.0.1:3000",
+				lang: "zh-CN"
+			});
+		</script>
+		<h1>文言文</h1>
+		<div id="retalk_wenyan" class="w-125"></div>
+		<script type="module">
+			import Retalk from "./src/index.ts";
+			new Retalk({
+				el: "#retalk_wenyan",
+				server: "http://127.0.0.1:3000",
+				lang: "wenyan"
+			});
+		</script>
+		<h1>English</h1>
+		<div id="retalk_en" class="w-125"></div>
+		<script type="module">
+			import Retalk from "./src/index.ts";
+			new Retalk({
+				el: "#retalk_en",
+				server: "http://127.0.0.1:3000",
+				lang: "en"
+			});
+		</script>
+		<h1>Français</h1>
+		<div id="retalk_fr" class="w-125"></div>
+		<script type="module">
+			import Retalk from "./src/index.ts";
+			new Retalk({
+				el: "#retalk_fr",
+				server: "http://127.0.0.1:3000",
+				lang: "fr"
 			});
 		</script>
 	</body>
