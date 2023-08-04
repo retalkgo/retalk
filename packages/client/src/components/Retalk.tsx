@@ -65,6 +65,20 @@ export function Retalk() {
 				id={1}
 				path="/"
 			/>
+			<Comment
+				body="Hiiiiiiiiiiiiiiiii"
+				author={{
+					name: "Ray",
+					email: "d571021199a1b1d1962fd1f4a7879ffc",
+					isAdmin: true,
+					createdAt: "",
+					id: 1,
+					link: "https://mk1.io",
+				}}
+				createdAt="2023年6月9日 17:41"
+				id={1}
+				path="/"
+			/>
 		</div>
 	);
 }
