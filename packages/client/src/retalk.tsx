@@ -6,8 +6,8 @@ import type { Options } from "./types";
 import { logRetalkInfo, resolveElement, resolveOptions } from "./utils";
 
 export default class Retalk {
-#destroy: ()=>void
-	
+	#destroy: () => void;
+
 	constructor(_options: Options) {
 		const resolvedOptions = resolveOptions(_options);
 		const { el, ...options } = resolvedOptions;
@@ -15,7 +15,7 @@ export default class Retalk {
 		if (!resolvedEl) {
 			throw new Error(`Retalk: Element ${el as string} not found`);
 		}
-	this.#destroy=	render(
+		this.#destroy = render(
 			() => (
 				<OptionsProvider options={resolvedOptions}>
 					<RetalkComponent />
@@ -26,7 +26,7 @@ export default class Retalk {
 		options.logRetalkInfo && logRetalkInfo();
 	}
 
-	destroy(){
-		this.#destroy()
+	destroy() {
+		this.#destroy();
 	}
 }
