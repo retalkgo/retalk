@@ -9,7 +9,9 @@ export interface OptionsProviderProps {
 	options: ResolvedOptions;
 }
 
-export const OptionsProvider: ParentComponent<OptionsProviderProps> = (props) => (
+export const OptionsProvider: ParentComponent<OptionsProviderProps> = (
+	props,
+) => (
 	// eslint-disable-next-line solid/reactivity
 	<OptionsContext.Provider value={props.options}>
 		{props.children}
