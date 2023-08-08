@@ -6,9 +6,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+apidoc
 
 node_modules
 dist*
+bin
 *.local
 
 .DS_Store
@@ -19,9 +21,4 @@ dist*
 *.sw?
 
 .turbo
-
-bin
-
-apidoc
-
-pnpm-lock.yaml
+tsconfig.vitest-temp.json

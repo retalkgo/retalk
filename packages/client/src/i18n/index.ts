@@ -1,38 +1,11 @@
-import zhCN from './zh-CN.json'
-import wenyan from './wenyan.json'
-import en from './en.json'
-import fr from './fr.json'
+import { useOptions } from "../options";
+import { translations } from "./languages";
+import type { Translations } from "./types";
 
-import { Options } from '../types.ts'
+export type { Language } from "./languages";
 
-interface Translations {
-    name: string;
-    email: string;
-    link: string;
-    send: string;
-    welcome: string;
-    admin: string;
-    reply: string;
-}
-  
+export function useI18n(): Translations {
+	const lang = useOptions().lang;
 
-export default function useI18n(options: Options) {
-    if (options.lang == "zh-CN") {
-        const translations: Translations = zhCN;
-        return translations;
-    }
-    if (options.lang == "wenyan") {
-        const translations: Translations = wenyan;
-        return translations;
-    }
-    if (options.lang == "en") {
-        const translations: Translations = en;
-        return translations;
-    }
-    if (options.lang == "fr") {
-        const translations: Translations = fr;
-        return translations;
-    }
-    const translations: Translations = zhCN;
-    return translations;
+	return lang in translations ? translations[lang] : translations["zh-CN"];
 }

@@ -1,11 +1,13 @@
 import { render } from "solid-js/web";
 
-import { OptionsProvider } from "./components/Options";
 import { Retalk as RetalkComponent } from "./components/Retalk";
+import { OptionsProvider } from "./options";
 import type { Options } from "./types";
 import { logRetalkInfo, resolveElement, resolveOptions } from "./utils";
 
 export default class Retalk {
+	#destroy: () => void;
+
 	constructor(_options: Options) {
 		const resolvedOptions = resolveOptions(_options);
 		const { el, ...options } = resolvedOptions;
@@ -13,7 +15,7 @@ export default class Retalk {
 		if (!resolvedEl) {
 			throw new Error(`Retalk: Element ${el as string} not found`);
 		}
-		render(
+		this.#destroy = render(
 			() => (
 				<OptionsProvider options={resolvedOptions}>
 					<RetalkComponent />
@@ -22,5 +24,9 @@ export default class Retalk {
 			resolvedEl,
 		);
 		options.logRetalkInfo && logRetalkInfo();
+	}
+
+	destroy() {
+		this.#destroy();
 	}
 }
