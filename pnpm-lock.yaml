@@ -15,8 +15,8 @@ importers:
         specifier: ^0.115.5
         version: 0.115.5(prettier@3.0.0)
       '@types/node':
-        specifier: ^18.16.19
-        version: 18.16.19
+        specifier: ^20.4.9
+        version: 20.4.9
       execa:
         specifier: ^7.1.1
         version: 7.1.1
@@ -43,7 +43,7 @@ importers:
         version: 1.2.1
       vite:
         specifier: ^4.4.6
-        version: 4.4.6(@types/node@18.16.19)
+        version: 4.4.6(@types/node@20.4.9)
       vitest:
         specifier: ^0.33.0
         version: 0.33.0
@@ -80,7 +80,7 @@ importers:
         version: 0.53.6(postcss@8.4.27)(rollup@3.26.3)(vite@4.4.6)
       vite-plugin-dts:
         specifier: ^3.3.1
-        version: 3.3.1(@types/node@18.16.19)(rollup@3.26.3)(typescript@5.1.6)(vite@4.4.6)
+        version: 3.3.1(@types/node@20.4.9)(rollup@3.26.3)(typescript@5.1.6)(vite@4.4.6)
       vite-plugin-solid:
         specifier: ^2.7.0
         version: 2.7.0(solid-js@1.7.8)(vite@4.4.6)
@@ -1010,24 +1010,24 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@microsoft/api-extractor-model@7.27.5(@types/node@18.16.19):
+  /@microsoft/api-extractor-model@7.27.5(@types/node@20.4.9):
     resolution: {integrity: sha512-9/tBzYMJitR+o+zkPr1lQh2+e8ClcaTF6eZo7vZGDqRt2O5XmXWPbYJZmxyM3wb5at6lfJNEeGZrQXLjsQ0Nbw==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.59.6(@types/node@18.16.19)
+      '@rushstack/node-core-library': 3.59.6(@types/node@20.4.9)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor@7.36.3(@types/node@18.16.19):
+  /@microsoft/api-extractor@7.36.3(@types/node@20.4.9):
     resolution: {integrity: sha512-u0H6362AQq+r55X8drHx4npgkrCfJnMzRRHfQo8PMNKB8TcBnrTLfXhXWi+xnTM6CzlU/netEN8c4bq581Rnrg==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.27.5(@types/node@18.16.19)
+      '@microsoft/api-extractor-model': 7.27.5(@types/node@20.4.9)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.59.6(@types/node@18.16.19)
+      '@rushstack/node-core-library': 3.59.6(@types/node@20.4.9)
       '@rushstack/rig-package': 0.4.0
       '@rushstack/ts-command-line': 4.15.1
       colors: 1.2.5
@@ -1059,7 +1059,7 @@ packages:
       vite: ^3 || ^4
     dependencies:
       purgecss: 5.0.0
-      vite: 4.4.6(@types/node@18.16.19)
+      vite: 4.4.6(@types/node@20.4.9)
     dev: true
 
   /@nodelib/fs.scandir@2.1.5:
@@ -1305,7 +1305,7 @@ packages:
       rollup: 3.26.3
     dev: true
 
-  /@rushstack/node-core-library@3.59.6(@types/node@18.16.19):
+  /@rushstack/node-core-library@3.59.6(@types/node@20.4.9):
     resolution: {integrity: sha512-bMYJwNFfWXRNUuHnsE9wMlW/mOB4jIwSUkRKtu02CwZhQdmzMsUbxE0s1xOLwTpNIwlzfW/YT7OnOHgDffLgYg==}
     peerDependencies:
       '@types/node': '*'
@@ -1313,7 +1313,7 @@ packages:
       '@types/node':
         optional: true
     dependencies:
-      '@types/node': 18.16.19
+      '@types/node': 20.4.9
       colors: 1.2.5
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -1538,6 +1538,10 @@ packages:
 
   /@types/node@18.16.19:
     resolution: {integrity: sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==}
+    dev: true
+
+  /@types/node@20.4.9:
+    resolution: {integrity: sha512-8e2HYcg7ohnTUbHk8focoklEQYvemQmu9M/f43DZVx43kHn0tE3BY/6gSDxS7k0SprtS0NHvj+L80cGLnoOUcQ==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -1815,7 +1819,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: registry.npmmirror.com/fast-glob@3.3.1
       magic-string: registry.npmmirror.com/magic-string@0.30.1
-      vite: 4.4.6(@types/node@18.16.19)
+      vite: 4.4.6(@types/node@20.4.9)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -2834,7 +2838,7 @@ packages:
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 6.3.1
       tsconfig-paths: 3.14.2
     transitivePeerDependencies:
@@ -5413,7 +5417,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@3.3.1(@types/node@18.16.19)(rollup@3.26.3)(typescript@5.1.6)(vite@4.4.6):
+  /vite-plugin-dts@3.3.1(@types/node@20.4.9)(rollup@3.26.3)(typescript@5.1.6)(vite@4.4.6):
     resolution: {integrity: sha512-RFebFGg6GWKkZqRQ5n6ls8giSiygKMBriJTFp8N+CRbYgI4lMXBxXEx0z2bthfeQv/xB53Wmhn/LNOOqb9OQHQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -5423,13 +5427,13 @@ packages:
       vite:
         optional: true
     dependencies:
-      '@microsoft/api-extractor': 7.36.3(@types/node@18.16.19)
+      '@microsoft/api-extractor': 7.36.3(@types/node@20.4.9)
       '@rollup/pluginutils': 5.0.2(rollup@3.26.3)
       '@vue/language-core': 1.8.6(typescript@5.1.6)
       debug: 4.3.4
       kolorist: 1.8.0
       typescript: 5.1.6
-      vite: 4.4.6(@types/node@18.16.19)
+      vite: 4.4.6(@types/node@20.4.9)
       vue-tsc: 1.8.6(typescript@5.1.6)
     transitivePeerDependencies:
       - '@types/node'
@@ -5450,7 +5454,7 @@ packages:
       merge-anything: 5.1.7
       solid-js: 1.7.8
       solid-refresh: 0.5.3(solid-js@1.7.8)
-      vite: 4.4.6(@types/node@18.16.19)
+      vite: 4.4.6(@types/node@20.4.9)
       vitefu: 0.2.4(vite@4.4.6)
     transitivePeerDependencies:
       - supports-color
@@ -5492,6 +5496,42 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /vite@4.4.6(@types/node@20.4.9):
+    resolution: {integrity: sha512-EY6Mm8vJ++S3D4tNAckaZfw3JwG3wa794Vt70M6cNJ6NxT87yhq7EC8Rcap3ahyHdo8AhCmV9PTk+vG1HiYn1A==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 20.4.9
+      esbuild: 0.18.15
+      postcss: 8.4.27
+      rollup: 3.26.3
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /vitefu@0.2.4(vite@4.4.6):
     resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
     peerDependencies:
@@ -5500,7 +5540,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.6(@types/node@18.16.19)
+      vite: 4.4.6(@types/node@20.4.9)
     dev: true
 
   /vitest@0.33.0:
@@ -6951,7 +6991,7 @@ packages:
     version: 2.5.0
     dependencies:
       hosted-git-info: registry.npmmirror.com/hosted-git-info@2.8.9
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 5.7.2
       validate-npm-package-license: registry.npmmirror.com/validate-npm-package-license@3.0.4
     dev: true
