@@ -11,7 +11,7 @@ import (
 
 var dbInterface *gorm.DB
 
-func InitDB() {
+func InitDB() (*gorm.DB, error) {
 	db, err := gorm.Open(sqlite.Open("retalk.db"), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			SingularTable: true, // 使用单数表名
@@ -22,6 +22,10 @@ func InitDB() {
 	}
 	db.AutoMigrate(&entity.Server{}, &entity.Comment{}, &entity.Author{}, &entity.Reply{}) // 同步数据库
 	dbInterface = db
+	if err != nil {
+		return nil, err
+	}
+	return db, nil
 }
 
 func DB() *gorm.DB {

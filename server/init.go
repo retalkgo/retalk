@@ -1,6 +1,8 @@
 package server
 
 import (
+	"github.com/retalkgo/retalk/internal/db"
+	"github.com/retalkgo/retalk/internal/logger"
 	h "github.com/retalkgo/retalk/server/handler"
 	m "github.com/retalkgo/retalk/server/middleware"
 
@@ -35,4 +37,9 @@ func Init(app *fiber.App) {
 
 	// 404路由
 	h.NotFound(app)
+}
+
+func InitVercel(app *fiber.App) {
+	_, err := db.InitDB()
+	logger.Info(err)
 }
