@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/retalkgo/retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/i18n"
 	"github.com/retalkgo/retalk/internal/query"
 	"github.com/retalkgo/retalk/server/common"
 
@@ -41,7 +42,7 @@ func CommentAdd(router fiber.Router) {
 		}
 		if author.IsAdmin {
 			if !common.Auth(c) {
-				return common.RespError(c, "Token错误", nil, http.StatusForbidden)
+				return common.RespError(c, i18n.I18n("tokenError"), nil, http.StatusForbidden)
 			}
 		}
 		comment := query.Comment.Create(&entity.Comment{
@@ -49,6 +50,6 @@ func CommentAdd(router fiber.Router) {
 			AuthorID: author.ID,
 			Body:     body,
 		})
-		return common.RespSuccess(c, "成功发布评论", comment)
+		return common.RespSuccess(c, i18n.I18n("successPostComment"), comment)
 	})
 }

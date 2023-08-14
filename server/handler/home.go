@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"github.com/retalkgo/retalk/internal/i18n"
 	"github.com/retalkgo/retalk/server/common"
 
 	"github.com/gofiber/fiber/v2"
@@ -13,6 +14,6 @@ import (
 // @Router			/ [get]
 func Home(router fiber.Router) {
 	router.Get("/", func(c *fiber.Ctx) error {
-		return common.RespSuccess(c, "欢迎使用Retalk", nil)
+		return common.RespSuccess(c, i18n.I18n("welcome"), nil)
 	})
 }

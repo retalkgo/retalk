@@ -2,6 +2,7 @@ package handler
 
 import (
 	"github.com/retalkgo/retalk/internal/comment"
+	"github.com/retalkgo/retalk/internal/i18n"
 	"github.com/retalkgo/retalk/internal/query"
 	"github.com/retalkgo/retalk/server/common"
 
@@ -22,6 +23,6 @@ func CommentGetByPath(router fiber.Router) {
 		if err != nil {
 			return common.RespServerError(c)
 		}
-		return common.RespSuccess(c, "成功获取评论", data)
+		return common.RespSuccess(c, i18n.I18n("successGetComments"), data)
 	})
 }

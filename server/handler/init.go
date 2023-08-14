@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/retalkgo/retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/i18n"
 	"github.com/retalkgo/retalk/internal/md5"
 	"github.com/retalkgo/retalk/internal/query"
 	"github.com/retalkgo/retalk/server/common"
@@ -33,11 +34,11 @@ func Init(router fiber.Router) {
 			return common.RespServerError(c)
 		}
 		if len(AllServers) != 0 {
-			return common.RespError(c, "此服务端已经被初始化", nil, http.StatusForbidden)
+			return common.RespError(c, i18n.I18n("serverInited"), nil, http.StatusForbidden)
 		}
 		apikey := c.FormValue("apikey")
 		if apikey == "" {
-			return common.RespError(c, "请填写ApiKey", nil, http.StatusBadRequest)
+			return common.RespError(c, i18n.I18n("needApiKey"), nil, http.StatusBadRequest)
 		}
 		apikey = md5.MD5(apikey)
 		server := &entity.Server{
@@ -58,7 +59,7 @@ func Init(router fiber.Router) {
 		if err != nil {
 			return common.RespServerError(c)
 		}
-		return common.RespSuccess(c, "成功初始化", &RespInit{
+		return common.RespSuccess(c, i18n.I18n("successInit"), &RespInit{
 			IsInit: true,
 		})
 	})

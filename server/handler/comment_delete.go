@@ -1,10 +1,12 @@
 package handler
 
 import (
+	"net/http"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/retalkgo/retalk/internal/entity"
+	"github.com/retalkgo/retalk/internal/i18n"
 	"github.com/retalkgo/retalk/internal/query"
 	"github.com/retalkgo/retalk/server/common"
 )
@@ -20,11 +22,11 @@ import (
 func CommentDelete(router fiber.Router) {
 	router.Delete("/delete", func(c *fiber.Ctx) error {
 		if !common.Auth(c) {
-			return common.RespError(c, "Token错误", nil, 403)
+			return common.RespError(c, i18n.I18n("tokenError"), nil, http.StatusForbidden)
 		}
 		raw_id := c.Query("id")
 		if raw_id == "" {
-			return common.RespError(c, "请传递评论ID", nil, 400)
+			return common.RespError(c, i18n.I18n("needCommentID"), nil, http.StatusBadRequest)
 		}
 		int_id, err := strconv.Atoi(raw_id)
 		if err != nil {
@@ -35,6 +37,6 @@ func CommentDelete(router fiber.Router) {
 		if err != nil {
 			return common.RespServerError(c)
 		}
-		return common.RespSuccess(c, "成功删除", nil)
+		return common.RespSuccess(c, i18n.I18n("successDelete"), nil)
 	})
 }
