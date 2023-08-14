@@ -3,15 +3,15 @@ module github.com/retalkgo/retalk
 go 1.21
 
 require (
-	github.com/go-playground/validator/v10 v10.14.1
+	github.com/go-playground/validator/v10 v10.15.0
 	github.com/gofiber/fiber/v2 v2.48.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.7.0
 	github.com/swaggo/swag v1.16.1
 	gorm.io/driver/sqlite v1.5.2
 	gorm.io/gen v0.3.23
-	gorm.io/gorm v1.25.2
-	gorm.io/plugin/dbresolver v1.4.1
+	gorm.io/gorm v1.25.3
+	gorm.io/plugin/dbresolver v1.4.4
 )
 
 require (
