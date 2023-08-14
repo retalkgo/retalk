@@ -1,9 +1,9 @@
-import type Retalk from "./retalk";
+import Retalk from "./retalk";
 
 export {};
 
 declare global {
 	interface Window {
-		Retalk: Retalk;
+		Retalk: typeof Retalk;
 	}
 }
