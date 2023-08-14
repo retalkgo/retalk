@@ -1,11 +1,11 @@
 import type { Translations } from "../types";
 
 export default {
-	name: "号",
+	name: "號",
 	email: "函箱",
-	link: "链接",
-	send: "发遣",
-	welcome: "述诸其言",
+	link: "連結",
+	send: "發遣",
+	welcome: "述諸其言",
 	admin: "有司",
-	reply: "覆书",
+	reply: "覆書",
 } satisfies Translations;

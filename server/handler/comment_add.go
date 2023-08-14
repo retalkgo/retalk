@@ -40,7 +40,7 @@ func CommentAdd(router fiber.Router) {
 			author, _ = query.Author.Where(query.Author.Name.Eq(name)).First()
 		}
 		if author.IsAdmin {
-			if common.Auth(c) == false {
+			if !common.Auth(c) {
 				return common.RespError(c, "Token错误", nil, http.StatusForbidden)
 			}
 		}

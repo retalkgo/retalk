@@ -17,8 +17,5 @@ func Auth(c *fiber.Ctx) bool {
 		return false
 	}
 	apikey := server.ApiKey
-	if md5.MD5(userToken) != apikey {
-		return false
-	}
-	return true
+	return md5.MD5(userToken) == apikey
 }

@@ -34,6 +34,7 @@ func Init(app *fiber.App) {
 	h.CommentGetAll(comment)
 	h.CommentGetByPath(comment)
 	h.CommentAdd(comment)
+	h.CommentDelete(comment)
 
 	// 404路由
 	h.NotFound(app)

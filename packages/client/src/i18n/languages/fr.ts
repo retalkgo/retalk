@@ -6,6 +6,6 @@ export default {
 	link: "lien",
 	send: "envoyer",
 	welcome: "Que voulez-vous dire ?",
-	admin: "administrateur",
+	admin: "Administrateur",
 	reply: "répondre",
 } satisfies Translations;

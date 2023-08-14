@@ -29,8 +29,11 @@ type RespInit struct {
 func Init(router fiber.Router) {
 	router.Post("/init", func(c *fiber.Ctx) error {
 		AllServers, err := query.Server.Find()
+		if err != nil {
+			return common.RespServerError(c)
+		}
 		if len(AllServers) != 0 {
-			return common.RespError(c, "已经被初始化", nil, http.StatusForbidden)
+			return common.RespError(c, "此服务端已经被初始化", nil, http.StatusForbidden)
 		}
 		apikey := c.FormValue("apikey")
 		if apikey == "" {

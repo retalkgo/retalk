@@ -116,6 +116,40 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/comment/delete": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据ID删除评论",
+                "tags": [
+                    "评论"
+                ],
+                "summary": "根据ID删除评论",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.Resp"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/common.Resp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/common.Resp"
+                        }
+                    }
+                }
+            }
+        },
         "/api/comment/getAll": {
             "get": {
                 "description": "获取所有评论",
@@ -339,6 +373,14 @@ const docTemplate = `{
                     "type": "boolean"
                 }
             }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "description": "\"将 \"Bearer TOKEN\" 设置为初始化时设置的 API 密钥\"",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
         }
     }
 }`
