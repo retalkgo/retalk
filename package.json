@@ -11,7 +11,7 @@
 		"typecheck": "vitest typecheck"
 	},
 	"devDependencies": {
-		"@so1ve/eslint-config-solid": "^0.115.5",
+		"@so1ve/eslint-config-solid": "^0.119.0",
 		"@so1ve/prettier-config": "^0.119.0",
 		"@types/node": "^20.4.9",
 		"execa": "^7.1.1",
