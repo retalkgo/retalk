@@ -1,4 +1,4 @@
-import Retalk from "./retalk";
+import type Retalk from "./retalk";
 
 export {};
 
