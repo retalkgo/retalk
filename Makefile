@@ -25,7 +25,11 @@ fmt-swagger:
 
 build-apidoc: fmt-swagger update-swagger
 	@echo "Retalk dev-${COMMIT_HASH} apidoc building..."
-	npx @redocly/cli build-docs docs/swagger.yaml -o apidoc/index.html
+	pnpm dlx @redocly/cli build-docs docs/swagger.yaml -o apidoc/index.html
+
+serve-apidoc: build-apidoc
+	@echo "Retalk dev-${COMMIT_HASH} apidoc serving..."
+	pnpm dlx serve apidoc
 
 build-frontend:
 	@echo "Retalk Frontend ${VERSION}-${COMMIT_HASH} production building..."
