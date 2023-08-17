@@ -6,7 +6,7 @@ on:
       - v*
 
 jobs:
-  release:
+  release-go:
     runs-on: ubuntu-latest
 
     steps:
@@ -40,5 +40,5 @@ jobs:
           -w /go/src/retalk \
           -e CGO_ENABLED=1 \
           --env-file .release-env \
-          ghcr.io/goreleaser/goreleaser-cross:v1.20.4 \
+          ghcr.io/goreleaser/goreleaser-cross:v1.21.0 \
           release
