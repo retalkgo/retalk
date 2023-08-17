@@ -158,6 +158,12 @@ paths:
   /api/comment/getByPath:
     get:
       description: 根据路径获取评论
+      parameters:
+      - description: 路径
+        in: query
+        name: path
+        required: true
+        type: string
       responses:
         "200":
           description: OK

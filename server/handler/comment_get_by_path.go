@@ -12,9 +12,9 @@ import (
 // @Summary		根据路径获取评论
 // @Description	根据路径获取评论
 // @Tags			评论
-// @Params			path query string true "路径"
-// @Success		200	{object}	common.Resp{data=[]entity.CookedComment}
-// @Failure		500	{object}	common.Resp
+// @Param			path	query		string	true	"路径"
+// @Success		200		{object}	common.Resp{data=[]entity.CookedComment}
+// @Failure		500		{object}	common.Resp
 // @Router			/api/comment/getByPath [get]
 func CommentGetByPath(router fiber.Router) {
 	router.Get("/getByPath", func(c *fiber.Ctx) error {

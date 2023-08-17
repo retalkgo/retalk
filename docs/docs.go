@@ -195,6 +195,15 @@ const docTemplate = `{
                     "评论"
                 ],
                 "summary": "根据路径获取评论",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "路径",
+                        "name": "path",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
