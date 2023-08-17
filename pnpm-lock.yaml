@@ -50,6 +50,9 @@ importers:
 
   packages/api:
     dependencies:
+      '@retalkgo/schema':
+        specifier: workspace:*
+        version: link:../schema
       ofetch:
         specifier: ^1.1.1
         version: 1.1.1
