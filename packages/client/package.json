@@ -57,7 +57,6 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@retalkgo/schema": "workspace:*",
 		"@retalkgo/utils": "workspace:*",
 		"solid-js": "^1.7.8"
 	},

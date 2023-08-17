@@ -1,5 +1,11 @@
-import type { $Fetch } from "ofetch";
+import type { RequiredDeep } from "type-fest";
 
-export abstract class Fetcher {
-	static create: (fetch: $Fetch) => Fetcher;
+import type { EntityAuthor, EntityCookedComment } from "./swagger";
+
+export interface ApiResult<T> {
+	data: T;
+	msg: string;
+	success: boolean;
 }
+export type Comment = RequiredDeep<EntityCookedComment>;
+export type Author = RequiredDeep<EntityAuthor>;

@@ -37,7 +37,7 @@
 		"stub": "unbuild --stub"
 	},
 	"dependencies": {
-		"@retalkgo/schema": "workspace:*",
-		"ofetch": "^1.1.1"
+		"@retalkgo/utils": "workspace:*",
+		"type-fest": "^4.2.0"
 	}
 }

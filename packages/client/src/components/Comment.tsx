@@ -1,4 +1,4 @@
-import type { Comment as CommentType } from "@retalkgo/schema";
+import type { Comment as CommentType } from "@retalkgo/api";
 import type { DeepToCamelCase } from "@retalkgo/utils";
 import { Match, Show, Switch, createMemo } from "solid-js";
 
@@ -12,6 +12,7 @@ export function Comment(props: CommentProps) {
 	const i18n = useI18n();
 
 	const avatar = createMemo(
+		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		() => `${options.gravatarProxy}${props.author.email}`,
 	);
 

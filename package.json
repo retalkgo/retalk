@@ -5,7 +5,7 @@
 		"build": "turbo build",
 		"build:apidoc": "redocly build-docs docs/swagger.yaml -o apidoc/index.html",
 		"dev": "npm -C ./packages/client run dev",
-		"generate:swagger-types": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts",
+		"generate:swagger-types": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts && nr lint:fix",
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"serve:apidoc": "serve apidoc",
@@ -14,6 +14,7 @@
 		"typecheck": "vitest typecheck"
 	},
 	"devDependencies": {
+		"@antfu/ni": "^0.21.5",
 		"@redocly/cli": "^1.0.2",
 		"@so1ve/eslint-config-solid": "^0.119.2",
 		"@so1ve/prettier-config": "^0.119.2",
