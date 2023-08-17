@@ -1,3 +1,4 @@
+import type { ApiResult } from "@retalkgo/schema";
 import type { $Fetch } from "ofetch";
 
 import type { Fetcher } from "../types";
@@ -13,5 +14,11 @@ export class CommentsFetcher implements Fetcher {
 		return new CommentsFetcher($fetch);
 	}
 
-	getComments() {}
+	createComment() {}
+
+	async getComments(path?: string) {
+		if (!path) {
+			return await this.#fetch<ApiResult<Comment[]>>("/api/comment/getAll");
+		}
+	}
 }
