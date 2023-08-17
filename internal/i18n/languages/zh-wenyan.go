@@ -1,17 +1,17 @@
 package languages
 
 var ZhWenyan Translation = Translation{
-	Welcome:               "迎使用Retalk",
-	ProcessingTime:        "理時間",
+	Welcome:               "迎用Retalk",
+	ProcessingTime:        "理時",
 	Microsecond:           "微秒",
-	TokenError:            "Token錯誤",
+	TokenError:            "鑰誤",
 	SuccessPostComment:    "成發表評論",
-	NeedCommentID:         "需評論ID",
-	SuccessDelete:         "成刪除",
-	SuccessGetAllComments: "成獲取所有評論",
-	SuccessGetComments:    "成獲取評論",
-	ServerInited:          "服務端已初",
-	NeedApiKey:            "需ApiKey",
-	SuccessInit:           "成初服務端",
-	NotFound:              "404 Not Found",
+	NeedCommentID:         "需評論之標",
+	SuccessDelete:         "成除",
+	SuccessGetAllComments: "成獲皆評論",
+	SuccessGetComments:    "成獲評論",
+	ServerInited:          "天地已辟",
+	NeedApiKey:            "需鑰",
+	SuccessInit:           "成开天辟地",
+	NotFound:              "此謬道也",
 }

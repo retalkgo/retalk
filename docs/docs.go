@@ -89,7 +89,7 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "description": "正文",
-                        "name": "string",
+                        "name": "body",
                         "in": "formData",
                         "required": true
                     }

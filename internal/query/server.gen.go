@@ -30,6 +30,7 @@ func newServer(db *gorm.DB, opts ...gen.DOOption) server {
 	_server.CreatedAt = field.NewTime(tableName, "created_at")
 	_server.IsInit = field.NewBool(tableName, "is_init")
 	_server.ApiKey = field.NewString(tableName, "api_key")
+	_server.Lang = field.NewString(tableName, "lang")
 
 	_server.fillFieldMap()
 
@@ -44,6 +45,7 @@ type server struct {
 	CreatedAt field.Time
 	IsInit    field.Bool
 	ApiKey    field.String
+	Lang      field.String
 
 	fieldMap map[string]field.Expr
 }
@@ -64,6 +66,7 @@ func (s *server) updateTableName(table string) *server {
 	s.CreatedAt = field.NewTime(table, "created_at")
 	s.IsInit = field.NewBool(table, "is_init")
 	s.ApiKey = field.NewString(table, "api_key")
+	s.Lang = field.NewString(table, "lang")
 
 	s.fillFieldMap()
 
@@ -80,11 +83,12 @@ func (s *server) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (s *server) fillFieldMap() {
-	s.fieldMap = make(map[string]field.Expr, 4)
+	s.fieldMap = make(map[string]field.Expr, 5)
 	s.fieldMap["id"] = s.ID
 	s.fieldMap["created_at"] = s.CreatedAt
 	s.fieldMap["is_init"] = s.IsInit
 	s.fieldMap["api_key"] = s.ApiKey
+	s.fieldMap["lang"] = s.Lang
 }
 
 func (s server) clone(db *gorm.DB) server {

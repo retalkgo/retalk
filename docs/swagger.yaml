@@ -93,7 +93,7 @@ paths:
         type: string
       - description: 正文
         in: formData
-        name: string
+        name: body
         required: true
         type: string
       responses:

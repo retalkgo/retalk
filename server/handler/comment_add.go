@@ -14,11 +14,11 @@ import (
 // @Summary		新增评论
 // @Description	新增评论
 // @Tags			评论
-// @Param			path	formData	string		true	"评论路径"
-// @Param			name	formData	string		true	"发送者昵称"
-// @Param			email	formData	string		true	"发送者邮箱"
-// @Param			link	formData	string		true	"发送者网站"
-// @Param			body	string		formData	string	true	"正文"
+// @Param			path	formData	string	true	"评论路径"
+// @Param			name	formData	string	true	"发送者昵称"
+// @Param			email	formData	string	true	"发送者邮箱"
+// @Param			link	formData	string	true	"发送者网站"
+// @Param			body	formData	string	true	"正文"
 // @Success		200		{object}	common.Resp{}
 // @Failure		400		{object}	common.Resp{}
 // @Failure		500		{object}	common.Resp{}

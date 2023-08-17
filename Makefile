@@ -49,7 +49,7 @@ dev-build: update-swagger fmt build-apidoc
 
 dev-run: dev-build
 	@echo "Retalk dev-${COMMIT_HASH} dev running..."
-	@${BIN} start
+	${BIN} start
 
 build: gen update-swagger fmt build-apidoc build-frontend
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} production building..."
