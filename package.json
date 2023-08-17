@@ -5,6 +5,7 @@
 		"build": "turbo build",
 		"build:apidoc": "redocly build-docs docs/swagger.yaml -o apidoc/index.html",
 		"dev": "npm -C ./packages/client run dev",
+		"generate:swagger-types": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts",
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"serve:apidoc": "serve apidoc",
