@@ -1,8 +1,8 @@
 import type { ApiConfig } from "./swagger";
 import { Api as BaseApi } from "./swagger";
 
-export class Api<SecurityDataType> extends BaseApi<SecurityDataType> {
-	constructor(apiConfig: ApiConfig<SecurityDataType> = {}) {
+export class Api<T> extends BaseApi<T> {
+	constructor(apiConfig: ApiConfig<T> = {}) {
 		super();
 		Object.assign(
 			this,
