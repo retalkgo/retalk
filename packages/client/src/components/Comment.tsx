@@ -12,7 +12,6 @@ export function Comment(props: CommentProps) {
 	const i18n = useI18n();
 
 	const avatar = createMemo(
-		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		() => `${options.gravatarProxy}${props.author.email}`,
 	);
 
