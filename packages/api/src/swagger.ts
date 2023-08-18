@@ -385,10 +385,19 @@ export class Api<
 		 * @request DELETE:/api/comment/delete
 		 * @secure
 		 */
-		commentDeleteDelete: (params: RequestParams = {}) =>
+		commentDeleteDelete: (
+			query: {
+				/**
+				 * 评论ID
+				 */
+				id: string;
+			},
+			params: RequestParams = {},
+		) =>
 			this.request<CommonResp, CommonResp>({
 				path: `/api/comment/delete`,
 				method: "DELETE",
+				query: query,
 				secure: true,
 				...params,
 			}),
