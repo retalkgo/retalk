@@ -29,7 +29,11 @@ export class Api {
 	}
 
 	// TODO
-	deleteComment() {}
+	deleteComment(
+		query: Parameters<typeof this.baseApi.api.commentDeleteDelete>[0],
+	) {
+		return this.baseApi.api.commentDeleteDelete(query);
+	}
 }
 
 export * from "./types";
