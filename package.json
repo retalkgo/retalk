@@ -3,8 +3,8 @@
 	"packageManager": "pnpm@8.6.12",
 	"scripts": {
 		"build": "nr build:packages && nr build:apidoc && nr generate:swagger",
-		"build:packages": "turbo build",
 		"build:apidoc": "redocly build-docs docs/swagger.yaml -o apidoc/index.html",
+		"build:packages": "turbo build",
 		"dev": "npm -C ./packages/client run dev",
 		"generate:swagger": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts && nr lint:fix",
 		"lint": "eslint . && prettier . --check",
