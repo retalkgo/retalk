@@ -46,6 +46,9 @@ jobs:
       - name: Gofumpt
         run: gofumpt -l -w -extra .
 
+      - name: Build
+        run: nr build
+
       - uses: autofix-ci/action@8caa572fd27b0019a65e4c695447089c8d3138b9
         with:
           commit-message: "chore: apply automatic fixes"
