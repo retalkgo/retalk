@@ -2,7 +2,7 @@
 	"private": true,
 	"packageManager": "pnpm@8.6.12",
 	"scripts": {
-		"build": "nr build:packages && nr build:apidoc && nr generate:swagger",
+		"build": "nr build:packages && && nr generate:swagger",
 		"build:apidoc": "redocly build-docs docs/swagger.yaml -o apidoc/index.html",
 		"build:packages": "turbo build",
 		"dev": "npm -C ./packages/client run dev",
