@@ -128,6 +128,15 @@ const docTemplate = `{
                     "评论"
                 ],
                 "summary": "根据ID删除评论",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "评论ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",

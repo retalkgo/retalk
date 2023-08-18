@@ -17,6 +17,7 @@ import (
 // @Success		200	{object}	common.Resp
 // @Failure		403	{object}	common.Resp
 // @Failure		500	{object}	common.Resp
+// @Param			id	query		string	true	"评论ID"
 // @Security		ApiKeyAuth
 // @Router			/api/comment/delete [delete]
 func CommentDelete(router fiber.Router) {

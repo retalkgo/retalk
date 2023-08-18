@@ -10,7 +10,17 @@ import (
 var configInterface *ConfigSchema
 
 type ConfigSchema struct {
-	Lang string `yaml:"lang"`
+	Lang  string            `yaml:"lang"`
+	Email EmailConfigSchema `yaml:"email"`
+}
+
+type EmailConfigSchema struct {
+	Enable   bool   `yaml:"enable"`
+	Host     string `yaml:"host"`
+	Port     int    `yaml:"port"`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
+	From     string `yaml:"from"`
 }
 
 func InitConfig() {

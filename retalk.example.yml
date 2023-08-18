@@ -1,4 +1,7 @@
+lang: zh-CN
+
 email:
+  enable: true
   host: smtp.example.com
   port: 587
   username: username

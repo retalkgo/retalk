@@ -115,6 +115,12 @@ paths:
   /api/comment/delete:
     delete:
       description: 根据ID删除评论
+      parameters:
+      - description: 评论ID
+        in: query
+        name: id
+        required: true
+        type: string
       responses:
         "200":
           description: OK
