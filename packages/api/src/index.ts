@@ -28,7 +28,6 @@ export class Api {
 		return this.baseApi.api.commentAddCreate(data);
 	}
 
-	// TODO
 	deleteComment(
 		query: Parameters<typeof this.baseApi.api.commentDeleteDelete>[0],
 	) {
