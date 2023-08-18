@@ -31,4 +31,5 @@ export class Api {
 	// TODO
 	deleteComment() {}
 }
+
 export * from "./types";
