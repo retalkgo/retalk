@@ -10,8 +10,8 @@ require (
 	github.com/swaggo/swag v1.16.1
 	gorm.io/driver/sqlite v1.5.3
 	gorm.io/gen v0.3.23
-	gorm.io/gorm v1.25.3
-	gorm.io/plugin/dbresolver v1.4.6
+	gorm.io/gorm v1.25.4
+	gorm.io/plugin/dbresolver v1.4.7
 )
 
 require (
