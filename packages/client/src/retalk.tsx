@@ -1,3 +1,4 @@
+import { ErrorBoundary } from "solid-js";
 import { render } from "solid-js/web";
 
 import { Retalk as RetalkComponent } from "./components/Retalk";
@@ -17,9 +18,13 @@ export default class Retalk {
 		}
 		this.#destroy = render(
 			() => (
-				<OptionsProvider options={resolvedOptions}>
-					<RetalkComponent />
-				</OptionsProvider>
+				<ErrorBoundary
+					fallback={(err) => <div>Critical error: {err.toString()}</div>}
+				>
+					<OptionsProvider options={resolvedOptions}>
+						<RetalkComponent />
+					</OptionsProvider>
+				</ErrorBoundary>
 			),
 			resolvedEl,
 		);
