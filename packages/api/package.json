@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"@retalkgo/utils": "workspace:*",
+		"defu": "^6.1.2",
 		"type-fest": "^4.2.0"
 	}
 }

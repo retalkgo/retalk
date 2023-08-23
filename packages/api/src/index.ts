@@ -1,3 +1,5 @@
+import defu from "defu";
+
 import type { ApiConfig } from "./swagger";
 import { Api as BaseApi } from "./swagger";
 
@@ -5,13 +7,13 @@ export class Api {
 	baseApi: BaseApi<unknown>;
 
 	constructor(apiConfig: ApiConfig = {}) {
-		this.baseApi = new BaseApi({
-			...apiConfig,
-			baseApiParams: {
-				...apiConfig.baseApiParams,
-				format: "json",
-			},
-		});
+		this.baseApi = new BaseApi(
+			defu(apiConfig, {
+				baseApiParams: {
+					format: "json",
+				},
+			} satisfies ApiConfig),
+		);
 	}
 
 	getRoot() {
