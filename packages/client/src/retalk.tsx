@@ -1,9 +1,9 @@
 import { ErrorBoundary } from "solid-js";
 import { render } from "solid-js/web";
 
-import { ApiProvider } from "./api";
 import { Retalk as RetalkComponent } from "./components/Retalk";
-import { OptionsProvider } from "./options";
+import { ApiProvider } from "./contexts/api";
+import { OptionsProvider } from "./contexts/options";
 import type { Options } from "./types";
 import { logRetalkInfo, resolveElement, resolveOptions } from "./utils";
 

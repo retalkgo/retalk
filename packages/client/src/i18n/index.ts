@@ -1,4 +1,4 @@
-import { useOptions } from "../options";
+import { useOptions } from "../contexts/options";
 import { translations } from "./languages";
 import type { Translations } from "./types";
 
