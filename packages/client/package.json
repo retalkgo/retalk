@@ -57,6 +57,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@retalkgo/api": "workspace:*",
 		"@retalkgo/utils": "workspace:*",
 		"solid-js": "^1.7.8"
 	},
@@ -66,6 +67,7 @@
 		"@unocss/preset-uno": "^0.55.0",
 		"unocss": "^0.55.0",
 		"vite-plugin-dts": "^3.3.1",
-		"vite-plugin-solid": "^2.7.0"
+		"vite-plugin-solid": "^2.7.0",
+		"vite-tsconfig-paths": "^4.2.0"
 	}
 }

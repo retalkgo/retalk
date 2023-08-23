@@ -1,6 +1,7 @@
 import { ErrorBoundary } from "solid-js";
 import { render } from "solid-js/web";
 
+import { ApiProvider } from "./api";
 import { Retalk as RetalkComponent } from "./components/Retalk";
 import { OptionsProvider } from "./options";
 import type { Options } from "./types";
@@ -22,7 +23,9 @@ export default class Retalk {
 					fallback={(err) => <div>Critical error: {err.toString()}</div>}
 				>
 					<OptionsProvider options={resolvedOptions}>
-						<RetalkComponent />
+						<ApiProvider>
+							<RetalkComponent />
+						</ApiProvider>
 					</OptionsProvider>
 				</ErrorBoundary>
 			),

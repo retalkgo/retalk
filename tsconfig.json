@@ -15,9 +15,9 @@
 		"strict": true,
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
-			"@retalkgo/client": ["./packages/client/src"],
-			"@retalkgo/utils": ["./packages/utils"],
-			"@retalkgo/api": ["./packages/api"]
+			"@retalkgo/client": ["./packages/client/src/index.ts"],
+			"@retalkgo/utils": ["./packages/utils/src/index.ts"],
+			"@retalkgo/api": ["./packages/api/src/index.ts"]
 		}
 	},
 	"include": ["**/*.ts", "**/*.tsx"]
