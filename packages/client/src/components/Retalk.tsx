@@ -31,8 +31,7 @@ export function Retalk() {
 	async function handleSubmit() {
 		setLoading(true);
 		await api.createComment({
-			// TODO: SSR
-			path: window.location.pathname,
+			path: path(),
 			body: content(),
 			...user,
 		});
