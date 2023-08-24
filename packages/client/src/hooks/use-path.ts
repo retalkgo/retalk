@@ -1,5 +1,6 @@
 import { createSignal, onCleanup } from "solid-js";
 
+// TODO: SSR friendly
 export function usePath() {
 	const [path, setPath] = createSignal(location.pathname);
 
