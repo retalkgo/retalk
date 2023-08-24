@@ -1,6 +1,8 @@
-import { createSignal } from "solid-js";
+import { deepToCamelCase } from "@retalkgo/utils";
+import { For, Show, createResource, createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 
+import { useApi } from "../contexts/api";
 import { useI18n } from "../i18n";
 import { Button } from "./Button";
 import { Comment } from "./Comment";
@@ -19,6 +21,8 @@ export function Retalk() {
 	});
 	const [content, setContent] = createSignal("");
 	const i18n = useI18n();
+	const api = useApi();
+	const [data] = createResource(() => api.getComments());
 
 	return (
 		<div class="uno: flex flex-col gap-4.5">
@@ -51,34 +55,24 @@ export function Retalk() {
 					<span>{i18n.send}</span>
 				</Button>
 			</div>
-			<Comment
-				body="Hiiiiiiiiiiiiiiiii"
-				author={{
-					name: "Ray",
-					email: "d571021199a1b1d1962fd1f4a7879ffc",
-					isAdmin: true,
-					createdAt: "",
-					id: 1,
-					link: "",
-				}}
-				createdAt="2023年6月9日 17:41"
-				id={1}
-				path="/"
-			/>
-			<Comment
-				body="Hiiiiiiiiiiiiiiiii"
-				author={{
-					name: "Ray",
-					email: "d571021199a1b1d1962fd1f4a7879ffc",
-					isAdmin: true,
-					createdAt: "",
-					id: 1,
-					link: "https://mk1.io",
-				}}
-				createdAt="2023年6月9日 17:41"
-				id={1}
-				path="/"
-			/>
+			<Show when={!!data()}>
+				<For
+					each={
+						// TODO
+						data()!.data.data
+					}
+				>
+					{(comment) => (
+						<Comment
+							body={comment.body}
+							author={deepToCamelCase(comment.author)}
+							createdAt={comment.created_at}
+							id={comment.id}
+							path={comment.path}
+						/>
+					)}
+				</For>
+			</Show>
 		</div>
 	);
 }

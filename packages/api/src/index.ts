@@ -2,6 +2,7 @@ import defu from "defu";
 
 import type { ApiConfig } from "./swagger";
 import { Api as BaseApi } from "./swagger";
+import type { ApiResultSwagger, Comment } from "./types";
 
 export class Api {
 	baseApi: BaseApi<unknown>;
@@ -16,23 +17,27 @@ export class Api {
 		);
 	}
 
-	getRoot() {
-		return this.baseApi.getRoot();
+	getRoot(): Promise<ApiResultSwagger<null>> {
+		return this.baseApi.getRoot() as any;
 	}
 
-	getComments(path?: string) {
-		return path
-			? this.baseApi.api.commentGetByPathList({ path })
-			: this.baseApi.api.commentGetAllList();
+	getComments(path?: string): Promise<ApiResultSwagger<Comment[]>> {
+		return (
+			path
+				? this.baseApi.api.commentGetByPathList({ path })
+				: this.baseApi.api.commentGetAllList()
+		) as any;
 	}
 
-	createComment(data: Parameters<typeof this.baseApi.api.commentAddCreate>[0]) {
+	createComment(
+		data: Parameters<typeof this.baseApi.api.commentAddCreate>[0],
+	): /* TODO */ Promise<any> {
 		return this.baseApi.api.commentAddCreate(data);
 	}
 
 	deleteComment(
 		query: Parameters<typeof this.baseApi.api.commentDeleteDelete>[0],
-	) {
+	): /* TODO */ Promise<any> {
 		return this.baseApi.api.commentDeleteDelete(query);
 	}
 }
