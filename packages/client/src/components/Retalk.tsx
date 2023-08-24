@@ -3,6 +3,7 @@ import { For, Show, createResource, createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 
 import { useApi } from "../contexts/api";
+import { usePath } from "../hooks/use-path";
 import { useI18n } from "../i18n";
 import { Button } from "./Button";
 import { Comment } from "./Comment";
@@ -23,7 +24,10 @@ export function Retalk() {
 	});
 	const [content, setContent] = createSignal("");
 	const [loading, setLoading] = createSignal(false);
-	const [data, { refetch }] = createResource(() => api.getComments());
+	const path = usePath();
+	const [data, { refetch }] = createResource(path, () =>
+		api.getComments(path()),
+	);
 	async function handleSubmit() {
 		setLoading(true);
 		await api.createComment({
