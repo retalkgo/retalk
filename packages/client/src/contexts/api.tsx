@@ -1,17 +1,19 @@
-import { Api } from "@retalkgo/api";
+import type { Api } from "@retalkgo/api";
 import type { ParentComponent } from "solid-js";
 import { createContext, useContext } from "solid-js";
 
-import { useOptions } from "./options";
-
 const ApiContext = createContext<Api>();
 
-export const ApiProvider: ParentComponent = (props) => {
-	const options = useOptions();
-	const api = new Api({ baseUrl: options.server });
+export interface ApiProviderProps {
+	api: Api;
+}
 
+export const ApiProvider: ParentComponent<ApiProviderProps> = (props) => {
 	return (
-		<ApiContext.Provider value={api}>{props.children}</ApiContext.Provider>
+		// eslint-disable-next-line solid/reactivity
+		<ApiContext.Provider value={props.api}>
+			{props.children}
+		</ApiContext.Provider>
 	);
 };
 

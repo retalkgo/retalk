@@ -1,3 +1,4 @@
+import { Api } from "@retalkgo/api";
 import { ErrorBoundary } from "solid-js";
 import { render } from "solid-js/web";
 
@@ -10,6 +11,8 @@ import { logRetalkInfo, resolveElement, resolveOptions } from "./utils";
 export default class Retalk {
 	#destroy: () => void;
 
+	api: Api;
+
 	constructor(_options: Options) {
 		const resolvedOptions = resolveOptions(_options);
 		const { el, ...options } = resolvedOptions;
@@ -17,13 +20,14 @@ export default class Retalk {
 		if (!resolvedEl) {
 			throw new Error(`Retalk: Element ${el as string} not found`);
 		}
+		this.api = new Api({ baseUrl: options.server });
 		this.#destroy = render(
 			() => (
 				<ErrorBoundary
 					fallback={(err) => <div>Critical error: {err.toString()}</div>}
 				>
 					<OptionsProvider options={resolvedOptions}>
-						<ApiProvider>
+						<ApiProvider api={this.api}>
 							<RetalkComponent />
 						</ApiProvider>
 					</OptionsProvider>
