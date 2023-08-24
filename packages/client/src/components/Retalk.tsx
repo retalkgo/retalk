@@ -13,6 +13,7 @@ import { Textarea } from "./Textarea";
 export function Retalk() {
 	const i18n = useI18n();
 	const api = useApi();
+	const path = usePath();
 	const [user, setUser] = createStore<{
 		name: string;
 		email: string;
@@ -24,7 +25,6 @@ export function Retalk() {
 	});
 	const [content, setContent] = createSignal("");
 	const [loading, setLoading] = createSignal(false);
-	const path = usePath();
 	const [data, { refetch }] = createResource(path, () =>
 		api.getComments(path()),
 	);
