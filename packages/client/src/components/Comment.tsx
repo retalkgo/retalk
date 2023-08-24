@@ -16,42 +16,38 @@ export function Comment(props: CommentProps) {
 	);
 
 	return (
-		<div class=":uno: flex gap-3">
+		<div class="flex gap-3">
 			<img
-				class=":uno: h-10 max-w-full w-10 rounded-3 shadow-avatar"
+				class="h-10 max-w-full w-10 rounded-3 shadow-avatar"
 				src={avatar()}
 			/>
-			<div class=":uno: w-full flex-1 rounded-3 px-8 pb-3 pt-4 text-13px text-sm shadow-comment">
-				<div class=":uno: flex items-center gap-1 font-600">
+			<div class="w-full flex-1 rounded-3 px-8 pb-3 pt-4 text-13px text-sm shadow-comment">
+				<div class="flex items-center gap-1 font-600">
 					<Switch
 						fallback={
-							<span class=":uno: text-lg text-primary">
-								{props.author.name}
-							</span>
+							<span class="text-lg text-primary">{props.author.name}</span>
 						}
 					>
 						<Match when={props.author.link}>
 							<a
 								href={props.author.link}
-								class=":uno: text-lg text-primary decoration-none"
+								class="text-lg text-primary decoration-none"
 							>
 								{props.author.name}
 							</a>
 						</Match>
 					</Switch>
 					<Show when={props.author.isAdmin}>
-						<div class=":uno: scale-80 rounded bg-primary/18 p-1 text-sm">
-							<span class=":uno: text-primary">{i18n.admin}</span>
+						<div class="scale-80 rounded bg-primary/18 p-1 text-sm">
+							<span class="text-primary">{i18n.admin}</span>
 						</div>
 					</Show>
 				</div>
-				<span class=":uno: text-xs font-light text-second/56">
-					{props.createdAt}
-				</span>
+				<span class="text-xs font-light text-second/56">{props.createdAt}</span>
 				<div class=":uno:">{props.body}</div>
-				<div class=":uno: mt-1 flex justify-end">
+				<div class="mt-1 flex justify-end">
 					<span
-						class=":uno: cursor-pointer text-primary"
+						class="cursor-pointer text-primary"
 						onClick={() => {
 							// eslint-disable-next-line no-alert
 							alert("Reply");

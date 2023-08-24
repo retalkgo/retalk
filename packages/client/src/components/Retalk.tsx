@@ -38,7 +38,7 @@ export function Retalk() {
 
 	return (
 		<div class="uno: flex flex-col gap-4.5">
-			<div class=":uno: flex gap-3">
+			<div class="flex gap-3">
 				<Input
 					disabled={loading()}
 					placeholder={i18n.name}
@@ -58,7 +58,7 @@ export function Retalk() {
 					onInput={(s) => setUser("link", s)}
 				/>
 			</div>
-			<div class=":uno: flex">
+			<div class="flex">
 				<Textarea
 					disabled={loading()}
 					placeholder={i18n.welcome}
@@ -66,7 +66,7 @@ export function Retalk() {
 					onInput={setContent}
 				/>
 			</div>
-			<div class=":uno: flex justify-end">
+			<div class="flex justify-end">
 				<Button disabled={loading()} onClick={handleSubmit}>
 					<span>{i18n.send}</span>
 				</Button>

@@ -14,10 +14,10 @@ export const Input = (props: InputProps) => (
 		onInput={(e) => {
 			props.onInput?.((e.target as HTMLInputElement).value);
 		}}
-		class={`:uno: inline-block min-h-8 min-w-0 w-[calc(100%_/_3)] px-3 font-inherit transition-all duration-100 ease-out  inputlike ${
-			props.disabled
-				? "opacity-50"
-				: "focus:w-250px hover:w-250px inputlike-active"
-		}`}
+		class="inline-block min-h-8 min-w-0 w-[calc(100%_/_3)] inputlike px-3 font-inherit transition-all duration-100 ease-out"
+		classList={{
+			"opacity-50": props.disabled,
+			"focus:w-250px hover:w-250px inputlike-active": !props.disabled,
+		}}
 	/>
 );
