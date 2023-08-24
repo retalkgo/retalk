@@ -19,8 +19,10 @@ export default defineConfig<Theme>({
 	presets: [presetUno(), presetRemToPx()],
 	transformers,
 	shortcuts: {
-		inputlike:
-			"border-2 border-solid border-normal hover:(border-primary shadow-active) focus:(border-primary shadow-active) transition duration-animation rounded-4 outline-none resize-y",
+		"inputlike":
+			"border-2 border-solid border-normal transition duration-animation rounded-4 outline-none resize-y",
+		"inputlike-active":
+			"hover:(border-primary shadow-active) focus:(border-primary shadow-active) ",
 	},
 	theme: {
 		colors: {
