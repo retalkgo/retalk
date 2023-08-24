@@ -78,15 +78,7 @@ export function Retalk() {
 						data()!.data.data
 					}
 				>
-					{(comment) => (
-						<Comment
-							body={comment.body}
-							author={deepToCamelCase(comment.author)}
-							createdAt={comment.created_at}
-							id={comment.id}
-							path={comment.path}
-						/>
-					)}
+					{(comment) => <Comment {...deepToCamelCase(comment)} />}
 				</For>
 			</Show>
 		</div>
