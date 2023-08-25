@@ -1,7 +1,7 @@
 import { Api } from "@retalkgo/api";
 import { ErrorBoundary } from "solid-js";
 import { render } from "solid-js/web";
-
+import{version}from'../package.json'
 import { Retalk as RetalkComponent } from "./components/Retalk";
 import { ApiProvider } from "./contexts/api";
 import { OptionsProvider } from "./contexts/options";
@@ -10,8 +10,8 @@ import { logRetalkInfo, resolveElement, resolveOptions } from "./utils";
 
 export default class Retalk {
 	#destroy: () => void;
-
 	api: Api;
+	static version=version
 
 	constructor(_options: Options) {
 		const resolvedOptions = resolveOptions(_options);
