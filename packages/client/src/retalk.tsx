@@ -12,7 +12,8 @@ import { logRetalkInfo, resolveElement, resolveOptions } from "./utils";
 export default class Retalk {
 	#destroy: () => void;
 	api: Api;
-	static version = version;
+	
+	
 
 	constructor(_options: Options) {
 		const resolvedOptions = resolveOptions(_options);
@@ -39,7 +40,13 @@ export default class Retalk {
 		options.logRetalkInfo && logRetalkInfo();
 	}
 
+
+	
+	
 	destroy() {
 		this.#destroy();
 	}
+static get version (){
+	return version
+}
 }
