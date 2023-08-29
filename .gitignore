@@ -24,3 +24,6 @@ bin
 .turbo
 tsconfig.vitest-temp.json
 .vercel
+
+.release-env
+.sync-env
