@@ -1,5 +1,4 @@
 import { Api } from "@retalkgo/api";
-import { ErrorBoundary } from "solid-js";
 import { render } from "solid-js/web";
 
 import { version } from "../package.json";
@@ -23,15 +22,15 @@ export default class Retalk {
 		this.api = new Api({ baseUrl: options.server });
 		this.#destroy = render(
 			() => (
-				<ErrorBoundary
-					fallback={(err) => <div>Critical error: {err.toString()}</div>}
-				>
-					<OptionsProvider options={resolvedOptions}>
-						<ApiProvider api={this.api}>
-							<RetalkComponent />
-						</ApiProvider>
-					</OptionsProvider>
-				</ErrorBoundary>
+				// <ErrorBoundary
+				// 	fallback={(err) => <div>Critical error: {err.toString()}</div>}
+				// >
+				<OptionsProvider options={resolvedOptions}>
+					<ApiProvider api={this.api}>
+						<RetalkComponent />
+					</ApiProvider>
+				</OptionsProvider>
+				// </ErrorBoundary>
 			),
 			resolvedEl,
 		);
