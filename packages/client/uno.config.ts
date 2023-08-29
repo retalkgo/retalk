@@ -1,11 +1,23 @@
 import presetRemToPx from "@unocss/preset-rem-to-px";
 import type { Theme } from "@unocss/preset-uno";
-import { defineConfig, presetUno, transformerVariantGroup } from "unocss";
+import type { SourceCodeTransformer } from "unocss";
+import {
+	defineConfig,
+	presetUno,
+	transformerCompileClass,
+	transformerVariantGroup,
+} from "unocss";
+
+const transformers: SourceCodeTransformer[] = [];
+if (process.env.NODE_ENV === "production") {
+	transformers.push(transformerCompileClass());
+}
+transformers.push(transformerVariantGroup());
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
 export default defineConfig<Theme>({
 	presets: [presetUno(), presetRemToPx()],
-	transformers: [transformerVariantGroup()],
+	transformers,
 	shortcuts: {
 		"inputlike":
 			"border-2 border-solid border-normal transition duration-animation rounded-4 outline-none resize-y",
