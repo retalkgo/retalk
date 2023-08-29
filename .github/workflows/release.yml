@@ -46,7 +46,7 @@ jobs:
           ghcr.io/goreleaser/goreleaser-cross:v1.21.0 \
           release
 
-  release-js:
+  release-changelog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
