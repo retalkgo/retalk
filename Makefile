@@ -58,3 +58,6 @@ dev-run: dev-build
 build: gen update-swagger fmt build-apidoc build-frontend
 	@echo "Retalk ${VERSION}-${COMMIT_HASH} production building..."
 	go build -o ${BIN} ${COMMON_LDFLAGS}
+
+release:
+	pnpm release
