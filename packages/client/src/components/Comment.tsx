@@ -48,10 +48,10 @@ export function Comment(props: CommentProps) {
 				<div class="mt-1 flex justify-end">
 					<span
 						class="cursor-pointer text-primary"
-						onClick={() => {
-							// eslint-disable-next-line no-alert
-							alert("Reply");
-						}}
+						// onClick={() => {
+						// 	// eslint-disable-next-line no-alert
+						// 	alert("Reply");
+						// }}
 					>
 						{i18n.reply}
 					</span>
