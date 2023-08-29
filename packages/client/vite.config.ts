@@ -1,6 +1,5 @@
 import { join, resolve } from "node:path";
 
-import PurgeCss from "@mojojoejo/vite-plugin-purgecss";
 import Unocss from "unocss/vite";
 import { defineConfig } from "vite";
 import Dts from "vite-plugin-dts";
@@ -21,9 +20,6 @@ export default defineConfig({
 			],
 		}),
 		Unocss(),
-		PurgeCss({
-			variables: true,
-		}),
 		TsConfigPaths({
 			root: join(__dirname, "..", ".."),
 		}),

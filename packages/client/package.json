@@ -62,7 +62,6 @@
 		"solid-js": "^1.7.8"
 	},
 	"devDependencies": {
-		"@mojojoejo/vite-plugin-purgecss": "^1.1.0",
 		"@unocss/preset-rem-to-px": "^0.55.0",
 		"@unocss/preset-uno": "^0.55.0",
 		"unocss": "^0.55.0",
