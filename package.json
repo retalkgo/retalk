@@ -23,6 +23,7 @@
 		"@so1ve/prettier-config": "^0.120.0",
 		"@types/node": "^20.4.9",
 		"bumpp": "^9.2.0",
+		"eslint": "^8.48.0",
 		"execa": "^7.1.1",
 		"pkgroll": "^1.10.0",
 		"prettier": "^3.0.0",
@@ -33,7 +34,7 @@
 		"typescript": "^5.1.6",
 		"unbuild": "^1.2.1",
 		"vite": "^4.4.6",
-		"vitest": "^0.34.1","eslint":"^8.48.0"
+		"vitest": "^0.34.1"
 	},
 	"pnpm": {
 		"packageExtensions": {
