@@ -15,10 +15,10 @@ export const Button: ParentComponent<ButtonProps> = (props) => {
 			onClick={() => {
 				props.onClick?.();
 			}}
-			class="inline-block min-h-9 rounded-4.5 border-none bg-primary px-7.5 py-2.5 text-3.6 font-semibold text-white transition duration-animation"
+			class=":uno: inline-block min-h-9 rounded-4.5 border-none bg-primary px-7.5 py-2.5 text-3.6 font-semibold text-white transition duration-animation"
 			classList={{
-				"opacity-50": props.disabled,
-				"hover:shadow-active cursor-pointer": !props.disabled,
+				":uno: opacity-50": props.disabled,
+				":uno: hover:shadow-active cursor-pointer": !props.disabled,
 			}}
 		>
 			{resolvedChildren()}

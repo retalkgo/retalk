@@ -5,7 +5,7 @@ import { Api as BaseApi } from "./swagger";
 import type { ApiResultSwagger, Comment } from "./types";
 
 export class Api {
-	baseApi: BaseApi<unknown>;
+	private baseApi: BaseApi<unknown>;
 
 	constructor(apiConfig: ApiConfig = {}) {
 		this.baseApi = new BaseApi(
