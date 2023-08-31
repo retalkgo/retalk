@@ -9,7 +9,7 @@
 		"dev:setup": "npm -C ./packages/setup run dev",
 		"generate:swagger": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts && prettier . --write",
 		"lint": "eslint . && pnpm -r run lint && prettier . --check",
-		"lint:fix": "eslint . -- fix && pnpm -r run lint:fix && prettier . --write",
+		"lint:fix": "eslint . --fix && pnpm -r run lint:fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag && nr build:packages && pnpm publish -r --filter ./packages/*",
 		"serve:apidoc": "serve apidoc",
 		"stub": "pnpm -r run stub",
