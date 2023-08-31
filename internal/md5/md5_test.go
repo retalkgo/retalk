@@ -8,3 +8,11 @@ func TestMD5(t *testing.T) {
 		t.Errorf("MD5函数校验失败")
 	}
 }
+
+func BenchmarkError(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			MD5("Retalk")
+		}
+	})
+}

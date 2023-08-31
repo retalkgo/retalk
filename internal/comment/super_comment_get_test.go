@@ -15,3 +15,18 @@ func TestSuperCommentGet(t *testing.T) {
 		t.Errorf(err.Error())
 	}
 }
+
+func BenchmarkSuperCommentGet(b *testing.B) {
+	core.InitCore()
+
+	rawData, _ := query.Comment.Find()
+
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			_, err := SuperCommentGet(rawData)
+			if err != nil {
+				b.Errorf(err.Error())
+			}
+		}
+	})
+}

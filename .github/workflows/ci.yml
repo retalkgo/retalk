@@ -43,6 +43,9 @@ jobs:
       - name: Gofumpt
         run: gofumpt -l -extra .
 
+      - name: Test
+        run: go test ./...
+
   typecheck:
     runs-on: ubuntu-latest
     steps:
