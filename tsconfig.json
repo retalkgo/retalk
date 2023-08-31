@@ -20,5 +20,6 @@
 			"@retalkgo/api": ["./packages/api/src/index.ts"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx"]
+	"include": ["**/*.ts", "**/*.tsx"],
+	"exclude": ["packages/setup/**"]
 }
