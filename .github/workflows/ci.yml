@@ -43,9 +43,6 @@ jobs:
       - name: Gofumpt
         run: gofumpt -l -extra .
 
-      - name: Test
-        run: go test ./...
-
   typecheck:
     runs-on: ubuntu-latest
     steps:
@@ -104,6 +101,9 @@ jobs:
 
       - name: Test
         run: nr test
+
+      - name: Test Go
+        run: go test ./...
 
   build:
     runs-on: ubuntu-latest
