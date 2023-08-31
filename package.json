@@ -14,7 +14,7 @@
 		"serve:apidoc": "serve apidoc",
 		"stub": "pnpm -r run stub",
 		"test": "vitest",
-		"typecheck": "vitest typecheck"
+		"typecheck": "vitest typecheck && pnpm -r run typecheck"
 	},
 	"devDependencies": {
 		"@antfu/ni": "^0.21.5",
