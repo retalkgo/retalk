@@ -28,26 +28,26 @@ function Form() {
 	}
 
 	return (
-		<form class={classes.formContainer} onSubmit={handleSubmit}>
-			<Typography variant="h4" class={classes.title}>
+		<form className={classes.formContainer} onSubmit={handleSubmit}>
+			<Typography variant="h4" className={classes.title}>
 				Retalk Setup
 			</Typography>
 			<TextField
 				label="Username"
 				variant="outlined"
-				class={classes.textField}
+				className={classes.textField}
 			/>
 			<TextField
 				label="Password"
 				variant="outlined"
 				type="password"
-				class={classes.textField}
+				className={classes.textField}
 			/>
 			<Button
 				type="submit"
 				variant="contained"
 				color="primary"
-				class={classes.submitButton}
+				className={classes.submitButton}
 			>
 				Submit
 			</Button>
