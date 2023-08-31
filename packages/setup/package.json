@@ -5,7 +5,9 @@
 		"build": "vite build",
 		"dev": "vite",
 		"preview": "vite preview",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.1",
@@ -17,6 +19,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.15",
+		"eslint": "^8.48.0","@so1ve/eslint-config-react":"^1.120.0",
 		"@types/react-dom": "^18.2.7",
 		"@vitejs/plugin-react-swc": "^3.3.2",
 		"vite": "^4.4.5"
