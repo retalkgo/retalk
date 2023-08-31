@@ -7,8 +7,8 @@
 		"build:packages": "pnpm -r run build",
 		"dev": "npm -C ./packages/client run dev",
 		"generate:swagger": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts && prettier . --write",
-		"lint": "eslint . && prettier . --check",
-		"lint:fix": "eslint . --fix && prettier . --write",
+		"lint": "eslint . && pnpm -r run lint && prettier . --check",
+		"lint:fix": "eslint . -- fix && pnpm -r run lint:fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag && nr build:packages && pnpm publish -r --filter ./packages/*",
 		"serve:apidoc": "serve apidoc",
 		"stub": "pnpm -r run stub",
@@ -32,7 +32,7 @@
 		"typescript": "^5.1.6",
 		"unbuild": "^1.2.1",
 		"vite": "^4.4.6",
-		"vitest": "^0.34.1"
+		"vitest": "^0.34.1","eslint":"^8.48.0"
 	},
 	"pnpm": {
 		"packageExtensions": {
