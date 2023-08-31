@@ -1,11 +1,11 @@
 {
 	"private": true,
-		"type": "module",
+	"type": "module",
 	"scripts": {
 		"build": "vite build",
 		"dev": "vite",
-			"preview": "vite preview",
-		"typecheck":"tsc --noEmit"
+		"preview": "vite preview",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.1",

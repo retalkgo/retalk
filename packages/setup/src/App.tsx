@@ -1,5 +1,5 @@
+import { Button, TextField, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Typography, Button, TextField } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
 	formContainer: {
@@ -22,32 +22,32 @@ const useStyles = makeStyles((theme) => ({
 function Form() {
 	const classes = useStyles();
 
-	const handleSubmit = (event) => {
+	function handleSubmit(event) {
 		event.preventDefault();
 		// 处理提交逻辑
-	};
+	}
 
 	return (
-		<form className={classes.formContainer} onSubmit={handleSubmit}>
-			<Typography variant="h4" className={classes.title}>
+		<form class={classes.formContainer} onSubmit={handleSubmit}>
+			<Typography variant="h4" class={classes.title}>
 				Retalk Setup
 			</Typography>
 			<TextField
 				label="Username"
 				variant="outlined"
-				className={classes.textField}
+				class={classes.textField}
 			/>
 			<TextField
 				label="Password"
 				variant="outlined"
 				type="password"
-				className={classes.textField}
+				class={classes.textField}
 			/>
 			<Button
 				type="submit"
 				variant="contained"
 				color="primary"
-				className={classes.submitButton}
+				class={classes.submitButton}
 			>
 				Submit
 			</Button>
