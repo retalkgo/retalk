@@ -5,7 +5,7 @@
 		"build": "vite build",
 		"dev": "vite",
 		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
+		"lint:fix": "eslint . --fix","typecheck":"tsc --noEmit"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.1",
