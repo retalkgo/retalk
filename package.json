@@ -6,6 +6,7 @@
 		"build:apidoc": "redocly build-docs docs/swagger.yaml -o apidoc/index.html",
 		"build:packages": "pnpm -r run build",
 		"dev": "npm -C ./packages/client run dev",
+		"dev:setup": "npm -C ./packages/setup run dev",
 		"generate:swagger": "sta -p ./docs/swagger.yaml -o ./packages/api/src -n swagger.ts && prettier . --write",
 		"lint": "eslint . && pnpm -r run lint && prettier . --check",
 		"lint:fix": "eslint . -- fix && pnpm -r run lint:fix && prettier . --write",
