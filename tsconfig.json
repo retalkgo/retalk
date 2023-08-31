@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"composite": true,
 		"jsx": "preserve",
 		"jsxImportSource": "solid-js",
 		"target": "ES2020",
