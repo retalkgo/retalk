@@ -1,6 +1,6 @@
 import { Button, TextField, Typography, createTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 
 const useStyles = makeStyles(
 	(theme) => ({
