@@ -1,0 +1,12 @@
+# retalk default config
+
+server:
+  port: 3000
+
+db:
+  type: sqlite
+  dsn: retalk.db
+
+status:
+  enable: true
+  title: retalk status
