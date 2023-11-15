@@ -22,5 +22,5 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
-     artifactName: drop
-     TargetPath: '$(Pipeline.Workspace)/bin'
+     artifactName: macos
+     targetPath: '$(Pipeline.Workspace)/bin'
