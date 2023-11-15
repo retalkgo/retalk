@@ -15,6 +15,7 @@ steps:
 - task: Go@0
   inputs:
     command: 'build'
+    arguments: '-o bin/retalk'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 - task: CopyFiles@2
   inputs:
@@ -22,3 +23,4 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
      artifactName: drop
+     TargetPath: '$(Pipeline.Workspace)/bin'
