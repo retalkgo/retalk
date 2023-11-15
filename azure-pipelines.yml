@@ -1,26 +1,31 @@
-trigger: 
- - main
+trigger:
+  - main
 
-pool: default
-
-steps: 
-- task: GoTool@0
-  inputs:
-    version: '1.21.0'
-- task: Go@0
-  inputs:
-    command: 'get'
-    arguments: '-d'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-- task: Go@0
-  inputs:
-    command: 'build'
-    arguments: '-o bin/retalk'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-- task: CopyFiles@2
-  inputs:
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/bin'
-    ArtifactName: 'macos'
+jobs:
+  - job: macos
+    pool: default
+    steps:
+      - task: GoTool@0
+        inputs:
+          version: "1.21.0"
+        displayName: "Setup go"
+      - task: Go@0
+        inputs:
+          command: "get"
+          arguments: "-d"
+          workingDirectory: "$(System.DefaultWorkingDirectory)"
+        displayName: "Install dependencies"
+      - task: Go@0
+        inputs:
+          command: "build"
+          arguments: "-o bin/retalk"
+          workingDirectory: "$(System.DefaultWorkingDirectory)"
+        displayName: "Build"
+      - task: CopyFiles@2
+        inputs:
+          TargetFolder: "$(Build.ArtifactStagingDirectory)"
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: "$(Build.ArtifactStagingDirectory)/bin"
+          ArtifactName: "macos"
+        displayName: "Publish Artifacts"
