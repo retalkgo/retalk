@@ -2,7 +2,6 @@ package config
 
 import (
 	"embed"
-	"fmt"
 	"io"
 	"os"
 
@@ -10,6 +9,7 @@ import (
 )
 
 type ConfigSchema struct {
+	Lang   string `json:"lang"`
 	Server struct {
 		Port int `json:"port"`
 	} `json:"server"`
@@ -31,7 +31,6 @@ var configInterface *ConfigSchema
 func InitConfig() {
 	configFile, err := os.Open("./retalk.yml")
 	if err != nil {
-		fmt.Println("未发现配置文件, 尝试加载默认配置")
 		_, _ = defaultConfigFile.ReadFile("default-config.yml")
 		defaultConfigFileBytes, _ := defaultConfigFile.ReadFile("default-config.yml")
 		configFile, _ = os.Create("./retalk.yml")
@@ -54,5 +53,8 @@ func InitConfig() {
 }
 
 func Config() *ConfigSchema {
+	if configInterface == nil {
+		InitConfig()
+	}
 	return configInterface
 }

@@ -1,0 +1,6 @@
+retalk.db
+retalk.yml
+bin
+
+# macOS
+.DS_Store

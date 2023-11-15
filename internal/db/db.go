@@ -1,6 +1,7 @@
 package db
 
 import (
+	"github.com/retalkgo/retalk/internal/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
@@ -9,14 +10,32 @@ import (
 )
 
 var dbInterface *gorm.DB
+var dbDriver gorm.Dialector
+
+func initDB() {
+	c := config.Config().DB
+	switch c.Type {
+	case "sqlite":
+		dbDriver = sqliteDriver(c.DSN)
+	case "mysql":
+		dbDriver = mysqlDriver(c.DSN)
+	case "postgres":
+		dbDriver = postgresDriver(c.DSN)
+	case "sqlserver":
+		dbDriver = sqlserverDriver(c.DSN)
+	default:
+		dbDriver = sqliteDriver(c.DSN)
+	}
+	db, err := gorm.Open(dbDriver, &gorm.Config{})
+	if err != nil {
+		panic(err.Error())
+	}
+	dbInterface = db
+}
 
 func DB() *gorm.DB {
 	if dbInterface == nil {
-		db, err := gorm.Open(sqliteDriver("demo.sql"), &gorm.Config{})
-		if err != nil {
-			panic(err.Error())
-		}
-		dbInterface = db
+		initDB()
 	}
 	return dbInterface
 }
@@ -33,7 +52,7 @@ func mysqlDriver(dsn string) gorm.Dialector {
 
 func postgresDriver(dsn string) gorm.Dialector {
 	return postgres.New(postgres.Config{
-		DSN: dsn,
+		DSN:                  dsn,
 		PreferSimpleProtocol: true,
 	})
 }

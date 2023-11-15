@@ -1,6 +1,6 @@
 trigger:
   - main
-
+# TODO: multi-platform build
 jobs:
   - job: macos
     pool: default

@@ -1,5 +1,7 @@
 # retalk default config
 
+lang: zh-cn
+
 server:
   port: 3000
 
