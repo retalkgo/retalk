@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/retalkgo/retalk/internal/config"
+	"github.com/retalkgo/retalk/server/handler"
 	"github.com/retalkgo/retalk/server/middleware"
 )
 
@@ -25,6 +26,11 @@ func Start() {
 
 	// Monitor
 	middleware.Monitor(c, app)
+
+	admin := app.Group("/admin")
+	middleware.Auth(admin)
+
+	handler.AdminLogin(admin)
 
 	// Listen
 	app.Listen(fmt.Sprintf(":%d", c.Server.Port))

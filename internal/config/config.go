@@ -12,6 +12,7 @@ type ConfigSchema struct {
 	Lang   string `json:"lang"`
 	Server struct {
 		Port int `json:"port"`
+		Secret string `json:"secret"`
 	} `json:"server"`
 	DB struct {
 		Type string `json:"type"`

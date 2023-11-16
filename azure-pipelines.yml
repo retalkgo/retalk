@@ -2,8 +2,9 @@ trigger:
   - main
 # TODO: multi-platform build
 jobs:
-  - job: macos
-    pool: default
+  - job: linux
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
       - task: GoTool@0
         inputs:

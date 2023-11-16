@@ -4,6 +4,7 @@ lang: zh-cn
 
 server:
   port: 3000
+  secret: your_secret
 
 db:
   type: sqlite
