@@ -9,7 +9,7 @@ jobs:
       - task: GoTool@0
         inputs:
           version: "1.21.0"
-        displayName: "Setup go"
+        displayName: "SetupGo"
       - task: Go@0
         inputs:
           command: "get"
@@ -37,7 +37,7 @@ jobs:
       - task: GoTool@0
         inputs:
           version: "1.21.0"
-        displayName: "Setup go"
+        displayName: "SetupGo"
       - task: Go@0
         inputs:
           command: "get"
@@ -65,7 +65,7 @@ jobs:
       - task: GoTool@0
         inputs:
           version: "1.21.0"
-        displayName: "Setup go"
+        displayName: "SetupGo"
       - task: Go@0
         inputs:
           command: "get"
