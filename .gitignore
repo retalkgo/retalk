@@ -1,0 +1,6 @@
+# 构建产物
+retalk
+retalk.exe
+
+# 临时目录
+tmp
