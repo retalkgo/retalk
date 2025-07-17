@@ -1,0 +1,14 @@
+info:
+  contact: {}
+  description: retalk api
+  license:
+    name: GPL 3.0
+  title: retalk api
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
