@@ -19,7 +19,7 @@ import (
 func Start() {
 	logrus.Infof("retalk %s", version.Version)
 
-	config := config.Config()
+	config := config.LaunchConfig()
 
 	fiberApp := fiber.New(fiber.Config{
 		AppName:      "retalk",

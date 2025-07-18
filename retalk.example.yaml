@@ -1,0 +1,4 @@
+dev: false
+host: localhost
+port: 2716
+database: sqlite://./retalk.db

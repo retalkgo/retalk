@@ -12,7 +12,7 @@ tmp_dir = "tmp"
   exclude_regex = ["_test.go"]
   exclude_unchanged = false
   follow_symlink = false
-  full_bin = "RETALK_DEV=true RETALK_PORT=2716 RETALK_DATABASE=sqlite://./tmp/retalk.db ./tmp/retalk"
+  full_bin = ""
   include_dir = []
   include_ext = ["go", "tpl", "tmpl", "html"]
   include_file = []

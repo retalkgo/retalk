@@ -1,6 +1,8 @@
 # 构建产物
-bin/retalk
-bin/retalk.exe
+bin
 
 # 临时目录
 tmp
+
+# 配置文件
+retalk.yaml
