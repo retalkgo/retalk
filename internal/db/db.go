@@ -1,6 +1,8 @@
 package db
 
 import (
+	"fmt"
+
 	"github.com/retalkgo/retalk/internal/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
@@ -25,34 +27,46 @@ func getDBType(dsn string) string {
 	return "unknown"
 }
 
+func New(dsn string) (*gorm.DB, error) {
+	dbType := getDBType(config.LaunchConfig().Database)
+
+	var db *gorm.DB
+	var err error
+
+	if dbType == "sqlite" {
+		// 排除 dsn 中的 sqlite:// 前缀
+		path := dsn[9:]
+
+		if path == "" {
+			panic("SQLite 数据库连接字符串不能为空")
+		}
+
+		db, err = gorm.Open(sqlite.Open(path), &gorm.Config{})
+	}
+
+	if dbType == "mysql" {
+		db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	}
+
+	if dbType == "postgres" {
+		db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	}
+
+	if dbType == "unknown" {
+		return nil, fmt.Errorf("无效的数据库连接字符串: %s", dsn)
+	}
+
+	if (err != nil) {
+		return nil, err
+	}
+
+	return db, nil
+}
+
 func DB() *gorm.DB {
 	if dbInstance == nil {
-		dbType := getDBType(config.LaunchConfig().Database)
-
 		var err error
-
-		if dbType == "sqlite" {
-			// 排除 dsn 中的 sqlite:// 前缀
-			dsn := config.LaunchConfig().Database[9:]
-
-			if dsn == "" {
-				panic("SQLite 数据库连接字符串不能为空")
-			}
-
-			dbInstance, err = gorm.Open(sqlite.Open(dsn), &gorm.Config{})
-		}
-
-		if dbType == "mysql" {
-			dbInstance, err = gorm.Open(mysql.Open(config.LaunchConfig().Database), &gorm.Config{})
-		}
-
-		if dbType == "postgres" {
-			dbInstance, err = gorm.Open(postgres.Open(config.LaunchConfig().Database), &gorm.Config{})
-		}
-
-		if dbType == "unknown" {
-			panic("[DB] 无效的数据库连接字符串: " + config.LaunchConfig().Database)
-		}
+		dbInstance, err = New(config.LaunchConfig().Database)
 
 		if err != nil {
 			panic("[DB] 数据库连接失败: " + err.Error())
