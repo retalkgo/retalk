@@ -56,7 +56,7 @@ func New(dsn string) (*gorm.DB, error) {
 		return nil, fmt.Errorf("无效的数据库连接字符串: %s", dsn)
 	}
 
-	if (err != nil) {
+	if err != nil {
 		return nil, err
 	}
 
@@ -67,7 +67,6 @@ func DB() *gorm.DB {
 	if dbInstance == nil {
 		var err error
 		dbInstance, err = New(config.LaunchConfig().Database)
-
 		if err != nil {
 			panic("[DB] 数据库连接失败: " + err.Error())
 		}
