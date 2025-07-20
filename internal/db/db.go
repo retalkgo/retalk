@@ -27,13 +27,13 @@ func getDBType(dsn string) string {
 
 func DB() *gorm.DB {
 	if dbInstance == nil {
-		dbType := getDBType(config.Config().Database)
+		dbType := getDBType(config.LaunchConfig().Database)
 
 		var err error
 
 		if dbType == "sqlite" {
 			// 排除 dsn 中的 sqlite:// 前缀
-			dsn := config.Config().Database[9:]
+			dsn := config.LaunchConfig().Database[9:]
 
 			if dsn == "" {
 				panic("SQLite 数据库连接字符串不能为空")
@@ -43,15 +43,15 @@ func DB() *gorm.DB {
 		}
 
 		if dbType == "mysql" {
-			dbInstance, err = gorm.Open(mysql.Open(config.Config().Database), &gorm.Config{})
+			dbInstance, err = gorm.Open(mysql.Open(config.LaunchConfig().Database), &gorm.Config{})
 		}
 
 		if dbType == "postgres" {
-			dbInstance, err = gorm.Open(postgres.Open(config.Config().Database), &gorm.Config{})
+			dbInstance, err = gorm.Open(postgres.Open(config.LaunchConfig().Database), &gorm.Config{})
 		}
 
 		if dbType == "unknown" {
-			panic("[DB] 无效的数据库连接字符串: " + config.Config().Database)
+			panic("[DB] 无效的数据库连接字符串: " + config.LaunchConfig().Database)
 		}
 
 		if err != nil {

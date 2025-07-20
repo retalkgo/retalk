@@ -1,3 +1,4 @@
 {
-    "evenBetterToml.schema.enabled": false
+    "evenBetterToml.schema.enabled": false,
+    "makefile.configureOnOpen": false
 }

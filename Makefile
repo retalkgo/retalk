@@ -26,4 +26,7 @@ fmt:
 apidoc:
 	swag init -g server/server.go -o internal/docs --parseDependency --parseInternal
 
+test:
+	go test ./...
+
 .PHONY: install-dev build dev fmt apidoc

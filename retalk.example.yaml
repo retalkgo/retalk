@@ -2,3 +2,14 @@ dev: false
 host: localhost
 port: 2716
 database: sqlite://./retalk.db
+cache:
+  type: redis
+  # 或使用内存数据库
+  # type: memory
+  addr: localhost:6379
+  username: yourusername
+  password: yourpassword
+  db: 0
+  ttl: 30 # 分钟
+  # 或使用内存数据库
+  # type: memory

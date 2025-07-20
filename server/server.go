@@ -9,13 +9,15 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// @title						retalk api
-// @version					1.0
-// @description				retalk api
-// @license.name				GPL 3.0
-// @securityDefinitions.apikey	ApiKeyAuth
-// @in							header
-// @name						Authorization
+// 启动服务端
+//
+//	@title						retalk api
+//	@version					1.0
+//	@description				retalk api
+//	@license.name				GPL 3.0
+//	@securityDefinitions.apikey	ApiKeyAuth
+//	@in							header
+//	@name						Authorization
 func Start() {
 	logrus.Infof("retalk %s", version.Version)
 
@@ -26,7 +28,7 @@ func Start() {
 		ServerHeader: "retalk",
 	})
 
-	listenAddr := config.Host + ":" + strconv.Itoa(config.Port)
+	listenAddr := config.Server.Host + ":" + strconv.Itoa(config.Server.Port)
 	logrus.Printf("[HTTP] 在 http://%s 启动服务", listenAddr)
 	fiberApp.Listen(listenAddr, fiber.ListenConfig{
 		DisableStartupMessage: true,
