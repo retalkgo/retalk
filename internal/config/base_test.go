@@ -29,7 +29,7 @@ func init() {
 }
 
 func writeConfig(path string, data []byte) error {
-	return os.WriteFile(path, data, 0600)
+	return os.WriteFile(path, data, 0o600)
 }
 
 func prepareTestConfig(t *testing.T, filename string, content []byte) string {
@@ -63,7 +63,6 @@ func TestLaunchConfig_LoadAndDefaults(t *testing.T) {
 
 	cfg := LaunchConfig()
 	assert.NotNil(t, cfg)
-
 
 	assert.Equal(t, true, cfg.Dev)
 	assert.Equal(t, "example.com", cfg.Server.Host)

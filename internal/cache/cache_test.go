@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/alicebob/miniredis/v2"
-	"github.com/stretchr/testify/assert"
 	"github.com/retalkgo/retalk/internal/config"
+	"github.com/stretchr/testify/assert"
 )
 
 // Test invalid dest (non-pointer) in Get

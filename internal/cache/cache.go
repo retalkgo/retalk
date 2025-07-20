@@ -19,8 +19,8 @@ import (
 
 type Cache struct {
 	ctx       context.Context
-	ttl      time.Duration
-	instance *lib_cache.Cache[any]
+	ttl       time.Duration
+	instance  *lib_cache.Cache[any]
 	marshaler *marshaler.Marshaler
 }
 
@@ -46,8 +46,8 @@ func New(conf *config.CacheConfig) (*Cache, error) {
 		cacheStore = bigcache_store.NewBigcache(bigCacheClient)
 	case config.CacheTypeRedis:
 		redisClient := redis.NewClient(&redis.Options{
-			Addr: conf.Addr,
-			DB:   conf.DB,
+			Addr:     conf.Addr,
+			DB:       conf.DB,
 			Username: conf.Username,
 			Password: conf.Password,
 		})
@@ -56,7 +56,7 @@ func New(conf *config.CacheConfig) (*Cache, error) {
 		if err != nil {
 			return nil, err
 		}
-		cacheStore = redis_store.NewRedis(redisClient,store.WithExpiration(cache.ttl))
+		cacheStore = redis_store.NewRedis(redisClient, store.WithExpiration(cache.ttl))
 	}
 
 	cacheInstance := lib_cache.New[any](cacheStore)
@@ -71,9 +71,8 @@ func (c *Cache) Get(key string, dest any) error {
 	if reflect.ValueOf(dest).Kind() != reflect.Ptr {
 		return fmt.Errorf("dest 必须为指针")
 	}
-	
-	_, err := c.marshaler.Get(c.ctx, key, dest)
 
+	_, err := c.marshaler.Get(c.ctx, key, dest)
 	if err != nil {
 		logrus.Debugf("[CACHE] Miss: %s", key)
 		return err

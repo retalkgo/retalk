@@ -1,4 +1,6 @@
 package config
 
-const CacheTypeMemory = "memory"
-const CacheTypeRedis = "redis"
+const (
+	CacheTypeMemory = "memory"
+	CacheTypeRedis  = "redis"
+)
