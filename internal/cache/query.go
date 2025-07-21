@@ -18,7 +18,7 @@ func QueryWithCache[T any](c *Cache, key string, fn func() (T, error)) (T, error
 				return nil, err
 			}
 
-			if err := c.Set(key, res); err != nil {
+			if err := c.Set(res, key); err != nil {
 				return nil, err
 			}
 		}

@@ -30,7 +30,7 @@ func TestMemoryCache_SetGetDeleteClear(t *testing.T) {
 	assert.NoError(t, err)
 
 	// test Set
-	err = c.Set("foo", 42)
+	err = c.Set(42, "foo")
 	assert.NoError(t, err)
 
 	// test Get
@@ -65,7 +65,7 @@ func TestRedisCache_SetGetDeleteClear(t *testing.T) {
 	assert.NoError(t, err)
 
 	// test Set
-	err = c.Set("alpha", map[string]any{"num": int8(100)})
+	err = c.Set(map[string]any{"num": int8(100)}, "alpha")
 	assert.NoError(t, err)
 
 	// test Get into struct/map
@@ -88,7 +88,7 @@ func TestRedisCache_SetGetDeleteClear(t *testing.T) {
 	assert.Error(t, err)
 
 	// test Clear
-	err = c.Set("gamma", 3.14)
+	err = c.Set(3.14, "gamma")
 	assert.NoError(t, err)
 	err = c.Clear()
 	assert.NoError(t, err)

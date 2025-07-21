@@ -83,12 +83,24 @@ func (c *Cache) Get(key string, dest any) error {
 	return nil
 }
 
-func (c *Cache) Set(key string, value any) error {
-	return c.marshaler.Set(c.ctx, key, value)
+func (c *Cache) Set(value any, keys ...string) error {
+	for _, key := range keys {
+		logrus.Debugf("[CACHE] Set: %s", key)
+		if err := c.marshaler.Set(c.ctx, key, value); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
-func (c *Cache) Delete(key string) error {
-	return c.marshaler.Delete(c.ctx, key)
+func (c *Cache) Delete(keys ...string) error {
+	for _, key := range keys {
+		logrus.Debugf("[CACHE] Delete: %s", key)
+		if err := c.marshaler.Delete(c.ctx, key); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func (c *Cache) Clear() error {
