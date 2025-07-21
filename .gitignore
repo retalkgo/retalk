@@ -6,3 +6,9 @@ tmp
 
 # 配置文件
 retalk.yaml
+
+# 数据库
+retalk.db
+
+# 测试相关
+*.test.*

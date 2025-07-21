@@ -9,8 +9,14 @@ func (AppConfigKV) TableName() string {
 	return "app_config"
 }
 
+const GravatarConfigKey = "gravatar"
+
 type GravatarConfig struct {
 	BaseURL string `json:"base_url"`
+}
+
+var DefaultGravatarConfig = GravatarConfig{
+	BaseURL: "https://www.gravatar.com/avatar/",
 }
 
 type AppConfig struct {

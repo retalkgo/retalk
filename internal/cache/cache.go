@@ -78,7 +78,7 @@ func (c *Cache) Get(key string, dest any) error {
 		return err
 	}
 
-	logrus.Debugf("[CACHE] Hit: %s", key)
+	logrus.Debugf("[CACHE] Hit: %s - %#v", key, dest)
 
 	return nil
 }

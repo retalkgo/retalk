@@ -2,6 +2,8 @@ package db
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 
 	"github.com/retalkgo/retalk/internal/config"
 	"gorm.io/driver/mysql"
@@ -28,7 +30,7 @@ func getDBType(dsn string) string {
 }
 
 func New(dsn string) (*gorm.DB, error) {
-	dbType := getDBType(config.LaunchConfig().Database)
+	dbType := getDBType(dsn)
 
 	var db *gorm.DB
 	var err error
@@ -67,10 +69,48 @@ func DB() *gorm.DB {
 	if dbInstance == nil {
 		var err error
 		dbInstance, err = New(config.LaunchConfig().Database)
+		MigrateModels(dbInstance)
 		if err != nil {
 			panic("[DB] 数据库连接失败: " + err.Error())
 		}
 	}
 
 	return dbInstance
+}
+
+func GetTestDBPath() string {
+	wd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
+	dbPath := filepath.Join(wd, "reblog.test.db")
+	return dbPath
+}
+
+func GetTestDB() *gorm.DB {
+	testDBPath := GetTestDBPath()
+
+	dsn := "sqlite://" + testDBPath
+
+	db, err := New(dsn)
+	if err != nil {
+		panic(err)
+	}
+
+	err = MigrateModels(db)
+	if err != nil {
+		panic(err)
+	}
+
+	return db
+}
+
+func ClearTestDB() {
+	testDBPath := GetTestDBPath()
+
+	err := os.Remove(testDBPath)
+	if err != nil {
+		panic(err)
+	}
 }
