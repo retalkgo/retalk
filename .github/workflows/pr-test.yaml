@@ -1,0 +1,56 @@
+name: Pull Request Test
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+          cache: true
+
+      - name: Run tests and capture output
+        id: go-test
+        run: |
+          # 运行 go test 并将输出和错误都重定向到 TEE，以便在屏幕上显示并同时捕获到文件中
+          go test -v ./... 2>&1 | tee test-output.log
+          # 根据 go test 的退出码设置步骤的输出
+          echo "exit_code=${PIPESTATUS[0]}" >> $GITHUB_ENV
+
+      - name: Comment on PR with test success
+        if: env.exit_code == 0
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ 全部的测试用例都通过了！'
+            })
+
+      - name: Comment on PR with test failure
+        if: env.exit_code != 0
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('test-output.log', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `❌ 部分测试用例未通过。\n\n**详细日志:**\n\`\`\`\n${output}\n\`\`\``
+            })
+      - name: Fail the workflow if tests failed
+        if: env.exit_code != 0
+        run: exit 1
