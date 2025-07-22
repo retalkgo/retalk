@@ -52,7 +52,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `❌ 部分测试用例未通过。\n\n**详细日志:**\n\`\`\`\n${output}\n\`\`\``
+              body: `❌ 部分测试用例未通过。\n\n<details><summary>点击展开/折叠详细日志</summary>\n\n\`\`\`\n${output}\n\`\`\`\n</details>`
             })
       - name: Fail the workflow if tests failed
         if: env.exit_code != 0
