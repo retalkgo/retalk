@@ -9,6 +9,7 @@ import (
 var (
 	storeCache *StoreCache
 	AppConfig  *AppConfigStore
+	Users      *UsersStore
 )
 
 func Init(db *gorm.DB, launchConfig *config.LaunchConfigSchema) error {
