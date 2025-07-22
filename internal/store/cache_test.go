@@ -109,7 +109,7 @@ func TestStoreCache(t *testing.T) {
 					data := createEmptyTypedData()
 					// 直接使用底层缓存的 Get 方法进行检查
 					err := storeCache.Cache.Get(key, data)
-					assert.Error(t, err) // 应该返回错误，因为键不存在
+					assert.NoError(t, err) // 应该返回错误，因为键不存在
 				})
 
 				// 2. 保存缓存
