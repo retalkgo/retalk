@@ -6,8 +6,10 @@ import (
 	"github.com/cloudwego/hertz/pkg/app/server"
 	"github.com/retalkgo/retalk/internal/config"
 	"github.com/retalkgo/retalk/internal/db"
+
 	"github.com/retalkgo/retalk/internal/store"
 	"github.com/retalkgo/retalk/internal/version"
+	"github.com/retalkgo/retalk/server/handler"
 	"github.com/sirupsen/logrus"
 )
 
@@ -40,7 +42,15 @@ func Start() {
 		server.WithHostPorts(listenAddr),
 	)
 
+	registerRoutes(h)
+
 	logrus.Infof("[HTTP] 在 http://%s 启动服务", listenAddr)
 
 	h.Spin()
+}
+
+func registerRoutes(app *server.Hertz) {
+	app.GET("/healthz", handler.Healthz.Healthz)
+
+	app.GET("/*any", handler.NotFound.NotFound)
 }
