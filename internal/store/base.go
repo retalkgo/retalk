@@ -10,6 +10,8 @@ var (
 	storeCache *StoreCache
 	AppConfig  *AppConfigStore
 	Users      *UsersStore
+	Sites      *SitesStore
+	Comments   *CommentsStore
 )
 
 func Init(db *gorm.DB, launchConfig *config.LaunchConfigSchema) error {
@@ -21,6 +23,9 @@ func Init(db *gorm.DB, launchConfig *config.LaunchConfigSchema) error {
 	storeCache = NewStoreCache(cache)
 
 	AppConfig = NewAppConfigStore(db, storeCache)
+	Users = NewUsersStore(db, storeCache)
+	Sites = NewSitesStore(db, storeCache)
+	Comments = NewCommentsStore(db, storeCache)
 
 	return nil
 }

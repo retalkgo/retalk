@@ -20,8 +20,7 @@ func setupUsersStoreTest(t *testing.T) (*UsersStore, *StoreCache) {
 	require.NoError(t, err)
 	storeCache := NewStoreCache(c)
 
-	usersStore := NewUsersStore(testDB)
-	usersStore.storeCache = storeCache
+	usersStore := NewUsersStore(testDB, storeCache)
 
 	return usersStore, storeCache
 }

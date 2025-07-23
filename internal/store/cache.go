@@ -19,6 +19,13 @@ const (
 	UserByIDKey       = "user#id=%d"
 	UserByUsernameKey = "user#username=%s"
 	UserByEmailKey    = "user#email=%s"
+
+	// Site
+	SiteByIDKey     = "site#id=%d"
+	SiteByDomainKey = "site#domain=%s"
+
+	// Comment
+	CommentByIDKey = "comment#id=%d"
 )
 
 func QueryWithCache[T any](storeCache *StoreCache, key string, fn func() (T, error)) (T, error) {
@@ -56,5 +63,31 @@ func (s *StoreCache) UserCacheDelete(user *model.User) {
 		fmt.Sprintf(UserByIDKey, user.ID),
 		fmt.Sprintf(UserByUsernameKey, user.Username),
 		fmt.Sprintf(UserByEmailKey, user.Email),
+	)
+}
+
+func (s *StoreCache) SiteCacheSet(site *model.Site) {
+	s.Set(site,
+		fmt.Sprintf(SiteByIDKey, site.ID),
+		fmt.Sprintf(SiteByDomainKey, site.Domain),
+	)
+}
+
+func (s *StoreCache) SiteCacheDelete(site *model.Site) {
+	s.Delete(
+		fmt.Sprintf(SiteByIDKey, site.ID),
+		fmt.Sprintf(SiteByDomainKey, site.Domain),
+	)
+}
+
+func (s *StoreCache) CommentCacheSet(comment *model.Comment) {
+	s.Set(comment,
+		fmt.Sprintf(CommentByIDKey, comment.ID),
+	)
+}
+
+func (s *StoreCache) CommentCacheDelete(comment *model.Comment) {
+	s.Delete(
+		fmt.Sprintf(CommentByIDKey, comment.ID),
 	)
 }

@@ -8,9 +8,10 @@ type Comment struct {
 	User   User  `gorm:"foreignKey:UserID" json:"user"`
 
 	// 发送者信息 (游客)
-	GuestName    string `json:"guest_name"`
-	GuestEmail   string `json:"guest_email"`
-	GuestWebsite string `json:"guest_website"`
+	GuestName        string `json:"guest_name"`
+	GuestEmail       string `json:"guest_email"`
+	GuestHashedEmail string `json:"guest_hashed_email"`
+	GuestWebsite     string `json:"guest_website"`
 
 	// 归属信息
 	SiteID uint   `json:"site_id"`
@@ -32,5 +33,11 @@ func (Comment) TableName() string {
 type CookedComment struct {
 	BaseModel
 
-	UserID *uint `json:"user_id"`
+	UserID      *uint           `json:"user_id"`
+	NickName    string          `json:"nickname"`
+	HashedEmail string          `json:"hashed_email"`
+	Website     string          `json:"website"`
+	Avatar      string          `json:"avatar"`
+	Content     string          `json:"content"`
+	Replies     []CookedComment `json:"replies"`
 }

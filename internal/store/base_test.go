@@ -22,4 +22,6 @@ func TestInit(t *testing.T) {
 	assert.NoError(t, err)
 
 	assert.NotNil(t, AppConfig)
+	assert.NotNil(t, Users)
+	assert.NotNil(t, Comments)
 }

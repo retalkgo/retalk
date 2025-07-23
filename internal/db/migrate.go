@@ -10,6 +10,7 @@ func MigrateModels(db *gorm.DB) error {
 		&model.AppConfigKV{},
 		&model.User{},
 		&model.Site{},
+		&model.Comment{},
 	)
 
 	return err

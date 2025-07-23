@@ -52,6 +52,31 @@ func TestStoreCache(t *testing.T) {
 		Password: "password123",
 	}
 
+	site := model.Site{
+		BaseModel: model.BaseModel{
+			ID: 114514,
+		},
+		Name:        "test site",
+		Domain:      "example.com",
+		Description: "This is a test site",
+		Logo:        "https://example.com/logo.png",
+	}
+
+	comment := model.Comment{
+		BaseModel: model.BaseModel{
+			ID: 114514,
+		},
+		Content: "test comment",
+		User: model.User{
+			BaseModel: model.BaseModel{
+				ID: 1919810,
+			},
+			Username: "testuser",
+			Email:    "test@example.com",
+			Password: "password123",
+		},
+	}
+
 	// 定义测试用例结构
 	tests := []struct {
 		name     string
@@ -89,6 +114,37 @@ func TestStoreCache(t *testing.T) {
 			},
 			delFunc: func(storeCache *StoreCache) {
 				storeCache.UserCacheDelete(&user)
+			},
+		},
+
+		// Site 缓存测试
+		{
+			name: "Site",
+			data: &site,
+			saveFunc: func(storeCache *StoreCache) {
+				storeCache.SiteCacheSet(&site)
+			},
+			keys: []string{
+				fmt.Sprintf(SiteByIDKey, site.ID),
+				fmt.Sprintf(SiteByDomainKey, site.Domain),
+			},
+			delFunc: func(storeCache *StoreCache) {
+				storeCache.SiteCacheDelete(&site)
+			},
+		},
+
+		// Comment 缓存测试
+		{
+			name: "Comment",
+			data: &comment,
+			saveFunc: func(storeCache *StoreCache) {
+				storeCache.CommentCacheSet(&comment)
+			},
+			keys: []string{
+				fmt.Sprintf(CommentByIDKey, comment.ID),
+			},
+			delFunc: func(storeCache *StoreCache) {
+				storeCache.CommentCacheDelete(&comment)
 			},
 		},
 	}
