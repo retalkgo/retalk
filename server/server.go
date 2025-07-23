@@ -3,7 +3,7 @@ package server
 import (
 	"strconv"
 
-	"github.com/gofiber/fiber/v3"
+	"github.com/cloudwego/hertz/pkg/app/server"
 	"github.com/retalkgo/retalk/internal/config"
 	"github.com/retalkgo/retalk/internal/db"
 	"github.com/retalkgo/retalk/internal/store"
@@ -34,14 +34,13 @@ func Start() {
 		logrus.Fatalf("[STORE] 初始化储存层时失败: %v", err)
 	}
 
-	fiberApp := fiber.New(fiber.Config{
-		AppName:      "retalk",
-		ServerHeader: "retalk",
-	})
-
 	listenAddr := config.Server.Host + ":" + strconv.Itoa(config.Server.Port)
+
+	h := server.New(
+		server.WithHostPorts(listenAddr),
+	)
+
 	logrus.Infof("[HTTP] 在 http://%s 启动服务", listenAddr)
-	fiberApp.Listen(listenAddr, fiber.ListenConfig{
-		DisableStartupMessage: true,
-	})
+
+	h.Spin()
 }
