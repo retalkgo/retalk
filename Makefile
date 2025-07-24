@@ -11,9 +11,9 @@ install-dev:
 	go install golang.org/x/tools/cmd/goimports@latest
 
 app:
-	go build -o bin/retalk \
-		-ldflags "-w -s -X 'github.com/retalkgo/retalk/internal/version.Version=$(VERSION)$(EXTERNAL_VERSION)' \
-		-X 'github.com/retalkgo/retalk/internal/version.Commit=$(COMMIT)'" -v
+	go build -o bin/retalk -v \
+    	-ldflags "-w -s -X 'github.com/retalkgo/retalk/internal/version.Version=$(VERSION)$(EXTERNAL_VERSION)' \
+    	-X 'github.com/retalkgo/retalk/internal/version.Commit=$(COMMIT)'"
 
 dev:
 	air
