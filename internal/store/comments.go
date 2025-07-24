@@ -35,11 +35,8 @@ func (s *CommentsStore) FindByID(id uint) (*model.Comment, error) {
 	comment, err := QueryWithCache(s.storeCache, fmt.Sprintf(CommentByIDKey, id), func() (*model.Comment, error) {
 		var comment model.Comment
 		err := s.db.First(&comment, id).Error
-		if err != nil {
-			return nil, err
-		}
 
-		return &comment, nil
+		return &comment, err
 	})
 
 	return comment, err
