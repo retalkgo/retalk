@@ -10,6 +10,7 @@ import (
 )
 
 const sampleConfig = `dev: true
+secret: retalk
 server:
   host: example.com
   port: 8080
@@ -27,6 +28,56 @@ cache:
   password: pass
   db: 2
   ttl: 15`
+
+var sampleConfigStruct = LaunchConfigSchema{
+	Dev:    true,
+	Secret: "retalk",
+	Server: ServerConfig{
+		Host: "example.com",
+		Port: 8080,
+	},
+	Database: DatabaseConfig{
+		Type:     "postgres",
+		Host:     "localhost",
+		Port:     5432,
+		Username: "user",
+		Password: "11111111",
+		DBName:   "dbname",
+	},
+	Cache: CacheConfig{
+		Type:     "redis",
+		Addr:     "redis:6379",
+		Username: "user",
+		Password: "pass",
+		DB:       2,
+		TTL:      15,
+	},
+}
+
+var defualtConfigStruct = LaunchConfigSchema{
+	Dev:    false,
+	Secret: "retalk",
+	Server: ServerConfig{
+		Host: "localhost",
+		Port: 2716,
+	},
+	Database: DatabaseConfig{
+		Type:     "postgres",
+		Host:     "localhost",
+		Port:     5432,
+		Username: "root",
+		Password: "root",
+		DBName:   "retalk",
+	},
+	Cache: CacheConfig{
+		Type:     "memory",
+		Addr:     "localhost:6379",
+		Username: "",
+		Password: "",
+		DB:       0,
+		TTL:      30,
+	},
+}
 
 var originalConfigPath string
 
@@ -70,24 +121,7 @@ func TestLaunchConfig_LoadAndDefaults(t *testing.T) {
 	cfg := LaunchConfig()
 	assert.NotNil(t, cfg)
 
-	assert.Equal(t, true, cfg.Dev)
-
-	assert.Equal(t, "example.com", cfg.Server.Host)
-	assert.Equal(t, 8080, cfg.Server.Port)
-
-	assert.Equal(t, "postgres", cfg.Database.Type)
-	assert.Equal(t, "localhost", cfg.Database.Host)
-	assert.Equal(t, 5432, cfg.Database.Port)
-	assert.Equal(t, "dbname", cfg.Database.DBName)
-	assert.Equal(t, "user", cfg.Database.Username)
-	assert.Equal(t, "11111111", cfg.Database.Password)
-
-	assert.Equal(t, "redis", cfg.Cache.Type)
-	assert.Equal(t, "redis:6379", cfg.Cache.Addr)
-	assert.Equal(t, "user", cfg.Cache.Username)
-	assert.Equal(t, "pass", cfg.Cache.Password)
-	assert.Equal(t, 2, cfg.Cache.DB)
-	assert.Equal(t, 15, cfg.Cache.TTL)
+	assert.Equal(t, sampleConfigStruct, *cfg)
 }
 
 func TestLaunchConfig_DefaultsApplied(t *testing.T) {
@@ -99,22 +133,5 @@ func TestLaunchConfig_DefaultsApplied(t *testing.T) {
 	cfg := LaunchConfig()
 	assert.NotNil(t, cfg)
 
-	assert.Equal(t, false, cfg.Dev)
-
-	assert.Equal(t, "localhost", cfg.Server.Host)
-	assert.Equal(t, 2716, cfg.Server.Port)
-
-	assert.Equal(t, "postgres", cfg.Database.Type)
-	assert.Equal(t, "localhost", cfg.Database.Host)
-	assert.Equal(t, 5432, cfg.Database.Port)
-	assert.Equal(t, "retalk", cfg.Database.DBName)
-	assert.Equal(t, "root", cfg.Database.Username)
-	assert.Equal(t, "root", cfg.Database.Password)
-
-	assert.Equal(t, "memory", cfg.Cache.Type)
-	assert.Equal(t, "localhost:6379", cfg.Cache.Addr)
-	assert.Equal(t, "", cfg.Cache.Username)
-	assert.Equal(t, "", cfg.Cache.Password)
-	assert.Equal(t, 0, cfg.Cache.DB)
-	assert.Equal(t, 30, cfg.Cache.TTL)
+	assert.Equal(t, defualtConfigStruct, *cfg)
 }

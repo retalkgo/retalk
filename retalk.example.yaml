@@ -1,4 +1,5 @@
 dev: false
+secret: your-super-secret-key-that-is-long-and-secure
 server:
   host: localhost
   port: 2716

@@ -33,6 +33,7 @@ type CacheConfig struct {
 
 type LaunchConfigSchema struct {
 	Dev      bool           `yaml:"dev" default:"false"` // 调试模式
+	Secret   string         `yaml:"secret" default:"retalk"`
 	Server   ServerConfig   `yaml:"server"`
 	Database DatabaseConfig `yaml:"database"`
 	Cache    CacheConfig    `yaml:"cache"`

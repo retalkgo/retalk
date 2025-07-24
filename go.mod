@@ -73,6 +73,7 @@ require (
 	github.com/cloudwego/hertz v0.10.1
 	github.com/creasty/defaults v1.8.0
 	github.com/eko/gocache/lib/v4 v4.2.0
+	github.com/golang-jwt/jwt/v5 v5.2.3
 	github.com/redis/go-redis/v9 v9.11.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/swaggo/swag v1.16.5

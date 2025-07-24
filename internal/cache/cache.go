@@ -84,9 +84,13 @@ func (c *Cache) Get(key string, dest any) error {
 }
 
 func (c *Cache) Set(value any, keys ...string) error {
+	return c.SetWithTTL(value, c.ttl, keys...)
+}
+
+func (c *Cache) SetWithTTL(value any, ttl time.Duration, keys ...string) error {
 	for _, key := range keys {
 		logrus.Debugf("[CACHE] Set: %s", key)
-		if err := c.marshaler.Set(c.ctx, key, value); err != nil {
+		if err := c.marshaler.Set(c.ctx, key, value, store.WithExpiration(ttl)); err != nil {
 			return err
 		}
 	}
