@@ -4,12 +4,13 @@ import (
 	"strconv"
 
 	"github.com/cloudwego/hertz/pkg/app/server"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/retalkgo/retalk/internal/config"
 	"github.com/retalkgo/retalk/internal/db"
 
 	"github.com/retalkgo/retalk/internal/store"
 	"github.com/retalkgo/retalk/internal/version"
-	"github.com/retalkgo/retalk/server/handler"
+	"github.com/retalkgo/retalk/server/router"
 	"github.com/sirupsen/logrus"
 )
 
@@ -22,6 +23,7 @@ import (
 //	@securityDefinitions.apikey	ApiKeyAuth
 //	@in							header
 //	@name						Authorization
+//	@basePath					/api
 func Start() {
 	logrus.Infof("retalk %s", version.Version)
 
@@ -29,6 +31,12 @@ func Start() {
 
 	if config.Dev {
 		logrus.SetLevel(logrus.DebugLevel)
+		hlog.SetLevel(hlog.LevelDebug)
+
+		logrus.Infoln("以开发模式运行")
+	} else {
+		hlog.SetLevel(hlog.LevelInfo)
+		hlog.SetSilentMode(true)
 	}
 
 	err := store.Init(db.DB(), &config.Cache)
@@ -42,15 +50,13 @@ func Start() {
 		server.WithHostPorts(listenAddr),
 	)
 
-	registerRoutes(h)
+	router.RegisterRoutes(h)
 
 	logrus.Infof("[HTTP] 在 http://%s 启动服务", listenAddr)
 
-	h.Spin()
-}
-
-func registerRoutes(app *server.Hertz) {
-	app.GET("/healthz", handler.Healthz.Healthz)
-
-	app.GET("/*any", handler.NotFound.NotFound)
+	if config.Dev {
+		h.Run()
+	} else {
+		h.Spin()
+	}
 }
