@@ -14,8 +14,8 @@ var (
 	Comments   *CommentsStore
 )
 
-func Init(db *gorm.DB, launchConfig *config.LaunchConfigSchema) error {
-	cache, err := cache.New(&launchConfig.Cache)
+func Init(db *gorm.DB, cacheConfig *config.CacheConfig) error {
+	cache, err := cache.New(cacheConfig)
 	if err != nil {
 		return err
 	}

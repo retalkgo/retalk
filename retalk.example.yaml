@@ -1,7 +1,14 @@
 dev: false
-host: localhost
-port: 2716
-database: sqlite://./retalk.db
+server:
+  host: localhost
+  port: 2716
+database:
+  type: postgres
+  host: localhost
+  port: 5432
+  username: user
+  password: 11111111
+  db: dbname
 cache:
   type: redis
   # 或使用内存数据库

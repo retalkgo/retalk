@@ -11,14 +11,20 @@ import (
 
 const sampleConfig = `dev: true
 server:
-  host: "example.com"
+  host: example.com
   port: 8080
-database: "postgres://user:pass@localhost/db"
+database:
+  type: postgres
+  host: localhost
+  port: 5432
+  username: user
+  password: 11111111
+  dbname: dbname
 cache:
-  type: "redis"
+  type: redis
   addr: "redis:6379"
-  username: "user"
-  password: "pass"
+  username: user
+  password: pass
   db: 2
   ttl: 15`
 
@@ -65,9 +71,17 @@ func TestLaunchConfig_LoadAndDefaults(t *testing.T) {
 	assert.NotNil(t, cfg)
 
 	assert.Equal(t, true, cfg.Dev)
+
 	assert.Equal(t, "example.com", cfg.Server.Host)
 	assert.Equal(t, 8080, cfg.Server.Port)
-	assert.Equal(t, "postgres://user:pass@localhost/db", cfg.Database)
+
+	assert.Equal(t, "postgres", cfg.Database.Type)
+	assert.Equal(t, "localhost", cfg.Database.Host)
+	assert.Equal(t, 5432, cfg.Database.Port)
+	assert.Equal(t, "dbname", cfg.Database.DBName)
+	assert.Equal(t, "user", cfg.Database.Username)
+	assert.Equal(t, "11111111", cfg.Database.Password)
+
 	assert.Equal(t, "redis", cfg.Cache.Type)
 	assert.Equal(t, "redis:6379", cfg.Cache.Addr)
 	assert.Equal(t, "user", cfg.Cache.Username)
@@ -86,9 +100,17 @@ func TestLaunchConfig_DefaultsApplied(t *testing.T) {
 	assert.NotNil(t, cfg)
 
 	assert.Equal(t, false, cfg.Dev)
+
 	assert.Equal(t, "localhost", cfg.Server.Host)
 	assert.Equal(t, 2716, cfg.Server.Port)
-	assert.Equal(t, "sqlite://./retalk.db", cfg.Database)
+
+	assert.Equal(t, "postgres", cfg.Database.Type)
+	assert.Equal(t, "localhost", cfg.Database.Host)
+	assert.Equal(t, 5432, cfg.Database.Port)
+	assert.Equal(t, "retalk", cfg.Database.DBName)
+	assert.Equal(t, "root", cfg.Database.Username)
+	assert.Equal(t, "root", cfg.Database.Password)
+
 	assert.Equal(t, "memory", cfg.Cache.Type)
 	assert.Equal(t, "localhost:6379", cfg.Cache.Addr)
 	assert.Equal(t, "", cfg.Cache.Username)

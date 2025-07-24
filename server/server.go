@@ -31,7 +31,7 @@ func Start() {
 		logrus.SetLevel(logrus.DebugLevel)
 	}
 
-	err := store.Init(db.DB(), config)
+	err := store.Init(db.DB(), &config.Cache)
 	if err != nil {
 		logrus.Fatalf("[STORE] 初始化储存层时失败: %v", err)
 	}

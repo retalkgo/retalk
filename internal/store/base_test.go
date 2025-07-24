@@ -9,16 +9,13 @@ import (
 )
 
 func TestInit(t *testing.T) {
-	launchConfig := &config.LaunchConfigSchema{
-		Database: db.GetTestDBPath(),
-		Cache: config.CacheConfig{
-			Type: config.CacheTypeMemory,
-		},
+	cacheConfig := config.CacheConfig{
+		Type: config.CacheTypeMemory,
 	}
 	dbInstance := db.GetTestDB()
 	defer db.ClearTestDB()
 
-	err := Init(dbInstance, launchConfig)
+	err := Init(dbInstance, &cacheConfig)
 	assert.NoError(t, err)
 
 	assert.NotNil(t, AppConfig)

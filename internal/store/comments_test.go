@@ -21,9 +21,7 @@ func setupCommentsStoreTest(t *testing.T) (*CommentsStore, *StoreCache) {
 	require.NoError(t, err)
 	storeCache := NewStoreCache(c)
 
-	Init(testDB, &config.LaunchConfigSchema{
-		Cache: cacheCfg,
-	})
+	Init(testDB, &cacheCfg)
 
 	commentsStore := NewCommentsStore(testDB, storeCache)
 

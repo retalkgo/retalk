@@ -13,6 +13,15 @@ type ServerConfig struct {
 	Port int    `yaml:"port" default:"2716"`      // 端口
 }
 
+type DatabaseConfig struct {
+	Type     string `yaml:"type" default:"postgres"`
+	Host     string `yaml:"host" default:"localhost"`
+	Port     int    `yaml:"port" default:"5432"`
+	Username string `yaml:"username" default:"root"`
+	Password string `yaml:"password" default:"root"`
+	DBName   string `yaml:"dbname" default:"retalk"`
+}
+
 type CacheConfig struct {
 	Type     string `yaml:"type" default:"memory"`
 	Addr     string `yaml:"addr" default:"localhost:6379"`
@@ -23,10 +32,10 @@ type CacheConfig struct {
 }
 
 type LaunchConfigSchema struct {
-	Dev      bool         `yaml:"dev" default:"false"` // 调试模式
-	Server   ServerConfig `yaml:"server"`
-	Database string       `yaml:"database" default:"sqlite://./retalk.db"` // 数据库连接字符串
-	Cache    CacheConfig  `yaml:"cache"`
+	Dev      bool           `yaml:"dev" default:"false"` // 调试模式
+	Server   ServerConfig   `yaml:"server"`
+	Database DatabaseConfig `yaml:"database"`
+	Cache    CacheConfig    `yaml:"cache"`
 }
 
 var (
