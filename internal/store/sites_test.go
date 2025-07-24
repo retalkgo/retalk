@@ -13,7 +13,7 @@ import (
 )
 
 // setupSitesStoreTest 用于设置站点存储的测试环境
-func setupSitesStoreTest(t *testing.T) (*SitesStore, *StoreCache) {
+func setupSitesStoreTest(t *testing.T) (*SiteStore, *StoreCache) {
 	testDB := db.GetTestDB()
 
 	cacheCfg := config.CacheConfig{Type: "memory"}

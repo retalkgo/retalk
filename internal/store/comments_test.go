@@ -13,7 +13,7 @@ import (
 )
 
 // setupCommentsStoreTest 用于设置评论存储的测试环境
-func setupCommentsStoreTest(t *testing.T) (*CommentsStore, *StoreCache) {
+func setupCommentsStoreTest(t *testing.T) (*CommentStore, *StoreCache) {
 	testDB := db.GetTestDB()
 
 	cacheCfg := config.CacheConfig{Type: "memory"}

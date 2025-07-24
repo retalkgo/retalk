@@ -7,19 +7,19 @@ import (
 	"gorm.io/gorm"
 )
 
-type UsersStore struct {
+type UserStore struct {
 	db         *gorm.DB
 	storeCache *StoreCache
 }
 
-func NewUsersStore(db *gorm.DB, storeCache *StoreCache) *UsersStore {
-	return &UsersStore{
+func NewUsersStore(db *gorm.DB, storeCache *StoreCache) *UserStore {
+	return &UserStore{
 		db:         db,
 		storeCache: storeCache,
 	}
 }
 
-func (s *UsersStore) Create(user *model.User) error {
+func (s *UserStore) Create(user *model.User) error {
 	err := s.db.Create(user).Error
 	if err != nil {
 		return err
@@ -30,7 +30,7 @@ func (s *UsersStore) Create(user *model.User) error {
 	return nil
 }
 
-func (s *UsersStore) FindByID(id uint) (*model.User, error) {
+func (s *UserStore) FindByID(id uint) (*model.User, error) {
 	return QueryWithCache(s.storeCache, fmt.Sprintf(UserByIDKey, id), func() (*model.User, error) {
 		var user model.User
 		err := s.db.Where("id = ?", id).First(&user).Error
@@ -42,7 +42,7 @@ func (s *UsersStore) FindByID(id uint) (*model.User, error) {
 	})
 }
 
-func (s *UsersStore) FindByUsername(username string) (*model.User, error) {
+func (s *UserStore) FindByUsername(username string) (*model.User, error) {
 	return QueryWithCache(s.storeCache, fmt.Sprintf(UserByUsernameKey, username), func() (*model.User, error) {
 		var user model.User
 		err := s.db.Where("username = ?", username).First(&user).Error
@@ -53,7 +53,7 @@ func (s *UsersStore) FindByUsername(username string) (*model.User, error) {
 	})
 }
 
-func (s *UsersStore) FindByEmail(email string) (*model.User, error) {
+func (s *UserStore) FindByEmail(email string) (*model.User, error) {
 	return QueryWithCache(s.storeCache, fmt.Sprintf(UserByEmailKey, email), func() (*model.User, error) {
 		var user model.User
 		err := s.db.Where("email = ?", email).First(&user).Error
@@ -64,7 +64,7 @@ func (s *UsersStore) FindByEmail(email string) (*model.User, error) {
 	})
 }
 
-func (s *UsersStore) Update(user *model.User) error {
+func (s *UserStore) Update(user *model.User) error {
 	err := s.db.Where("id = ?", user.ID).Updates(user).Error
 	if err != nil {
 		return err
@@ -75,7 +75,7 @@ func (s *UsersStore) Update(user *model.User) error {
 	return nil
 }
 
-func (s *UsersStore) Delete(user *model.User) error {
+func (s *UserStore) Delete(user *model.User) error {
 	err := s.db.Where("id = ?", user.ID).Delete(user).Error
 	if err != nil {
 		return err

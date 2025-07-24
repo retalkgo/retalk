@@ -8,19 +8,19 @@ import (
 	"gorm.io/gorm"
 )
 
-type CommentsStore struct {
+type CommentStore struct {
 	db         *gorm.DB
 	storeCache *StoreCache
 }
 
-func NewCommentsStore(db *gorm.DB, storeCache *StoreCache) *CommentsStore {
-	return &CommentsStore{
+func NewCommentsStore(db *gorm.DB, storeCache *StoreCache) *CommentStore {
+	return &CommentStore{
 		db:         db,
 		storeCache: storeCache,
 	}
 }
 
-func (s *CommentsStore) Create(comment *model.Comment) error {
+func (s *CommentStore) Create(comment *model.Comment) error {
 	err := s.db.Create(comment).Error
 	if err != nil {
 		return err
@@ -31,7 +31,7 @@ func (s *CommentsStore) Create(comment *model.Comment) error {
 	return nil
 }
 
-func (s *CommentsStore) FindByID(id uint) (*model.Comment, error) {
+func (s *CommentStore) FindByID(id uint) (*model.Comment, error) {
 	comment, err := QueryWithCache(s.storeCache, fmt.Sprintf(CommentByIDKey, id), func() (*model.Comment, error) {
 		var comment model.Comment
 		err := s.db.First(&comment, id).Error
@@ -42,7 +42,7 @@ func (s *CommentsStore) FindByID(id uint) (*model.Comment, error) {
 	return comment, err
 }
 
-func (s *CommentsStore) FindByDomainAndPath(domain string, path string, pageIndex int, pageSize int) ([]*model.Comment, int64, error) {
+func (s *CommentStore) FindByDomainAndPath(domain string, path string, pageIndex int, pageSize int) ([]*model.Comment, int64, error) {
 	var comments []*model.Comment
 
 	var count int64
@@ -65,7 +65,7 @@ func (s *CommentsStore) FindByDomainAndPath(domain string, path string, pageInde
 	return comments, count, nil
 }
 
-func (s *CommentsStore) Update(comment *model.Comment) error {
+func (s *CommentStore) Update(comment *model.Comment) error {
 	err := s.db.Save(comment).Error
 	if err != nil {
 		return err
@@ -76,7 +76,7 @@ func (s *CommentsStore) Update(comment *model.Comment) error {
 	return nil
 }
 
-func (s *CommentsStore) Delete(comment *model.Comment) error {
+func (s *CommentStore) Delete(comment *model.Comment) error {
 	err := s.db.Delete(comment).Error
 	if err != nil {
 		return err
@@ -87,7 +87,7 @@ func (s *CommentsStore) Delete(comment *model.Comment) error {
 	return nil
 }
 
-func (s *CommentsStore) Cook(comment *model.Comment) (*model.CookedComment, error) {
+func (s *CommentStore) Cook(comment *model.Comment) (*model.CookedComment, error) {
 	var userID *uint
 	var nickname string
 	var email string

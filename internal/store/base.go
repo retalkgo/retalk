@@ -9,9 +9,9 @@ import (
 var (
 	storeCache *StoreCache
 	AppConfig  *AppConfigStore
-	Users      *UsersStore
-	Sites      *SitesStore
-	Comments   *CommentsStore
+	Users      *UserStore
+	Sites      *SiteStore
+	Comments   *CommentStore
 )
 
 func Init(db *gorm.DB, cacheConfig *config.CacheConfig) error {

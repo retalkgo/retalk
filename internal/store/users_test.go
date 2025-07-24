@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func setupUsersStoreTest(t *testing.T) (*UsersStore, *StoreCache) {
+func setupUsersStoreTest(t *testing.T) (*UserStore, *StoreCache) {
 	testDB := db.GetTestDB()
 
 	cacheCfg := &config.CacheConfig{Type: "memory"}
