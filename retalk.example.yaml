@@ -9,7 +9,7 @@ database:
   port: 5432
   username: user
   password: 11111111
-  db: dbname
+  dbname: dbname
 cache:
   type: redis
   # 或使用内存数据库

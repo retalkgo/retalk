@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: retalk-postgres
+    environment:
+      POSTGRES_USER: retalk
+      POSTGRES_PASSWORD: retalk
+      POSTGRES_DB: retalk
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U retalk"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: retalk-redis
+    command: redis-server --requirepass retalk
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  retalk:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: retalk
+    ports:
+      - "2716:2716"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./retalk.yaml:/app/retalk.yaml:ro
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
