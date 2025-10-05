@@ -1,0 +1,19 @@
+dev: false
+secret: your-super-secret-key-that-is-long-and-secure
+server:
+  host: 0.0.0.0
+  port: 2716
+database:
+  type: postgres
+  host: postgres
+  port: 5432
+  username: retalk
+  password: retalk
+  dbname: retalk
+cache:
+  type: redis
+  addr: redis:6379
+  username: ""
+  password: retalk
+  db: 0
+  ttl: 30

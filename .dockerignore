@@ -1,0 +1,22 @@
+# Build artifacts
+bin
+tmp
+
+# Configuration files
+retalk.yaml
+
+# Database files
+*.db
+*.test.*
+
+# Development files
+.git
+.github
+.vscode
+.air.toml
+
+# Documentation
+README.md
+
+# Dependencies
+vendor
